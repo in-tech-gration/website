@@ -1,44 +1,60 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+<details>
+  <summary><h2>Getting Started / Installation</h2></summary>
 
-Make sure you have all the dependencies installed after you've cloned the repo:
+  Make sure you have all the dependencies installed after you've cloned the repo:
 
-```bash
-npm install 
-```
+  ```bash
+  npm install 
+  ```
 
-First, run the development server:
+  First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+  ```bash
+  npm run dev
+  # or
+  yarn dev
+  # or
+  pnpm dev
+  ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+  You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+  [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+  The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+  This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+  You might want to create a `.gitignore` file and include `.next/` folder which is used for caching so that it is not uploaded on GitHub. Make sure to include `.gitignore` inside the `.gitignore` file so that it is kept locally.
 
-To learn more about Next.js, take a look at the following resources:
+</details>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<details>
+  <summary><h2>Learn More about Next.js</h2></summary>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+  To learn more about Next.js, take a look at the following resources:
 
-## Deploy on Vercel
+  - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+  - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+</details>
+
+
+<details>
+  <summary><h2>Deployment</h2></summary>
+
+  ### Deploy on Vercel
+
+  The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+  Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+</details>
+
+
