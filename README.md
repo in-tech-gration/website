@@ -31,6 +31,25 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
   You might want to create a `.gitignore` file and include `.next/` folder which is used for caching so that it is not uploaded on GitHub. Make sure to include `.gitignore` inside the `.gitignore` file so that it is kept locally.
 
+  <h3>Firebase Setup</h3>
+
+  Create a `.env.local` file that contains the environment variables below:
+
+  *Be careful to never upload the file above*
+
+  ```Dotenv
+  NEXT_PUBLIC_FIREBASE_API_KEY=api-key
+  NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=auth-domain
+  NEXT_PUBLIC_FIREBASE_PROJECT_ID=project-id
+  NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=storage-bucket
+  NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=sender-id
+  NEXT_PUBLIC_FIREBASE_APP_ID=app-id
+  NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=analytic-id
+  FIREBASE_SECRET_KEY=firebase-admin-sdk-json-file
+  ```
+  
+  
+
 </details>
 
 <details>
