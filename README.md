@@ -33,9 +33,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
   <h3>Firebase Setup</h3>
 
-  Create a `.env.local` file that contains the environment variables below:
+  Rename the `.env.local.sample` file (found in the root directory) to `env.local` and update the environmental variable values with the ones you got from Firebase.
 
-  *Be careful to never upload the file above*
+  *Be careful never to upload the .env.local file. You want the file added in your .gitignore*
 
   ```Dotenv
   NEXT_PUBLIC_FIREBASE_API_KEY=api-key
