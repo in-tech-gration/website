@@ -34,7 +34,7 @@ export default function SignIn() {
     });
   }, []);
 
-  const signIn = () => {
+  const signIn = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     signInWithRedirect(auth, provider);
   };
 
@@ -109,7 +109,8 @@ export default function SignIn() {
             <div className="w-full">
               <button
                 className="btn-sm text-white bg-[#808080] w-full relative flex items-center"
-                onClick={() => signIn()}
+                type="button"
+                onClick={signIn}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
