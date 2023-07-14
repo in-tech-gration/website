@@ -1,8 +1,54 @@
-import Link from 'next/link'
+"use client";
 
-export default function Header({ nav = true }: {
-  nav?: boolean
-}) {
+import Link from "next/link";
+import { signOut } from "firebase/auth";
+import { UserInfo } from "firebase/auth";
+import { useEffect, useState } from "react";
+import { auth } from "@/lib/firebase-config";
+
+export default function Header({ nav = true }: { nav?: boolean }) {
+  const [user, setUser] = useState({});
+  const [isLogged, setIsLogged] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/login", {
+      method: "GET",
+    }).then((res) => {
+      if (res.status == 200) {
+        setIsLogged(true);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    // Keep user info for future updates.
+    const currentUser = auth.currentUser;
+    if (currentUser !== null) {
+      currentUser.providerData.forEach((profile) => {
+        setUser({
+          displayName: currentUser.displayName,
+          email: currentUser.email,
+          photoURL: currentUser.photoURL,
+          emailVerified: currentUser.emailVerified,
+        });
+      });
+    }
+  }, [isLogged]);
+
+  async function handleSignOut() {
+    // Sing out user from the Firebase auth
+    await signOut(auth);
+
+    fetch("/api/signout", {
+      method: "POST",
+    }).then((response) => {
+      if (response.status === 200) {
+        setUser({});
+        setIsLogged(false);
+      }
+    });
+  }
+
   return (
     <header className="absolute w-full z-30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -22,28 +68,32 @@ export default function Header({ nav = true }: {
             </Link>
           </div>
           {/* Desktop navigation */}
-          {nav &&
+          {nav && (
             <nav className="flex grow">
               {/* Desktop sign in links */}
               <ul className="flex grow justify-end flex-wrap items-center">
                 <li>
-                  <Link
-                    className="font-medium text-gray-600 decoration-blue-500 decoration-2 underline-offset-2 hover:underline px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
-                    href="/signin"
-                  >
-                    Sign in
-                  </Link>
-                </li>
-                <li className="ml-3">
-                  <Link className="btn-sm text-white bg-blue-500 hover:bg-blue-600 w-full shadow-sm" href="/signup">
-                    Join The Community
-                  </Link>
+                  {Object.keys(user).length === 0 ? (
+                    <Link
+                      className="font-medium text-gray-600 decoration-blue-500 decoration-2 underline-offset-2 hover:underline px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
+                      href="/signin"
+                    >
+                      Sign in
+                    </Link>
+                  ) : (
+                    <button
+                      className="font-medium text-gray-600 decoration-blue-500 decoration-2 underline-offset-2 hover:underline px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out"
+                      onClick={handleSignOut}
+                    >
+                      Sign out
+                    </button>
+                  )}
                 </li>
               </ul>
             </nav>
-          }
+          )}
         </div>
       </div>
     </header>
-  )
+  );
 }
