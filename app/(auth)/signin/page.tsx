@@ -1,40 +1,14 @@
 "use client";
 
-import { getRedirectResult, signInWithRedirect } from "firebase/auth";
+import { signInWithRedirect } from "firebase/auth";
 import { auth, provider } from "@/lib/firebase-config";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-
-// export const metadata = {
-//   title: "Sign In - Creative",
-//   description: "Page description",
-// };
 
 import Link from "next/link";
 
 export default function SignIn() {
-  const router = useRouter();
-
-  useEffect(() => {
-    getRedirectResult(auth).then(async (userCred) => {
-      if (!userCred) {
-        return;
-      }
-
-      fetch("/api/login", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${await userCred.user.getIdToken()}`,
-        },
-      }).then((response) => {
-        if (response.status === 200) {
-          router.push("/");
-        }
-      });
-    });
-  }, []);
-
   const signIn = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    // This is a hack. Need to find better way for the desired behaviour
+    window.history.replaceState({}, "", "/redirect");
     signInWithRedirect(auth, provider);
   };
 
