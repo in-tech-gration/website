@@ -16,7 +16,7 @@ export default function Hero() {
             <div className="md:w-[640px]">
               {/* Copy */}
               <h1 className="h1 font-cabinet-grotesk mb-6" data-aos="fade-right" data-aos-delay="100">
-                The platform for creative{' '}
+                in
                 <span className="relative inline-flex text-blue-500">
                   <svg
                     className="absolute left-0 top-full -mt-4 max-w-full -z-10"
@@ -31,9 +31,9 @@ export default function Hero() {
                       fillRule="evenodd"
                     />
                   </svg>
-                  minds
+                  tech
                 </span>
-                .
+                gration
               </h1>
               <p className="text-xl text-gray-500 mb-10" data-aos="fade-right" data-aos-delay="200">
                 Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.
