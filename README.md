@@ -34,6 +34,20 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 </details>
 
 <details>
+  <summary><h2>Add Blog Posts</h2></summary>
+
+  In order to add Blog Posts on the site do the following:
+  - Create a `.mdx` file containing the desired content and save it to `/blogs` folder.
+  - To display local images, save them to `/public/images` folder and import them to your `.mdx` file using this path: `/images/<blog-post-image>`.
+
+  Additionally, you can create new React Components and display them in your blog post by doing the following:
+  - Create the component's `.tsx` file and save it to `/componets/mdx` folder.
+  - Add the new component to the `components` attribute of the MDXRemote components in `/app/(default)/blogs/[slug]/page.tsx` file.
+  - Import it to your `.mdx` file using React syntax.
+
+</details>
+
+<details>
   <summary><h2>Learn More about Next.js</h2></summary>
 
   To learn more about Next.js, take a look at the following resources:
