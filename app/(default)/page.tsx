@@ -17,8 +17,8 @@ import BlogsPreview from "@/components/blogs-preview";
 export default function Home() {
   return (
     <>
-      <BlogsPreview />
       <Hero />
+      <BlogsPreview />
       <Inspiration />
       <Carousel />
       <Creatives />
