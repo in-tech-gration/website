@@ -65,7 +65,7 @@ export default function Post({ params }: any) {
   const props = getPost(params);
 
   return (
-    <section className="pt-32 pb-12 md:pt-40 md:pb-20">
+    <section>
       <article className="prose dark:prose-invert prose-sm md:prose-base lg:prose-lg mx-auto">
         <Link
           className="inline-flex text-sky-500 rounded-full border border-slate-200 dark:border-slate-800 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30"

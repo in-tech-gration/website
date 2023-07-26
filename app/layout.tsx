@@ -44,11 +44,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${cabinet.variable} font-inter antialiased bg-white text-gray-800 dark:bg-slate-900 dark:text-slate-200 tracking-tight`}
       >
-        <Theme>
-          <div className="flex flex-col min-h-screen overflow-hidden">
-            {children}
-          </div>
-        </Theme>
+        <Theme>{children}</Theme>
       </body>
     </html>
   );

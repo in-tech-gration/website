@@ -29,7 +29,7 @@ const BlogsPreview = () => {
   });
 
   return (
-    <section className="max-w-6xl mx-auto px-4 sm:px-6 pt-32 pb-12 md:pt-40 md:pb-20">
+    <section className="max-w-6xl px-4 sm:px-6 pt-32 pb-12 md:pt-40 md:pb-20">
       <div className="pb-12 md:pb-14">
         <div className="relative text-center md:text-left">
           <svg
@@ -49,7 +49,7 @@ const BlogsPreview = () => {
 
       <div className="py-2">
         {blogs.map((blog) => (
-          <article className="py-5 border-b border-slate-100">
+          <article className="py-5 border-b border-slate-100 dark:border-slate-800">
             <div className="flex items-start">
               <Image
                 className="rounded w-16 h-16 sm:w-[88px] sm:h-[88px] object-cover mr-6"
