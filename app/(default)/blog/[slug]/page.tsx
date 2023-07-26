@@ -66,9 +66,9 @@ export default function Post({ params }: any) {
 
   return (
     <section className="pt-32 pb-12 md:pt-40 md:pb-20">
-      <article className="prose prose-sm md:prose-base lg:prose-lg mx-auto">
+      <article className="prose dark:prose-invert prose-sm md:prose-base lg:prose-lg mx-auto">
         <Link
-          className="inline-flex text-sky-500 rounded-full border border-slate-200"
+          className="inline-flex text-sky-500 rounded-full border border-slate-200 dark:border-slate-800 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30"
           href="/"
         >
           <span className="sr-only">Back</span>
@@ -141,13 +141,15 @@ export default function Post({ params }: any) {
           <h1 className="h1 font-aspekta mb-4">{props.frontMatter.title}</h1>
         </header>
 
-        {/* @ts-expect-error Server Component*/}
-        <MDXRemote
-          source={props.content}
-          components={{ Button, a: CustomLink }}
-          // @ts-ignore
-          options={options}
-        />
+        <div className="prose text-slate-500 dark:text-slate-400 max-w-none prose-p:leading-normal prose-headings:text-slate-800 dark:prose-headings:text-slate-200 prose-a:font-medium prose-a:text-sky-500 prose-a:no-underline hover:prose-a:underline prose-strong:font-medium prose-strong:text-slate-800 dark:prose-strong:text-slate-100 prose-pre:bg-slate-800 dark:prose-code:text-slate-200">
+          {/* @ts-expect-error Server Component*/}
+          <MDXRemote
+            source={props.content}
+            components={{ Button, a: CustomLink }}
+            // @ts-ignore
+            options={options}
+          />
+        </div>
       </article>
     </section>
   );
