@@ -69,7 +69,7 @@ export default function Post({ params }: any) {
       <article className="prose dark:prose-invert prose-sm md:prose-base lg:prose-lg mx-auto">
         <Link
           className="inline-flex text-sky-500 rounded-full border border-slate-200 dark:border-slate-800 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30"
-          href="/"
+          href="/blog"
         >
           <span className="sr-only">Back</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34">
