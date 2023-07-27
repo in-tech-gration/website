@@ -1,32 +1,9 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-
-import Link from "next/link";
-import Image from "next/image";
-import PostDate from "@/components/post-date";
+import { blogPosts } from "@/util/blog-utils";
+import BlogPostItem from "@/components/blog-post-item";
 
 const BlogsPreview = () => {
-  // 1) Set blogs directory
-  const blogDir = "blogs";
-
-  // 2) Find all files in the blog directory
-  const files = fs.readdirSync(path.join(blogDir));
-
-  // 3) For each blog found
-  const blogs = files.map((filename) => {
-    // 4) Read the content of that blog
-    const fileContent = fs.readFileSync(path.join(blogDir, filename), "utf-8");
-
-    // 5) Extract the metadata from the blog's content
-    const { data: frontMatter } = matter(fileContent);
-
-    // 6) Return the metadata and page slug
-    return {
-      meta: frontMatter,
-      slug: filename.replace(".mdx", ""),
-    };
-  });
+  // Maybe later add filtering for most recent posts.
+  const posts = blogPosts;
 
   return (
     <section className="max-w-6xl px-4 sm:px-6 pt-32 pb-12 md:pt-40 md:pb-20">
@@ -48,51 +25,8 @@ const BlogsPreview = () => {
       </div>
 
       <div className="py-2">
-        {blogs.map((blog) => (
-          <article className="py-5 border-b border-slate-100 dark:border-slate-800">
-            <div className="flex items-start">
-              <Image
-                className="rounded w-16 h-16 sm:w-[88px] sm:h-[88px] object-cover mr-6"
-                src={blog.meta.image}
-                width={88}
-                height={88}
-                alt={blog.meta.title}
-              />
-              <div>
-                <div className="text-xs text-slate-500 uppercase mb-1">
-                  <span className="text-sky-500">—</span>{" "}
-                  <PostDate dateString={blog.meta.date} />
-                </div>
-                <h3 className="font-aspekta text-lg font-[650] mb-1">
-                  <Link
-                    className="inline-flex relative hover:text-sky-500 duration-150 ease-out before:scale-x-0 before:origin-center before:absolute before:inset-0 before:bg-sky-200 dark:before:bg-sky-500 before:opacity-30 before:-z-10 before:translate-y-1/4 before:-rotate-2 hover:before:scale-100 before:duration-150 before:ease-in-out"
-                    href={`/blog/${blog.slug}`}
-                  >
-                    {blog.meta.title}
-                  </Link>
-                </h3>
-                <div className="flex">
-                  <div className="grow text-sm text-slate-500 dark:text-slate-400">
-                    {blog.meta.description}
-                  </div>
-                  <Link
-                    className="hidden lg:flex shrink-0 text-sky-500 items-center justify-center w-12 group"
-                    href={`/blog/${blog.slug}`}
-                    tabIndex={-1}
-                  >
-                    <svg
-                      className="fill-current group-hover:translate-x-2 duration-150 ease-in-out"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="12"
-                    >
-                      <path d="M9.586 5 6.293 1.707 7.707.293 13.414 6l-5.707 5.707-1.414-1.414L9.586 7H0V5h9.586Z" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </article>
+        {posts.map((post) => (
+          <BlogPostItem post={post} />
         ))}
       </div>
     </section>
