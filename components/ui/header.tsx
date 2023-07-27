@@ -22,14 +22,14 @@ export default function Header({ nav = true }: { nav?: boolean }) {
                     Sign in
                   </Link>
                 </li>
-                <li className="ml-3">
+                {/* <li className="ml-3">
                   <Link
                     className="btn-sm text-white bg-blue-500 hover:bg-blue-600 w-full shadow-sm"
                     href="/signup"
                   >
                     Join The Community
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </nav>
           )}
