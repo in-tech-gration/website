@@ -19,11 +19,11 @@ export default function Cta() {
                     fillRule="evenodd"
                   />
                 </svg>
-                <h3 className="h2 font-cabinet-grotesk text-gray-100">Become a member of the best creative community</h3>
+                <h3 className="h2 font-cabinet-grotesk text-gray-100">Become a contributor and help our community</h3>
               </div>
               {/* CTA button */}
               <div className="shrink-0">
-                <Link className="btn text-white bg-blue-500 hover:bg-blue-600 w-full shadow-sm" href="/signup">
+                <Link className="btn text-white bg-blue-500 hover:bg-blue-600 w-full shadow-sm" href="https://tally.so/r/nP1zWd">
                   Join The Community
                 </Link>
               </div>
