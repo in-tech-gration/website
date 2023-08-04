@@ -1,5 +1,6 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Syne+Mono&display=swap');
 
 /* Additional styles */
 @import 'additional-styles/utility-patterns.css';
@@ -14,5 +15,8 @@
     .rtl {
         direction: rtl;
     }
+}
+body {
+    margin: 0;
 }
 

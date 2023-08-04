@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+
+
 module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
@@ -10,6 +12,25 @@ module.exports = {
       fontFamily: {
         inter: ['var(--font-inter)', 'sans-serif'],
         'cabinet-grotesk': ['var(--font-cabinet-grotesk)', 'sans-serif'],   
+        poppins: ["Poppins", "sans-serif"],
+      "pt-serif": ["PT Serif", "serif"],
+      montserrat: ["Montserrat", "sans-serif"],
+      
+    },
+      colors: {
+        secondary: "#F4F2ED",
+        black: "#000000",
+      },
+      backgroundOpacity: {
+        '98': '0.98',
+       },
+       backgroundImage: {
+        underline1: "url('/assets/Underline1.svg')",
+        underline2: "url('/assets/Underline2.svg')",
+        // 'my_bg_image' : "url('../public/bg.png')",
+        // underline3: "url('./public/assets/Underline3.svg')",
+        // underline4: "url('./public/assets/Underline4.svg')",
+        // highlight3: "url('./public/assets/Highlight3.svg')",
       },
       fontSize: {
         xs: ['0.75rem', { lineHeight: '1.5' }],

@@ -1,6 +1,6 @@
 export default function Faqs() {
   return (
-    <section>
+    <section className="bg-secondary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20 border-b border-gray-100">
           {/* Section header */}
@@ -13,36 +13,37 @@ export default function Faqs() {
             <div className="w-full md:w-1/2 space-y-8">
               {/* Item */}
               <div className="space-y-2">
-                <h4 className="text-xl font-cabinet-grotesk font-bold">What is the difference between the Free and Paid versions?</h4>
-                <p className="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+                <h4 className="text-xl font-cabinet-grotesk font-bold">How do I enrol in the WDX 180° course?</h4>
+                <p className="text-gray-500">You have to apply through our application form and we will contact you with the rest after you submit your application.</p>
               </div>
               {/* Item */}
-              <div className="space-y-2">
-                <h4 className="text-xl font-cabinet-grotesk font-bold">Do you have student or non-profit discounts?</h4>
-                <p className="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
-              </div>
               {/* Item */}
               <div className="space-y-2">
-                <h4 className="text-xl font-cabinet-grotesk font-bold">How is the price determined?</h4>
-                <p className="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+                <h4 className="text-xl font-cabinet-grotesk font-bold">Will I be able to attend the course on-site?</h4>
+                <p className="text-gray-500">The Core part of the program (2nd phase which happen to be the middle 3 moths) will take place in-person in Kyspeli. If you are a wheel-chair user, you will be attending the course remotely as our space isn't accessible.However, we are on the look for a more accessible space and we'll make an announcement when we find one.</p>
               </div>
             </div>
             {/* Column */}
             <div className="w-full md:w-1/2 space-y-8">
               {/* Item */}
               <div className="space-y-2">
-                <h4 className="text-xl font-cabinet-grotesk font-bold">Do I need coding knowledge to use this product?</h4>
-                <p className="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+                <h4 className="text-xl font-cabinet-grotesk font-bold">Do I need prier coding experience to qualify?</h4>
+                <p className="text-gray-500">Coding knowledge is not necessary. However, it is a big plus. If you do have some experience, it will impact your acceptance decision and will give you a head start.</p>
               </div>
               {/* Item */}
-              <div className="space-y-2">
+              {/* <div className="space-y-2">
                 <h4 className="text-xl font-cabinet-grotesk font-bold">Is there a way to become an Affiliate reseller?</h4>
                 <p className="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
-              </div>
+              </div> */}
               {/* Item */}
-              <div className="space-y-2">
+              {/* <div className="space-y-2">
                 <h4 className="text-xl font-cabinet-grotesk font-bold">What forms of payment do you accept?</h4>
                 <p className="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+              </div> */}
+                           {/* Item */}
+                           <div className="space-y-2">
+                <h4 className="text-xl font-cabinet-grotesk font-bold">Is it really free? Are there any hidden fees?</h4>
+                <p className="text-gray-500">Our course is 100% free of charge and our curriculum is open sourse. There are no additional hidden fees whatsoever. We're just a group of techies that wanna pay it forward😉.</p>
               </div>
             </div>
           </div>
