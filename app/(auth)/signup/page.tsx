@@ -5,7 +5,7 @@ export const metadata = {
 
 import Link from 'next/link'
 import Image from 'next/image'
-import Avatar from '@/public/images/join-avatar.jpg'
+import Avatar from '@/public/assets/join-avatar.jpg'
 
 export default function SignUp() {
   return (
