@@ -72,7 +72,7 @@ export default function Inspiration() {
                     facing the extreme hardships of life and looking for a change
                     in their career.</p>
                     <p className="mb-5">If that sounds moving to you, there
-                    are plenty of ways you can support. You can start by filling out <Link className="underline text-blue-400 font-bold" href="https://tally.so/r/nP1zWd">this form</Link>.</p>
+                    are plenty of ways you can support. You can start by filling out <Link className="underline text-blue-800 font-bold" href="https://tally.so/r/nP1zWd">this form</Link>.</p>
                   </div>
               </section>
             </div>
