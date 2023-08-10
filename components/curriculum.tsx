@@ -18,7 +18,7 @@ export default function Curriculum() {
               <h3 className="h3 font-cabinet-grotesk text-4xl mb-8">
                 WDX 180°
               </h3>
-              <p className="text-xl font-bold">
+              <p className="text-xl">
                 WDX 180° is a 9-month intensive course designed to teach you
                 software engineering and web development, all the way through, from
                 the basics  of computing and the World Wide Web to mastering
@@ -41,7 +41,7 @@ export default function Curriculum() {
                 <h3 className="h3 font-cabinet-grotesk text-4xl mb-4">
                   Beyond the basics.
                 </h3>
-                <p className="text-xl mb-6 font-bold">
+                <p className="text-xl mb-6">
                   intechgration's 9-month-long program goes beyond just the
                   introductions. We take a deep, project-based, dive
                   into every tool and the underlying CS concepts to make sure
@@ -52,7 +52,7 @@ export default function Curriculum() {
                   {/* TODO provide wdx180 github link */}
                   <Link
                     className="btn font-bold text-white bg-black hover:bg-gray-800 shadow-md hover:shadow-lg"
-                    href="/#"
+                    href="https://github.com/in-tech-gration/WDX-180"
                   >
                     <svg
                       className="w-8 h-8 fill-current"
