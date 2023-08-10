@@ -23,7 +23,7 @@ export default function Cta() {
               </div>
               {/* CTA button */}
               <div className="shrink-0">
-                <Link className="btn text-white bg-blue-500 hover:bg-blue-600 w-full shadow-sm" href="https://tally.so/r/nP1zWd">
+                <Link className="btn text-white bg-blue-800 hover:bg-blue-600 w-full shadow-sm" href="https://tally.so/r/nP1zWd">
                   Join The Community
                 </Link>
               </div>
