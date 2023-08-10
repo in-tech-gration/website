@@ -42,7 +42,7 @@ export default function Hero() {
         <div className="relative">
           <Image
             src={Highlight1}
-            alt="dots hihlighting a picture of a laptop"
+            alt="dots highlighting a picture of a laptop"
             className="absolute -top-16 -left-10"
           />
         </div>
@@ -50,7 +50,7 @@ export default function Hero() {
         <div className="relative">
           <Image
             src={Highlight2}
-            alt="dots hihlighting the picture of a laptop"
+            alt="dots highlighting the picture of a laptop"
             className="absolute -bottom-10 -right-6"
           />
         </div>

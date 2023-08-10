@@ -61,7 +61,7 @@ export default function Inspiration() {
                   Computing, Software Engineering and Web Development with the
                   world. <br/> More specifically, we are committed to providing free
                   and open source education to underprivileged individuals and
-                  marginalised groups, to people who lack access to essential
+                  marginalized groups, to people who lack access to essential
                   resources and opportunities, to people that are faced with
                   social and economical disadvantages. We want to provide hope
                   and essential skills to refugees, migrants, people with
