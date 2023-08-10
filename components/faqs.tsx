@@ -28,7 +28,7 @@ export default function Faqs() {
               {/* Item */}
               <div className="space-y-2">
                 <h4 className="text-xl font-cabinet-grotesk font-bold">Do I need prier coding experience to qualify?</h4>
-                <p className="text-gray-500">Coding knowledge is not necessary. However, it is a big plus. If you do have some experience, it will impact your acceptance decision and will give you a head start.</p>
+                <p className="text-gray-500">Coding knowledge is not a prerequisite. However, it is considered a big plus. If you have some experience, it will certainly add more value and personal impact to the process, as you will be able to support other students with no coding background.</p>
               </div>
               {/* Item */}
               {/* <div className="space-y-2">
