@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "quick": "npm run open-browser && next dev", 
+		"open-browser": "open http://localhost:3000"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
