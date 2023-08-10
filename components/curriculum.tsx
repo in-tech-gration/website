@@ -53,6 +53,7 @@ export default function Curriculum() {
                   <Link
                     className="btn font-bold text-white bg-black hover:bg-gray-800 shadow-md hover:shadow-lg"
                     href="https://github.com/in-tech-gration/WDX-180"
+                    rel="noopener noreferrer" target="_blank"
                   >
                     <svg
                       className="w-8 h-8 fill-current"

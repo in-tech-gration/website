@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Faqs() {
   return (
     <section className="bg-secondary">
@@ -14,20 +16,20 @@ export default function Faqs() {
               {/* Item */}
               <div className="space-y-2">
                 <h4 className="text-xl font-cabinet-grotesk font-bold">How do I enrol in the WDX 180° course?</h4>
-                <p className="text-gray-500">You have to apply through our application form and we will contact you with the rest after you submit your application.</p>
+                <p className="text-gray-500">You have to apply through our <Link href="/apply" className="font-bold">application form</Link> and we will get back to you with more details after you've submitted your application.</p>
               </div>
               {/* Item */}
               {/* Item */}
               <div className="space-y-2">
                 <h4 className="text-xl font-cabinet-grotesk font-bold">Will I be able to attend the course on-site?</h4>
-                <p className="text-gray-500">The Core part of the program (2nd phase which happen to be the middle 3 moths) will take place in-person in Kyspeli. If you are a wheel-chair user, you will be attending the course remotely as our space isn't accessible.However, we are on the look for a more accessible space and we'll make an announcement when we find one.</p>
+                <p className="text-gray-500">The Core part of the program (2nd phase which happen to be the middle 3 months) will take place in-person in Kyspeli. If you are a wheel-chair user, you will be attending the course remotely as unfortunately our space isn't accessible. However, we are on the lookout for an accessible space and we'll make an announcement once we find one.</p>
               </div>
             </div>
             {/* Column */}
             <div className="w-full md:w-1/2 space-y-8">
               {/* Item */}
               <div className="space-y-2">
-                <h4 className="text-xl font-cabinet-grotesk font-bold">Do I need prier coding experience to qualify?</h4>
+                <h4 className="text-xl font-cabinet-grotesk font-bold">Do I need prior coding experience to qualify?</h4>
                 <p className="text-gray-500">Coding knowledge is not a prerequisite. However, it is considered a big plus. If you have some experience, it will certainly add more value and personal impact to the process, as you will be able to support other students with no coding background.</p>
               </div>
               {/* Item */}
@@ -43,7 +45,7 @@ export default function Faqs() {
                            {/* Item */}
                            <div className="space-y-2">
                 <h4 className="text-xl font-cabinet-grotesk font-bold">Is it really free? Are there any hidden fees?</h4>
-                <p className="text-gray-500">Our course is 100% free of charge and our curriculum is open sourse. There are no additional hidden fees whatsoever. We're just a group of techies that wanna pay it forward😉.</p>
+                <p className="text-gray-500">Our course is 100% free of charge and our curriculum is open source. There are no additional hidden fees whatsoever. We're just a group of techies that want to support people that cannot afford a paid coding bootcamp or university.</p>
               </div>
             </div>
           </div>
