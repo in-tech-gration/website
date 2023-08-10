@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Inspiration() {
 
-  const [write, setWrite] = useState(true); // for typerwriteer-effect
+  const [write, setWrite] = useState(true); // for typewriter-effect
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -58,7 +58,7 @@ export default function Inspiration() {
                   </code>
                   <div className="text-2xl text-left mt-4">
                     <p className="mb-5">
-                    We're on a journey 🚀 to share our knowledge and passion for
+                    We&apos;re on a journey 🚀 to share our knowledge and passion for
                     Computing, Software Engineering and Web Development with the
                     world.</p>
                     <p className="mb-5">More specifically, we are committed to providing free
@@ -68,7 +68,7 @@ export default function Inspiration() {
                     social and economical disadvantages. We want to provide hope
                     and essential skills to refugees, migrants, people with
                     disabilities, people that have completed drug rehabilitation
-                    programs, former inmates, single parents and everyone who's
+                    programs, former inmates, single parents and everyone who&apos;s
                     facing the extreme hardships of life and looking for a change
                     in their career.</p>
                     <p className="mb-5">If that sounds moving to you, there

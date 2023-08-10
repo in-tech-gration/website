@@ -16,13 +16,13 @@ export default function Faqs() {
               {/* Item */}
               <div className="space-y-2">
                 <h4 className="text-xl font-cabinet-grotesk font-bold">How do I enrol in the WDX 180° course?</h4>
-                <p className="text-gray-500">You have to apply through our <Link href="/apply" className="font-bold">application form</Link> and we will get back to you with more details after you've submitted your application.</p>
+                <p className="text-gray-500">You have to apply through our <Link href="/apply" className="font-bold">application form</Link> and we will get back to you with more details after you&apos;ve submitted your application.</p>
               </div>
               {/* Item */}
               {/* Item */}
               <div className="space-y-2">
                 <h4 className="text-xl font-cabinet-grotesk font-bold">Will I be able to attend the course on-site?</h4>
-                <p className="text-gray-500">The Core part of the program (2nd phase which happen to be the middle 3 months) will take place in-person in Kyspeli. If you are a wheel-chair user, you will be attending the course remotely as unfortunately our space isn't accessible. However, we are on the lookout for an accessible space and we'll make an announcement once we find one.</p>
+                <p className="text-gray-500">The Core part of the program (2nd phase which happen to be the middle 3 months) will take place in-person in Kyspeli. If you are a wheel-chair user, you will be attending the course remotely as unfortunately our space isn&apos;t accessible. However, we are on the lookout for an accessible space and we&apos;ll make an announcement once we find one.</p>
               </div>
             </div>
             {/* Column */}
@@ -45,7 +45,7 @@ export default function Faqs() {
                            {/* Item */}
                            <div className="space-y-2">
                 <h4 className="text-xl font-cabinet-grotesk font-bold">Is it really free? Are there any hidden fees?</h4>
-                <p className="text-gray-500">Our course is 100% free of charge and our curriculum is open source. There are no additional hidden fees whatsoever. We're just a group of techies that want to support people that cannot afford a paid coding bootcamp or university.</p>
+                <p className="text-gray-500">Our course is 100% free of charge and our curriculum is open source. There are no additional hidden fees whatsoever. We&apos;re just a group of techies that want to support people that cannot afford a paid coding bootcamp or university.</p>
               </div>
             </div>
           </div>

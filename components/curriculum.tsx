@@ -42,7 +42,7 @@ export default function Curriculum() {
                   Beyond the basics.
                 </h3>
                 <p className="text-xl mb-6">
-                  intechgration's 9-month-long program goes beyond just the
+                  intechgration&apos;s 9-month-long program goes beyond just the
                   introductions. We take a deep, project-based, dive
                   into every tool and the underlying CS concepts to make sure
                   our curious students, no matter the background, truly become competent
