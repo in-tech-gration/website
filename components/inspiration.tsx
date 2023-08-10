@@ -39,8 +39,8 @@ export default function Inspiration() {
               </h2>
               <section className="mt-6 ml-4">
                
-                  <code className="text-2xl  font-semibold text-left" > 
-                  {write && (
+                  <code className="text-2xl font-semibold text-left"> 
+                  {write ? (
                     <Typewriter
                       onInit={(typewriter) => {
                         typewriter
@@ -54,7 +54,7 @@ export default function Inspiration() {
                           // 
                       }}
                     />
-                  )}
+                  ) : "" }
                   </code>
                   <div className="text-2xl text-left mt-4">
                     <p className="mb-5">
