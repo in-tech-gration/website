@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Faqs() {
   return (
     <section className="bg-secondary">
@@ -14,7 +16,7 @@ export default function Faqs() {
               {/* Item */}
               <div className="space-y-2">
                 <h4 className="text-xl font-cabinet-grotesk font-bold">How do I enrol in the WDX 180° course?</h4>
-                <p className="text-gray-500">You have to apply through our application form and we will contact you with the rest after you submit your application.</p>
+                <p className="text-gray-500">You have to apply through our <Link href="/apply" className="font-bold">application form</Link> and we will contact you with more details shortly after you've submitted your application.</p>
               </div>
               {/* Item */}
               {/* Item */}
@@ -27,8 +29,8 @@ export default function Faqs() {
             <div className="w-full md:w-1/2 space-y-8">
               {/* Item */}
               <div className="space-y-2">
-                <h4 className="text-xl font-cabinet-grotesk font-bold">Do I need prier coding experience to qualify?</h4>
-                <p className="text-gray-500">Coding knowledge is not necessary. However, it is a big plus. If you do have some experience, it will impact your acceptance decision and will give you a head start.</p>
+                <h4 className="text-xl font-cabinet-grotesk font-bold">Do I need prior coding experience to qualify?</h4>
+                <p className="text-gray-500">Coding knowledge is not a prerequisite. However, it is considered a big plus. If you do have some experience, it will impact your acceptance decision and will give you a head start.</p>
               </div>
               {/* Item */}
               {/* <div className="space-y-2">
@@ -43,7 +45,7 @@ export default function Faqs() {
                            {/* Item */}
                            <div className="space-y-2">
                 <h4 className="text-xl font-cabinet-grotesk font-bold">Is it really free? Are there any hidden fees?</h4>
-                <p className="text-gray-500">Our course is 100% free of charge and our curriculum is open sourse. There are no additional hidden fees whatsoever. We're just a group of techies that wanna pay it forward😉.</p>
+                <p className="text-gray-500">Our course is 100% free of charge and our curriculum is open source. There are no additional or hidden fees whatsoever. We're just a group of techies that wanna pay it forward😉.</p>
               </div>
             </div>
           </div>
