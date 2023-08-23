@@ -24,9 +24,11 @@ export default function Header({ nav = true }: { nav?: boolean }) {
         }`}
       >
         <div className="flex items-center">
-          <h1 className="text-2xl font-bold tracking-wide text-gray-600	">
-            in<span className="text-black ">tech</span>gration
-          </h1>
+          <Link href="/">
+            <h1 className="text-2xl font-bold tracking-wide text-gray-600	">
+              in<span className="text-black ">tech</span>gration
+            </h1>
+          </Link>
          
         </div>
         <div className="">
