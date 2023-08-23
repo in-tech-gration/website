@@ -56,24 +56,18 @@ export default function Inspiration() {
                     />
                   ) : "" }
                   </code>
-                  <div className="text-2xl text-left mt-4">
-                    <p className="mb-5">
-                    We&apos;re on a journey 🚀 to share our knowledge and passion for
-                    Computing, Software Engineering and Web Development with the
+                  <section className="text-2xl text-left mt-4">
+                    <p className="mb-5">We're on a journey 🚀 to share our knowledge and passion for Computing, Software Engineering and Web Development with the
                     world.</p>
                     <p className="mb-5">More specifically, we are committed to providing free
                     and open source education to underprivileged individuals and
                     marginalized groups, to people who lack access to essential
                     resources and opportunities, to people that are faced with
-                    social and economical disadvantages. We want to provide hope
-                    and essential skills to refugees, migrants, people with
-                    disabilities, people that have completed drug rehabilitation
-                    programs, former inmates, single parents and everyone who&apos;s
-                    facing the extreme hardships of life and looking for a change
-                    in their career.</p>
-                    <p className="mb-5">If that sounds moving to you, there
-                    are plenty of ways you can support. You can start by filling out <Link className="underline text-blue-800 font-bold" href="https://tally.so/r/nP1zWd">this form</Link>.</p>
-                  </div>
+                    social and economical disadvantages.</p>
+                    <p className="mb-5">We want to provide hope and essential skills to refugees, migrants, people with disabilities, people that have completed drug rehabilitation programs, former inmates, single parents and everyone who's facing the extreme hardships of life and looking for a change in their career.</p>
+                    <p className="mb-5">If that sounds moving to you, there are plenty of ways you can support. You can start by filling out <Link className="underline text-blue-400 font-bold" href="https://tally.so/r/nP1zWd">this form</Link>. 
+                  </p>
+                  </section>
               </section>
             </div>
           </div>
