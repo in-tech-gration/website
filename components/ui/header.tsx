@@ -40,7 +40,7 @@ export default function Header({ nav = true }: { nav?: boolean }) {
           >
             Apply
           </Link>
-          <Link  href="/#" className=" py-2 px-4 text-black bg-secondary border-2 border-black rounded-3xl shadow-md hover:shadow-xl font-bold">
+          <Link  href="https://ko-fi.com/intechgration" className=" py-2 px-4 text-black bg-secondary border-2 border-black rounded-3xl shadow-md hover:shadow-xl font-bold">
             Donate
           </Link>
         </div>
