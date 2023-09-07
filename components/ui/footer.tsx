@@ -11,6 +11,7 @@ export default function Footer() {
               <li>
                 <Link
                   className="flex justify-center items-center text-blue-500 bg-blue-100 hover:text-white hover:bg-blue-500 rounded-full transition duration-150 ease-in-out"
+                  target="_blank"
                   href="https://twitter.com/intechgration_"
                   aria-label="Twitter"
                 >
@@ -26,6 +27,7 @@ export default function Footer() {
               <li className="ml-4">
                 <Link
                   className="flex justify-center items-center text-blue-500 bg-blue-100 hover:text-white hover:bg-blue-500 rounded-full transition duration-150 ease-in-out"
+                  target="_blank"
                   href="https://github.com/in-tech-gration/"
                   aria-label="Github"
                 >
@@ -41,7 +43,8 @@ export default function Footer() {
               <li className="ml-4">
                 <Link
                   className="flex justify-center items-center text-blue-500 bg-blue-100 hover:text-white hover:bg-blue-500 rounded-full transition duration-150 ease-in-out"
-                  href="https://www.instagram.com/intechgration/"
+                  target="_blank"
+                  href="https://instagram.com/intechgration/"
                   aria-label="Instagram"
                 >
                   <svg
