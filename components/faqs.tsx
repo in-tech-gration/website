@@ -21,8 +21,8 @@ export default function Faqs() {
               {/* Item */}
               {/* Item */}
               <div className="space-y-2">
-                <h4 className="text-xl font-cabinet-grotesk font-bold">Will I be able to attend the course on-site?</h4>
-                <p className="text-gray-500">The Core part of the program (2nd phase which happen to be the middle 3 moths) will take place in-person in Kyspeli. If you are a wheel-chair user, you will be attending the course remotely as our space isn't accessible.However, we are on the look for a more accessible space and we'll make an announcement when we find one.</p>
+                <h3 className="text-xl font-cabinet-grotesk font-bold">Will I be able to attend the course on-site?</h3>
+                <p className="text-gray-700">The Core part of the program (2nd phase which happen to be the middle 3 months) will take place in-person in Kyspeli. If you are a wheel-chair user, you will be attending the course remotely as unfortunately our space isn&apos;t accessible. However, we are on the lookout for an accessible space and we&apos;ll make an announcement once we find one.</p>
               </div>
             </div>
             {/* Column */}
@@ -34,13 +34,13 @@ export default function Faqs() {
               </div>
               {/* Item */}
               {/* <div className="space-y-2">
-                <h4 className="text-xl font-cabinet-grotesk font-bold">Is there a way to become an Affiliate reseller?</h4>
-                <p className="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+                <h3 className="text-xl font-cabinet-grotesk font-bold">Is there a way to become an Affiliate reseller?</h3>
+                <p className="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
               </div> */}
               {/* Item */}
               {/* <div className="space-y-2">
-                <h4 className="text-xl font-cabinet-grotesk font-bold">What forms of payment do you accept?</h4>
-                <p className="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+                <h3 className="text-xl font-cabinet-grotesk font-bold">What forms of payment do you accept?</h3>
+                <p className="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
               </div> */}
                            {/* Item */}
                            <div className="space-y-2">

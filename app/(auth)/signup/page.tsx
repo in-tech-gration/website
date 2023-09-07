@@ -21,7 +21,7 @@ export default function SignUp() {
           </svg>
           <Image className="rounded-full" src={Avatar} width={48} height={48} alt="Avatar 01" />
         </div>
-        <h1 className="h2 font-cabinet-grotesk">You've been invited by Mark Hooker to join Creative</h1>
+        <h1 className="h2 font-cabinet-grotesk">You&apos;ve been invited by Mark Hooker to join Creative</h1>
       </div>
       {/* Form */}
       <div className="max-w-sm mx-auto">

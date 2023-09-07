@@ -24,9 +24,11 @@ export default function Header({ nav = true }: { nav?: boolean }) {
         }`}
       >
         <div className="flex items-center">
-          <h1 className="text-2xl font-bold tracking-wide text-gray-600	">
-            in<span className="text-black ">tech</span>gration
-          </h1>
+          <Link href="/">
+            <h1 className="text-2xl font-bold tracking-wide text-gray-600	">
+              in<span className="text-black ">tech</span>gration
+            </h1>
+          </Link>
          
         </div>
         <div className="">
@@ -40,7 +42,7 @@ export default function Header({ nav = true }: { nav?: boolean }) {
           >
             Apply
           </Link>
-          <Link  href="/#" className=" py-2 px-4 text-black bg-secondary border-2 border-black rounded-3xl shadow-md hover:shadow-xl font-bold">
+          <Link  href="https://ko-fi.com/intechgration" className=" py-2 px-4 text-black bg-secondary border-2 border-black rounded-3xl shadow-md hover:shadow-xl font-bold">
             Donate
           </Link>
         </div>

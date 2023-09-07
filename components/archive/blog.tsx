@@ -51,7 +51,7 @@ export default function Blog() {
               <div className="grow flex flex-col">
                 <header>
                   <h3 className="h4 font-cabinet-grotesk font-bold mb-2">
-                    <a className="inline-block decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">Patrick Chen's Branding by Thought &amp; Found Studio</a>
+                    <a className="inline-block decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">Patrick Chen&apos;s Branding by Thought &amp; Found Studio</a>
                   </h3>
                 </header>
                 <p className="text-gray-500 grow">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
