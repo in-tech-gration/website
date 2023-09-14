@@ -3,6 +3,7 @@ import Highlight1 from "@/public/assets/Highlight1.svg";
 import Highlight2 from "@/public/assets/Highlight2.svg";
 import Macbook from "@/public/assets/MacBookPro.png";
 import Link from "next/link";
+import config from "../config.yaml";
 
 export default function Hero() {
   return (
@@ -31,7 +32,7 @@ export default function Hero() {
             Apply
           </Link>
           <Link
-            href="#"
+            href={config.donation_links.kofi}
             className="px-6 py-4 border-2 border-black border-solid rounded-lg font-bold shadow-md hover:shadow-xl"
           >
             Donate

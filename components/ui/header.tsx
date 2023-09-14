@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 
 import Link from "next/link";
+import config from "../../config.yaml";
 
 export default function Header({ nav = true }: { nav?: boolean }) {
   const [top, setTop] = useState(true);
@@ -42,7 +43,7 @@ export default function Header({ nav = true }: { nav?: boolean }) {
           >
             Apply
           </Link>
-          <Link  href="https://ko-fi.com/intechgration" className=" py-2 px-4 text-black bg-secondary border-2 border-black rounded-3xl shadow-md hover:shadow-xl font-bold">
+          <Link  href={config.donation_links.kofi} className=" py-2 px-4 text-black bg-secondary border-2 border-black rounded-3xl shadow-md hover:shadow-xl font-bold">
             Donate
           </Link>
         </div>
