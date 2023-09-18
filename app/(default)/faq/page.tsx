@@ -4,17 +4,22 @@ import { Disclosure } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 import config from "@/config.yaml";
 
+type IFAQ = { question: string, answer: string }
+
 export default function Faq() {
   return (
     <div className="bg-secondary">
-      <ul className="list-disc list-inside hidden"></ul>
+
+      {/* This empty div has been put here to force the inclusion of dynamic tailwind classes */}
+      <div className="list-disc list-inside hidden pl-8"></div>
+
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
         <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
           <h2 className="h2 font-cabinet-grotesk">
             Frequently Asked Questions
           </h2>
           <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
-            {config.faqs.map((faq) => (
+            {config.faqs.map((faq:IFAQ) => (
               <Disclosure as="div" key={faq.question} className="pt-6">
                 {({ open }) => (
                   <>

@@ -33,7 +33,7 @@ faqs:
       hours</b> of commitment (study and practice) on a daily basis.
   - question: What are the requirements for enrolling to the WDX180?
     answer: >-
-      <ul class="list-disc"><li>Good english language skills</li><li>Basic computer
+      <ul class="list-disc pl-8"><li>Good english language skills</li><li>Basic computer
       skills</li><li>Computer equipped with a web camera and
       microphone <em>(If you will be attending our course in person, we provide access to a laptop and high-speed Internet connection)</em></li><li>Stable Internet connection</li></ul>
   - question: Will I be able to attend the course on-site?
@@ -74,7 +74,7 @@ faqs:
       us at the <a class="underline font-bold" href="https://www.facebook.com/ECHOHUBAthens/" target="_blank">EchoHub Athens</a>.
   - question: What will I learn in class for 9 months?
     answer: >-
-      <span>You will learn:</span><ul class="list-disc"><li>How the Internet and the World Wide
+      <span>You will learn:</span><ul class="list-disc pl-8"><li>How the Internet and the World Wide
       Web works </li><li>How to program in the languages of the Web (HTML, CSS,
       JavaScript) </li><li>CSS and JavaScript libraries and frameworks, such as
       Tailwind and React.js </li><li>Backend technologies (Node.js, Express,
