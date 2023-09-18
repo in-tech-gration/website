@@ -2,12 +2,12 @@
 import Hero from "@/components/hero";
 import Inspiration from "@/components/inspiration";
 import Curriculum from "@/components/curriculum";
-import Faqs from "@/components/faqs";
+import PartialFaq from "@/components/partial-faq";
 import Cta from "@/components/cta";
 
 
 
-
+// TODO: Move this to config.yaml?
 export const metadata = {
   title: "intechgration - coding bootcamp",
   description: "A tuition-free coding bootcamp ⛺︎ for refugees, migrants, people with physical disabilities and other vulnerable groups.",
@@ -38,7 +38,7 @@ export default function Home() {
       <Hero />
       <Inspiration />
       <Curriculum />
-      <Faqs />
+      <PartialFaq />
       <Cta /> {/* contributor call to action */}
     </>
   );
