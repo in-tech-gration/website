@@ -107,10 +107,10 @@ export default function Faqs() {
           {/*Button added to /faqs page*/}
           <div className="pt-8 md:pt-12 text-center">
             <Link
-              href="/faqs"
+              href="/faq"
               className="py-2 px-10 mx-4 text-white bg-black hover:bg-gray-900 rounded-3xl shadow-md hover:shadow-xl font-bold"
             >
-              FAQs
+              FAQ
             </Link>
           </div>
         </div>

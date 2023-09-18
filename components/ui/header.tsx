@@ -1,11 +1,23 @@
 "use client";
 import { useEffect, useState } from "react";
-
+import { usePathname } from 'next/navigation'
 import Link from "next/link";
 import config from "../../config.yaml";
+import styles from "../styles.module.css";
+
+function createAddActive( pathname:string|null ){
+  return function addActive( path:string ){
+    let condition;
+    if ( path === "/" ){
+
+    }
+    return pathname?.startsWith(path) ? "active" : "";
+  }
+}
 
 export default function Header({ nav = true }: { nav?: boolean }) {
   const [top, setTop] = useState(true);
+  const addActive = createAddActive(usePathname());
 
   // detect whether user has scrolled the page down by 10px
   useEffect(() => {
@@ -39,11 +51,19 @@ export default function Header({ nav = true }: { nav?: boolean }) {
       </button> */}
           <Link
             href="/apply"
-            className="py-2 px-4 mx-4 text-white bg-black hover:bg-gray-900 rounded-3xl shadow-md hover:shadow-xl font-bold"
+            className={`${addActive("/")} ${styles.header_btn} hover:bg-gray-900 hover:bg-amber-400 hover:text-black hover:border-amber-400`}
           >
             Apply
           </Link>
-          <Link  href={config.donation_links.kofi} className=" py-2 px-4 text-black bg-secondary border-2 border-black rounded-3xl shadow-md hover:shadow-xl font-bold">
+          <Link
+            href="/faq"
+            className={`${addActive("/faq")} ${styles.header_btn} ${styles.light}`}
+          >
+            FAQ
+          </Link>
+          <Link 
+            href={config.donation_links.kofi} 
+            className={`${styles.header_btn} ${styles.light}`}>
             Donate
           </Link>
         </div>

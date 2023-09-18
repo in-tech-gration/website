@@ -4,7 +4,7 @@ import { Disclosure } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 import config from "@/config.yaml";
 
-export default function Faqs() {
+export default function Faq() {
   return (
     <div className="bg-secondary">
       <ul className="list-disc list-inside hidden"></ul>
