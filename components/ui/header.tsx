@@ -7,11 +7,8 @@ import styles from "../styles.module.css";
 
 function createAddActive( pathname:string|null ){
   return function addActive( path:string ){
-    let condition;
-    if ( path === "/" ){
-
-    }
-    return pathname?.startsWith(path) ? "active" : "";
+    let condition = ( path === "/" ) ? pathname === path : pathname?.startsWith(path) ; 
+    return condition ? styles.active : "";
   }
 }
 
@@ -51,7 +48,7 @@ export default function Header({ nav = true }: { nav?: boolean }) {
       </button> */}
           <Link
             href="/apply"
-            className={`${addActive("/")} ${styles.header_btn} hover:bg-gray-900 hover:bg-amber-400 hover:text-black hover:border-amber-400`}
+            className={`${addActive("/")} ${styles.header_btn} ${styles.light} ${styles.highlight}`}
           >
             Apply
           </Link>

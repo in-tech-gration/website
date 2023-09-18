@@ -8,7 +8,13 @@
 
 .light {
   @apply text-black bg-secondary hover:shadow-xl hover:bg-black hover:text-white;
-  &.active {
-    @apply bg-black text-white;
-  }
+}
+
+.active {
+  @apply text-white bg-black;
+  /* @apply hover:bg-amber-400 hover:text-black hover:border-amber-400; */
+}
+
+.highlight {
+  @apply hover:bg-amber-400 hover:text-black hover:border-amber-400;
 }
