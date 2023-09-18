@@ -2,7 +2,7 @@
 import Hero from "@/components/hero";
 import Inspiration from "@/components/inspiration";
 import Curriculum from "@/components/curriculum";
-import Faqs from "@/components/faqs";
+import PartialFaq from "@/components/partial-faq";
 import Cta from "@/components/cta";
 
 
@@ -38,7 +38,7 @@ export default function Home() {
       <Hero />
       <Inspiration />
       <Curriculum />
-      <Faqs />
+      <PartialFaq />
       <Cta /> {/* contributor call to action */}
     </>
   );
