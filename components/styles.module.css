@@ -1,0 +1,20 @@
+.button {
+  background: red !important;
+  border: 2px solid orange !important;
+}
+.header_btn {
+  @apply py-2 px-4 mx-2 border-2 border-black rounded-3xl shadow-md hover:shadow-xl font-bold;
+}
+
+.light {
+  @apply text-black bg-secondary hover:shadow-xl hover:bg-black hover:text-white;
+}
+
+.active {
+  @apply text-white bg-black;
+  /* @apply hover:bg-amber-400 hover:text-black hover:border-amber-400; */
+}
+
+.highlight {
+  @apply hover:bg-amber-400 hover:text-black hover:border-amber-400;
+}
