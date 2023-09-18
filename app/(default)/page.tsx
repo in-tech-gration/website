@@ -4,6 +4,7 @@ import Inspiration from "@/components/inspiration";
 import Curriculum from "@/components/curriculum";
 import PartialFaq from "@/components/partial-faq";
 import Cta from "@/components/cta";
+import Join from "@/components/join";
 
 
 
@@ -35,6 +36,7 @@ export const metadata = {
 export default function Home() {
   return (
     <>
+      <Join />
       <Hero />
       <Inspiration />
       <Curriculum />
