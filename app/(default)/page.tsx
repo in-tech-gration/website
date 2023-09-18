@@ -7,7 +7,7 @@ import Cta from "@/components/cta";
 
 
 
-
+// TODO: Move this to config.yaml?
 export const metadata = {
   title: "intechgration - coding bootcamp",
   description: "A tuition-free coding bootcamp ⛺︎ for refugees, migrants, people with physical disabilities and other vulnerable groups.",
