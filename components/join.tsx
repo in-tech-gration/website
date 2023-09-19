@@ -16,7 +16,7 @@ export default function Join() {
           <Link className="hover:text-amber-400" href="/apply">&lt;join&gt;</Link>
         </div>
 
-        <h1 className="text-white font-poppins text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-7 mt-6">
+        <h1 className="text-white font-poppins text-4xl md:text-5xl lg:text-6xl font-bold mb-7 mt-6">
           Join our next coding cohort: Oct 2nd, 2023
         </h1>
         <p className="font-poppins mb-7 font-bold text-2xl text-white" >
