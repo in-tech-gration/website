@@ -28,9 +28,9 @@ export default function PartialFaq() {
               {/* Item */}
               {/* Item */}
               <div className="space-y-2">
-                <h3 className="text-xl font-cabinet-grotesk font-bold">
+                <h4 className="text-xl font-cabinet-grotesk font-bold">
                 {config.faqs[2].question}
-                </h3>
+                </h4>
                 <p className="text-gray-800">
                 {config.faqs[2].answer}
                 </p>
