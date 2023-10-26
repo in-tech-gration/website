@@ -70,7 +70,7 @@ export default function Inspiration() {
                     resources and opportunities, to people that are faced with
                     social and economical disadvantages.</p>
                   <p className="mb-5">We want to provide hope and essential skills to refugees, migrants, people with disabilities, people that have completed drug rehabilitation programs, former inmates, single parents and everyone who's facing the extreme hardships of life and looking for a change in their career.</p>
-                  <p className="mb-5">If that sounds moving to you, there are plenty of ways you can support. You can start by filling out <Link className="underline text-blue-400 font-bold" href="https://tally.so/r/nP1zWd">this form</Link>.
+                  <p className="mb-5">If that sounds moving to you, there are plenty of ways you can support. You can start by filling out <Link className="underline text-blue-700 font-bold" href="https://tally.so/r/nP1zWd">this form</Link>.
                   </p>
                 </section>
               </section>
