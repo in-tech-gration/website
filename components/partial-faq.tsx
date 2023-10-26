@@ -17,9 +17,9 @@ export default function PartialFaq() {
             <div className="w-full md:w-1/2 space-y-8">
               {/* Item */}
               <div className="space-y-2">
-                <h4 className="text-xl font-cabinet-grotesk font-bold">
+                <h3 className="text-xl font-cabinet-grotesk font-bold">
                   {config.faqs[0].question}
-                </h4>
+                </h3>
                 <p 
                   className="text-gray-800" 
                   dangerouslySetInnerHTML={{ __html: config.faqs[0].answer }}>
@@ -28,9 +28,9 @@ export default function PartialFaq() {
               {/* Item */}
               {/* Item */}
               <div className="space-y-2">
-                <h4 className="text-xl font-cabinet-grotesk font-bold">
+                <h3 className="text-xl font-cabinet-grotesk font-bold">
                 {config.faqs[2].question}
-                </h4>
+                </h3>
                 <p className="text-gray-800">
                 {config.faqs[2].answer}
                 </p>
@@ -40,17 +40,17 @@ export default function PartialFaq() {
             <div className="w-full md:w-1/2 space-y-8">
               {/* Item */}
               <div className="space-y-2">
-                <h4 className="text-xl font-cabinet-grotesk font-bold">
+                <h3 className="text-xl font-cabinet-grotesk font-bold">
                   {config.faqs[1].question}
-                </h4>
+                </h3>
                 <p className="text-gray-800">
                   {config.faqs[1].answer}
                 </p>
               </div>
               <div className="space-y-2">
-                <h4 className="text-xl font-cabinet-grotesk font-bold">
+                <h3 className="text-xl font-cabinet-grotesk font-bold">
                   {config.faqs[3].question}
-                </h4>
+                </h3>
                 <p className="text-gray-800">
                   {config.faqs[3].answer}
                 </p>
