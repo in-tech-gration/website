@@ -89,11 +89,11 @@ const Certificate = ({ id }: { id: string }) => {
               <span className="font-bold"> in-tech-gration. </span>
             </p>
 
-            <div className=" py-2 flex flex-col md:flex-row md:items-end justify-around">
+            <div className="  flex flex-col md:flex-row md:items-end justify-around">
               {
                 // @ts-ignore
                 data.date && (
-                  <p className="text-certificateSecondary">
+                  <p className="py-2 text-certificateSecondary">
                     Certificate Issued <span className="font-bold">{` ${
                       // @ts-ignore
                       data.date?.toDate().toDateString()
