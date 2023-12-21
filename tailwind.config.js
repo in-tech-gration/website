@@ -20,6 +20,9 @@ module.exports = {
       colors: {
         secondary: "#F4F2ED",
         black: "#000000",
+        browserBar: "#F0F0F0",
+        certificatePrimary: "#454545",
+        certificateSecondary : "#454545"
       },
       backgroundOpacity: {
         '98': '0.98',
@@ -27,6 +30,7 @@ module.exports = {
        backgroundImage: {
         underline1: "url('/assets/Underline1.svg')",
         underline2: "url('/assets/Underline2.svg')",
+        certificateFrame: "url('/assets/certificate-frame.png')",
         // 'my_bg_image' : "url('../public/bg.png')",
         // underline3: "url('./public/assets/Underline3.svg')",
         // underline4: "url('./public/assets/Underline4.svg')",
