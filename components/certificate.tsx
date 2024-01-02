@@ -56,7 +56,7 @@ const Certificate = ({ id }: { id: string }) => {
       }
     };
     getData();
-  }, []);
+  }, [id]);
 
   return (
     <>
