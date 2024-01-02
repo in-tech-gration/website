@@ -11,7 +11,7 @@ type BlogPostItemProps = {
 const BlogPostItem: FunctionComponent<BlogPostItemProps> = ({ post }) => {
   return (
     <article className="py-5 border-b border-slate-100 dark:border-slate-800">
-      <div className="flex items-start">
+      <div key={post.meta.id} className="flex items-start">
         <Image
           className="rounded w-16 h-16 sm:w-[88px] sm:h-[88px] object-cover mr-6"
           src={post.meta.image}
@@ -22,7 +22,7 @@ const BlogPostItem: FunctionComponent<BlogPostItemProps> = ({ post }) => {
         <div>
           <div className="text-xs text-slate-500 uppercase mb-1">
             <span className="text-sky-500">—</span>{" "}
-            {/* <PostDate dateString={post.meta.date} /> */}
+            <PostDate dateString={post.meta.date} />
           </div>
           <h3 className="font-aspekta text-lg font-[650] mb-1">
             <Link
