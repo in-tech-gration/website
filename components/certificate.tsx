@@ -21,58 +21,105 @@ interface Certificate {
   course: number;
 }
 
+const handleGeneratePdf = (certificateTemplate:HTMLDivElement) => {
+  const doc = new jsPDF({
+    format: "a4",
+    unit: "px",
+    orientation: "landscape",
+    hotfixes: ["px_scaling"],
+  });
+
+  const internalWidth = doc.internal.pageSize.getWidth();
+  const internalHeight = doc.internal.pageSize.getHeight();
+
+  html2canvas(certificateTemplate).then((canvas) => {
+    const img = canvas.toDataURL("image/png");
+    doc.addImage(img, "PNG", 0, 0, internalWidth, internalHeight);
+    doc.save("WDX-certificate-of-completion");
+  });
+};
+
 const Certificate = ({ id }: { id: string }) => {
-  const [data, setData] = useState<Certificate | object>({});
-  const certificateTemplateRef = useRef<any>(null);
 
-  const handleGeneratePdf = () => {
-    const doc = new jsPDF({
-      format: "a4",
-      unit: "px",
-      orientation: "landscape",
-      hotfixes: ["px_scaling"],
-    });
-
-    const internalWidth = doc.internal.pageSize.getWidth();
-    const internalHeight = doc.internal.pageSize.getHeight();
-
-    html2canvas(certificateTemplateRef.current).then((canvas) => {
-      const img = canvas.toDataURL("image/png");
-      doc.addImage(img, "PNG", 0, 0, internalWidth, internalHeight);
-      doc.save("WDX-certificate-of-completion");
-    });
-  };
+  const [data, setData] = useState<Certificate | null>(null);
+  const certificateTemplateRef = useRef<HTMLDivElement>(null);
+  const [certNotFound, setCertNotFound] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
-      const data = await getDoc(doc(db, "certificates", id));
 
-      if (data.exists()) {
-        setData(data.data());
-      } else {
-        setData({}); // Provide a default value if documentData is undefined
-        // set certNotFound state to true
-        return {};
+      try {
+        const data = await getDoc(doc(db, "certificates", id));
+  
+        if ( data.exists() ) {
+
+          const { date, name, course, signatory_name, signatory_role } = data.data();
+
+          setData({
+            date,
+            name,
+            course,
+            signatory_name,
+            signatory_role
+          });
+
+        } else {
+
+          setData(null); // Provide a default value if documentData is undefined
+          // set certNotFound state to true
+          setCertNotFound(true);
+
+        }
+
+      } catch( error ){
+
+        console.error( "[ ERROR ][ Certificate()]", error );
+        setCertNotFound(true);
+
       }
+
     };
     getData();
   }, [id]);
 
+  function generatePDF(){
+    if ( certificateTemplateRef.current ){
+      handleGeneratePdf(certificateTemplateRef.current);
+    }
+  }
+
+  // HANDLING ERROR CASES:
+  if ( certNotFound ){
+    return (
+      <section className="grid items-center border-8 border-red-500 h-screen">
+        <h1 className="text-center font-bold text-4xl">ERROR: <span className="font-normal">Something seems to be wrong here...</span></h1>
+      </section>
+    )
+  }
+
+  if ( !data ){
+    return (
+      <section className="grid items-center border-8 border-orange-500 h-screen">
+        <h1 className="text-center font-bold text-4xl">Searching: <span className="font-normal">for a valid certificate...</span></h1>
+      </section>
+    )
+  }
+
   return (
     <>
-      <button onClick={handleGeneratePdf}>Generate PDF</button>
-      <div
-        className="
-      min-w-screen min-h-screen       flex justify-center
-      pt-10
+      
+      {/* TODO: TEMPORARILY DISABLED */}
+      <div className="text-center mt-8 hidden">
+        <button className="px-8 py-2 text-white font-bold bg-lime-500 hover:bg-lime-600 rounded-full" onClick={generatePDF}>Generate PDF</button>
+      </div> 
 
-      "
-      >
+      <div className="min-w-screen min-h-screen flex justify-center pt-10">
         <div ref={certificateTemplateRef} className="w-4/5 font-inter">
           <Header />
           {data && (
             <div
               className="
+              shadow-[0px_16px_32px_12px_#00000024]
               h-11/12 sm:h-5/6 py-12 px-8 sm:px-24
               flex flex-col justify-around space-y-4 md:space-y-0
               border-solid border-l-2 border-r-2 border-b-2 rounded-b-2xl
@@ -90,31 +137,25 @@ const Certificate = ({ id }: { id: string }) => {
                 />
               </div>
 
-              <p className="text-certificateSecondary">Awarded to</p>
-              <p className=" text-certificatePrimary text-4xl sm:text-5xl  font-bold ">
-                {
-                  // @ts-ignore
-                  data.name
-                }
-              </p>
-              <p className="text-certificateSecondary">
-                for successfully completing
-              </p>
-              <p className=" text-certificatePrimary text-4xl font-bold ">
-                {
-                  // @ts-ignore
-                  `WDX.180.${data.course}`
-                }
-              </p>
-              <p className="text-certificateSecondary">
-                part{" "}
-                {
-                  //@ts-ignore
-                  `${data.course}`
-                }{" "}
-                of 3 courses in the coding bootcamp program offered by
-                <span className="font-bold"> in-tech-gration. </span>
-              </p>
+              <div>
+                <p className="text-certificateSecondary text-2xl mb-4">Awarded to</p>
+                <p className=" text-certificatePrimary text-4xl sm:text-5xl  font-bold ">{ data.name }</p>
+              </div>
+
+              <div>
+                <p className="text-certificateSecondary text-2xl mb-4">
+                  for successfully completing
+                </p>
+                <p className=" text-certificatePrimary text-4xl font-bold border-l-8 pl-4 border-orange-400 ">
+                  {
+                    // @ts-ignore
+                    `WDX.180.${data.course}`
+                  }
+                </p>
+                <p className="text-certificateSecondary text-2xl my-4">
+                  Part {data.course} of 3 in the coding bootcamp program offered by <span className="font-bold"> in-tech-gration. </span>
+                </p>
+              </div> 
 
               <div className="  flex flex-col md:flex-row md:items-end justify-around">
                 {
