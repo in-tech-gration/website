@@ -1,0 +1,30 @@
+# cSpell: disable
+graduates:
+  "kokh-olexandr":
+    fullName: Kokh Olexandr
+    course: WDX180
+    part: 1
+    cohort: "0x02"
+  "kountouras-leon":
+    fullName: "Leon Kountouras"
+    course: WDX180
+    part: 1
+    cohort: "0x02"
+  "mawugbenyo-aziakonou":
+    fullName: Mawugbenyo AZIAKONOU
+    course: WDX180
+    part: 1
+    cohort: "0x02"
+cohorts:
+  "0x02":
+    leadInstructor: 
+      fullName: Kostas Minaidis
+      linkedIn: kostas-minaidis
+staff:
+  cofounders:
+    - Abed Hamami:
+      fullName: Abed Hamami
+      linkedIn: "abedhamami"
+    - Sohail Haqyar:
+      fullName: Sohail Haqyar
+      linkedIn: "sohail-haqyar"
