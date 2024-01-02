@@ -1,15 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import config from "../../config.yaml";
 import styles from "../styles.module.css";
 
-function createAddActive( pathname:string|null ){
-  return function addActive( path:string ){
-    let condition = ( path === "/" ) ? pathname === path : pathname?.startsWith(path) ; 
+function createAddActive(pathname: string | null) {
+  return function addActive(path: string) {
+    let condition =
+      path === "/" ? pathname === path : pathname?.startsWith(path);
     return condition ? styles.active : "";
-  }
+  };
 }
 
 export default function Header({ nav = true }: { nav?: boolean }) {
@@ -39,7 +40,6 @@ export default function Header({ nav = true }: { nav?: boolean }) {
               in<span className="text-black ">tech</span>gration
             </h1>
           </Link>
-         
         </div>
         <div className="">
           {/* TODO the btn bellow will be back once we have student login and the plaform to take them to. for now the i am puttin an apply button down there temporarly*/}
@@ -48,19 +48,32 @@ export default function Header({ nav = true }: { nav?: boolean }) {
       </button> */}
           <Link
             href="/apply"
-            className={`${addActive("/")} ${styles.header_btn} ${styles.light} ${styles.highlight}`}
+            className={`${addActive("/")} ${styles.header_btn} ${
+              styles.light
+            } ${styles.highlight}`}
           >
             Apply
           </Link>
           <Link
+            href="/blog"
+            className={`${addActive("/blog")} ${styles.header_btn} ${
+              styles.light
+            }`}
+          >
+            Blog
+          </Link>
+          <Link
             href="/faq"
-            className={`${addActive("/faq")} ${styles.header_btn} ${styles.light}`}
+            className={`${addActive("/faq")} ${styles.header_btn} ${
+              styles.light
+            }`}
           >
             FAQ
           </Link>
-          <Link 
-            href={config.donation_links.kofi} 
-            className={`${styles.header_btn} ${styles.light}`}>
+          <Link
+            href={config.donation_links.kofi}
+            className={`${styles.header_btn} ${styles.light}`}
+          >
             Donate
           </Link>
         </div>
