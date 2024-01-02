@@ -1,4 +1,4 @@
-import Certificate from "@/components/certificate"
+import Certificate from "@/components/certificate/certificate"
 import { useParams } from 'next/navigation'
 
 type Params = {

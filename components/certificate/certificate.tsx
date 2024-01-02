@@ -3,10 +3,10 @@
 import { useEffect, useState, useRef } from "react";
 import { jsPDF } from "jspdf";
 import Image from "next/image";
-import "../app/css/style.css";
+import "../../app/css/style.css";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../app/firestore";
-import Header from "./certificate/header";
+import { db } from "../../app/firestore";
+import Header from "./header";
 
 import signature from "@/public/assets/signature.png";
 import paperPlane from "@/public/assets/paper-plane.png";
