@@ -45,7 +45,7 @@ function Blog() {
                   </li>
                 </ul>
                 {blogPosts.map((post) => (
-                  <BlogPostItem key={post.meta.id} post={post} />
+                  <BlogPostItem key={post.meta ? post.meta.id : ''} post={post} />
                 ))}
               </div>
             </div>

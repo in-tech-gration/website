@@ -9,7 +9,7 @@ type BlogPostItemProps = {
 };
 
 const BlogPostItem: FunctionComponent<BlogPostItemProps> = ({ post }) => {
-  return (
+  return post.meta ? (
     <article className="py-5 border-b border-slate-100 dark:border-slate-800">
       <div key={post.meta.id} className="flex items-start">
         <Image
@@ -54,7 +54,7 @@ const BlogPostItem: FunctionComponent<BlogPostItemProps> = ({ post }) => {
         </div>
       </div>
     </article>
-  );
+  ) : null;
 };
 
 export default BlogPostItem;

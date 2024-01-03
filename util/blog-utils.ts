@@ -4,8 +4,8 @@ import matter from "gray-matter";
 import { compareDesc, parseISO } from "date-fns";
 
 export type blogPost = {
-  meta: { [key: string]: any };
-  slug: string;
+  meta?: { [key: string]: any };
+  slug?: string;
 };
 
 const blogDir = "blogs";
