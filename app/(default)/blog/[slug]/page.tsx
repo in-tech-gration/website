@@ -8,6 +8,7 @@ import PostDate from "@/components/post-date";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
 import CustomLink from "@/components/mdx/CustomLink";
+import BlogNavigation from "@/components/blog-navigation/blog-navigation";
 
 const options = {
   mdxOptions: {
@@ -150,6 +151,7 @@ export default function Post({ params }: any) {
             />
           </div>
         </article>
+        <BlogNavigation blogSlug={props.slug} />
       </div>
     </section>
   );

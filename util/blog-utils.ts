@@ -27,3 +27,22 @@ export const blogPosts: blogPost[] = fs
     };
   })
   .sort((a, b) => compareDesc(parseISO(a.meta.date), parseISO(b.meta.date)));
+
+// Returns an array with previous and next blog post, if they exists, of the current blog post displayed
+export const prevNextBlogPosts = (currentSlug: string) => {
+  let adjacentBlogPosts: blogPost[] = [{}, {}];
+  const currentIndex = blogPosts.findIndex(
+    (blogPost) => blogPost.slug === currentSlug
+  );
+  const nextIndex = currentIndex + 1;
+  const prevIndex = currentIndex - 1;
+
+  if (nextIndex <= blogPosts.length - 1) {
+    adjacentBlogPosts[0] = blogPosts[nextIndex];
+  }
+  if (prevIndex >= 0) {
+    adjacentBlogPosts[1] = blogPosts[prevIndex];
+  }
+
+  return adjacentBlogPosts;
+};
