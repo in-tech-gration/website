@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { compareDesc, parseISO } from "date-fns";
 
 export type blogPost = {
   meta: { [key: string]: any };
@@ -9,6 +10,7 @@ export type blogPost = {
 
 const blogDir = "blogs";
 
+// Returns an array of blogPost in descending order according to their frontMatter date field.
 export const blogPosts: blogPost[] = fs
   .readdirSync(path.join(blogDir))
   .map((filename) => {
@@ -23,4 +25,5 @@ export const blogPosts: blogPost[] = fs
       meta: frontMatter,
       slug: filename.replace(".mdx", ""),
     };
-  });
+  })
+  .sort((a, b) => compareDesc(parseISO(a.meta.date), parseISO(b.meta.date)));
