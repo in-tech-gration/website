@@ -206,7 +206,7 @@ const Certificate = ({ id, data }: CertificateProps) => {
 // TEMPORARILY DISABLED DUE TO STATIC GENERATION
 const FirebaseCertificate = ({ id }: { id: string }) => {
 
-  const [data, setData] = useState<Certificate | null>(null);
+  const [data, setData] = useState<ICertificate | null>(null);
   const certificateTemplateRef = useRef<HTMLDivElement>(null);
   const [certNotFound, setCertNotFound] = useState(false);
 
@@ -220,13 +220,13 @@ const FirebaseCertificate = ({ id }: { id: string }) => {
 
           const { date, name, course, signatory_name, signatory_role } = data.data();
 
-          setData({
-            date,
-            name,
-            course,
-            signatory_name,
-            signatory_role
-          });
+          // setData({
+          //   date,
+          //   name,
+          //   course,
+          //   signatory_name,
+          //   signatory_role
+          // });
 
         } else {
 
@@ -304,7 +304,7 @@ const FirebaseCertificate = ({ id }: { id: string }) => {
 
               <div>
                 <p className="text-certificateSecondary text-2xl mb-4">Awarded to</p>
-                <p className=" text-certificatePrimary text-4xl sm:text-5xl  font-bold ">{data.name}</p>
+                <p className=" text-certificatePrimary text-4xl sm:text-5xl  font-bold ">{data.fullName}</p>
               </div>
 
               <div>

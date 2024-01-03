@@ -6,7 +6,9 @@ import { ICertificate } from "../../types";
 
 type Params = {
   id: string,
-  data: ICertificate
+  data: ICertificate & {
+    cofounders: { fullName: string, linkedIn: string }[]
+  }
 }
 
 const Cert = (props:Params) => {
