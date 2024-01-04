@@ -10,3 +10,9 @@ export interface ICertificate {
       linkedIn: string
     };
 }
+
+export type NavItem = {
+  label: string
+  link: string
+  dev: boolean
+}

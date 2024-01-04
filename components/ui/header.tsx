@@ -2,8 +2,11 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import config from "../../config.yaml";
+import config from "@/config.yaml";
 import styles from "../styles.module.css";
+import { NavItem } from "../../types/"
+
+const isDev = process.env.NODE_ENV === 'development'
 
 function createAddActive(pathname: string | null) {
   return function addActive(path: string) {
@@ -41,42 +44,25 @@ export default function Header({ nav = true }: { nav?: boolean }) {
             </h1>
           </Link>
         </div>
-        <div className="">
-          {/* TODO the btn bellow will be back once we have student login and the plaform to take them to. for now the i am puttin an apply button down there temporarly*/}
-          {/* <button className="py-2 px-4 text-white bg-black hover:bg-gray-900 rounded-3xl shadow-md hover:shadow-xl">
-        student login
-      </button> */}
-          <Link
-            href="/apply"
-            className={`${addActive("/")} ${styles.header_btn} ${
-              styles.light
-            } ${styles.highlight}`}
-          >
-            Apply
-          </Link>
-          <Link
-            href="/blog"
-            className={`${addActive("/blog")} ${styles.header_btn} ${
-              styles.light
-            }`}
-          >
-            Blog
-          </Link>
-          <Link
-            href="/faq"
-            className={`${addActive("/faq")} ${styles.header_btn} ${
-              styles.light
-            }`}
-          >
-            FAQ
-          </Link>
-          <Link
-            href={config.donation_links.kofi}
-            className={`${styles.header_btn} ${styles.light}`}
-          >
-            Donate
-          </Link>
+
+        {/* NAVIGATION: See config.yaml */}
+        <div>
+          {config.navigation.map((menuItem:NavItem) =>{
+            if ( menuItem.dev && !isDev  ) return;
+            return (
+              <Link
+                key={menuItem.label}
+                href={menuItem.link}
+                className={`${addActive(menuItem.link)} ${styles.header_btn} ${
+                  styles.light
+                } ${styles.highlight}`}
+              >
+                {menuItem.label}
+              </Link>
+            )
+          })}
         </div>
+
       </nav>
     </header>
   );
