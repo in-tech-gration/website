@@ -1,6 +1,5 @@
 import fs from "fs";
 import path from "path";
-import Link from "next/link";
 import matter from "gray-matter";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
@@ -9,6 +8,7 @@ import PostDate from "@/components/post-date";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
 import CustomLink from "@/components/mdx/CustomLink";
+import BlogNavigation from "@/components/blog-navigation/blog-navigation";
 
 const options = {
   mdxOptions: {
@@ -58,6 +58,7 @@ export async function generateMetadata({ params }: any) {
     description: blog.frontMatter.description,
     date: blog.frontMatter.date,
     image: blog.frontMatter.image,
+    categories: blog.frontMatter.categories,
   };
 }
 
@@ -65,26 +66,35 @@ export default function Post({ params }: any) {
   const props = getPost(params);
 
   return (
-      
     <section className="bg-secondary mt-4">
-
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-20">
-        <article className="prose dark:prose-invert prose-sm md:prose-base lg:prose-lg mx-auto">
+        <article className="prose prose-sm md:prose-base lg:prose-lg mx-auto">
           {/* Post header */}
           <header>
+            <h1 className="h1 font-aspekta">{props.frontMatter.title}</h1>
             <div className="flex items-center justify-between mb-1">
               {/* Post date */}
-              <div className="text-xs text-slate-500 uppercase">
-                <span className="text-sky-500">—</span>{" "}
+              <div className="text-xs text-slate-500">
                 <PostDate dateString={props.frontMatter.date} />{" "}
-                <span className="text-slate-400 dark:text-slate-600">·</span> 4
-                Min read
+                <span className="text-sky-500">—</span>{" "}
+                {props.frontMatter.categories.map(
+                  (category: string, index: number, array: string[]) => (
+                    <span key={`category-${index}`} className="text-blue-800">
+                      {category}
+                      {array.length > 1
+                        ? index !== array.length - 1
+                          ? ", "
+                          : " "
+                        : " "}
+                    </span>
+                  )
+                )}
               </div>
               {/* Share buttons */}
               <ul className="inline-flex list-none">
                 <li>
                   <a
-                    className="flex justify-center items-center text-slate-400 dark:text-slate-500 hover:text-sky-500 dark:hover:text-sky-500 transition duration-150 ease-in-out"
+                    className="flex justify-center items-center text-slate-400 hover:text-sky-500 transition duration-150 ease-in-out"
                     href="#0"
                     aria-label="Twitter"
                   >
@@ -99,7 +109,7 @@ export default function Post({ params }: any) {
                 </li>
                 <li>
                   <a
-                    className="flex justify-center items-center text-slate-400 dark:text-slate-500 hover:text-sky-500 dark:hover:text-sky-500 transition duration-150 ease-in-out"
+                    className="flex justify-center items-center text-slate-400 hover:text-sky-500 transition duration-150 ease-in-out"
                     href="#0"
                     aria-label="Facebook"
                   >
@@ -114,7 +124,7 @@ export default function Post({ params }: any) {
                 </li>
                 <li>
                   <a
-                    className="flex justify-center items-center text-slate-400 dark:text-slate-500 hover:text-sky-500 dark:hover:text-sky-500 transition duration-150 ease-in-out"
+                    className="flex justify-center items-center text-slate-400 hover:text-sky-500 transition duration-150 ease-in-out"
                     href="#0"
                     aria-label="Share"
                   >
@@ -129,10 +139,9 @@ export default function Post({ params }: any) {
                 </li>
               </ul>
             </div>
-            <h1 className="h1 font-aspekta mb-4">{props.frontMatter.title}</h1>
           </header>
 
-          <div className="prose text-slate-500 dark:text-slate-400 max-w-none prose-p:leading-normal prose-headings:text-slate-800 dark:prose-headings:text-slate-200 prose-a:font-medium prose-a:text-sky-500 prose-a:no-underline hover:prose-a:underline prose-strong:font-medium prose-strong:text-slate-800 dark:prose-strong:text-slate-100 prose-pre:bg-slate-800 dark:prose-code:text-slate-200">
+          <div className="prose text-slate-500 max-w-none prose-p:leading-normal prose-headings:text-slate-800 prose-a:font-medium prose-a:text-sky-500 prose-a:no-underline hover:prose-a:underline prose-strong:font-medium prose-strong:text-slate-800 prose-pre:bg-slate-800">
             {/* @ts-expect-error Server Component*/}
             <MDXRemote
               source={props.content}
@@ -142,8 +151,8 @@ export default function Post({ params }: any) {
             />
           </div>
         </article>
+        <BlogNavigation blogSlug={props.slug} />
       </div>
-
     </section>
   );
 }

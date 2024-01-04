@@ -1,5 +1,24 @@
+define: &kofi_donation_link https://ko-fi.com/intechgration
+
+# NAVIGATION
+navigation:
+  - apply:
+    label: Apply
+    link: apply/
+  - blog:
+    label: Blog
+    link: blog/
+    dev: true
+  - faq:
+    label: FAQ
+    link: faq/
+  - donate:
+    label: Donate
+    link: *kofi_donation_link
+
+# DONATION LINKS
 donation_links:
-  kofi: https://ko-fi.com/intechgration
+  kofi: *kofi_donation_link
   paypal: ""
   buymeacoffe: ""
   patreon: ""
