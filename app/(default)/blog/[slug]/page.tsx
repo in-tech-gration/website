@@ -64,6 +64,7 @@ export async function generateMetadata({ params }: any) {
 
 export default function Post({ params }: any) {
   const props = getPost(params);
+  const URL: string = "https://intechgration.io/";
 
   return (
     <section className="bg-secondary mt-4">
@@ -95,8 +96,12 @@ export default function Post({ params }: any) {
                 <li>
                   <a
                     className="flex justify-center items-center text-slate-400 hover:text-sky-500 transition duration-150 ease-in-out"
-                    href="#0"
+                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                      props.frontMatter.title
+                    )}&url=${encodeURIComponent(`${URL}blog/${props.slug}`)}`}
+                    rel="noreferrer noopener"
                     aria-label="Twitter"
+                    target="_blank"
                   >
                     <svg
                       className="w-8 h-8 fill-current"
@@ -110,8 +115,12 @@ export default function Post({ params }: any) {
                 <li>
                   <a
                     className="flex justify-center items-center text-slate-400 hover:text-sky-500 transition duration-150 ease-in-out"
-                    href="#0"
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                      `${URL}blog/${props.slug}`
+                    )}`}
+                    rel="noreferrer noopener"
                     aria-label="Facebook"
+                    target="_blank"
                   >
                     <svg
                       className="w-8 h-8 fill-current"
