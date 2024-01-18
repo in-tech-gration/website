@@ -25,6 +25,16 @@ graduates:
     course: WDX180
     part: 1
     cohort: "0x02"
+  "iasonas-grammatikopoulos":
+    fullName: Iasonas Grammatikopoulos
+    course: WDX180
+    part: 1
+    cohort: "0x02"
+  "beh-solo-kone":
+    fullName: Beh Solo Kone
+    course: WDX180
+    part: 1
+    cohort: "0x02"
 cohorts:
   "0x02":
     leadInstructor: 
