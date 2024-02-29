@@ -12,7 +12,7 @@ const isDev = process.env.NODE_ENV === "development";
 export function createAddActive(pathname: string | null) {
   return function addActive(path: string) {
     let condition =
-      path === "/" ? pathname === path : pathname?.startsWith(path);
+      path === "/" ? pathname === path : pathname?.includes(path);
     return condition ? styles.active : "";
   };
 }

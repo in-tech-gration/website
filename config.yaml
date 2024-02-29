@@ -4,14 +4,14 @@ define: &kofi_donation_link https://ko-fi.com/intechgration
 navigation:
   - apply:
     label: Apply
-    link: apply/
+    link: apply
   - blog:
     label: Blog
-    link: blog/
+    link: blog
     dev: true
   - faq:
     label: FAQ
-    link: faq/
+    link: faq
   - donate:
     label: Donate
     link: *kofi_donation_link
