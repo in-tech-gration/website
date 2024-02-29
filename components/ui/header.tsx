@@ -33,11 +33,11 @@ export default function Header({ nav = true }: { nav?: boolean }) {
   return (
     <header className="absolute w-full z-30">
       <nav
-        className={`flex justify-between items-center py-6 w-full lg:px-48 md:px-12 px-4 content-center  bg-secondary z-10 fixed md:bg-opacity-98 transition duration-300 ease-in-out ${
+        className={`flex flex-col sm:flex-row justify-between items-center py-6 w-full lg:px-48 md:px-12 px-4 content-center  bg-secondary z-10 fixed md:bg-opacity-98 transition duration-300 ease-in-out ${
           !top && "bg-secondary shadow-xl"
         }`}
       >
-        <div className="flex items-center">
+        <div className="flex items-center mb-2 sm:mb-0">
           <Link href="/">
             <h1 className="text-2xl font-bold tracking-wide text-gray-600	">
               in<span className="text-black ">tech</span>gration
