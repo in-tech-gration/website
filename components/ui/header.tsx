@@ -1,14 +1,15 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import config from "@/config.yaml";
 import styles from "../styles.module.css";
-import { NavItem } from "../../types/"
+import { NavItem } from "../../types/";
+import { SidebarContext } from "@/app/(default)/layout";
 
-const isDev = process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === "development";
 
-function createAddActive(pathname: string | null) {
+export function createAddActive(pathname: string | null) {
   return function addActive(path: string) {
     let condition =
       path === "/" ? pathname === path : pathname?.startsWith(path);
@@ -19,6 +20,7 @@ function createAddActive(pathname: string | null) {
 export default function Header({ nav = true }: { nav?: boolean }) {
   const [top, setTop] = useState(true);
   const addActive = createAddActive(usePathname());
+  const { toggleSidebar } = useContext(SidebarContext);
 
   // detect whether user has scrolled the page down by 10px
   useEffect(() => {
@@ -33,22 +35,40 @@ export default function Header({ nav = true }: { nav?: boolean }) {
   return (
     <header className="absolute w-full z-30">
       <nav
-        className={`flex flex-col sm:flex-row justify-between items-center py-6 w-full lg:px-48 md:px-12 px-4 content-center  bg-secondary z-10 fixed md:bg-opacity-98 transition duration-300 ease-in-out ${
+        className={`flex justify-between items-center py-6 w-full lg:px-48 md:px-12 px-4 content-center  bg-secondary z-10 fixed md:bg-opacity-98 transition duration-300 ease-in-out ${
           !top && "bg-secondary shadow-xl"
         }`}
       >
-        <div className="flex items-center mb-2 sm:mb-0">
+        <div className="flex items-center">
           <Link href="/">
             <h1 className="text-2xl font-bold tracking-wide text-gray-600	">
               in<span className="text-black ">tech</span>gration
             </h1>
           </Link>
         </div>
+        <button
+          className="sm:hidden text-black focus:outline-none"
+          onClick={toggleSidebar}
+        >
+          <svg
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
 
         {/* NAVIGATION: See config.yaml */}
-        <div>
-          {config.navigation.map((menuItem:NavItem) =>{
-            if ( menuItem.dev && !isDev  ) return;
+        <div className="hidden sm:block">
+          {config.navigation.map((menuItem: NavItem) => {
+            if (menuItem.dev && !isDev) return;
             return (
               <Link
                 key={menuItem.label}
@@ -59,10 +79,9 @@ export default function Header({ nav = true }: { nav?: boolean }) {
               >
                 {menuItem.label}
               </Link>
-            )
+            );
           })}
         </div>
-
       </nav>
     </header>
   );
