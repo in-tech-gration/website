@@ -13,7 +13,7 @@ export default function Faq() {
       {/* This empty div has been put here to force the inclusion of dynamic tailwind classes */}
       <div className="list-disc list-inside hidden pl-8"></div>
 
-      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+      <div className="mx-auto mt-10 sm:mt-0 max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
         <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
           <h2 className="h2 font-cabinet-grotesk">
             Frequently Asked Questions
