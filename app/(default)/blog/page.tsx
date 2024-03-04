@@ -1,6 +1,11 @@
 import BlogPostItem from "@/components/blog-post-item";
 import { blogPosts } from "@/util/blog-utils";
 
+export const metadata = {
+  title: "intechgration - Blog",
+  description: "intechgration - Blog",
+};
+
 function Blog() {
   return (
     <section className="bg-secondary mt-4 h-full flex items-center">
