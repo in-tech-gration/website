@@ -11,8 +11,7 @@ const isDev = process.env.NODE_ENV === "development";
 
 export function createAddActive(pathname: string | null) {
   return function addActive(path: string) {
-    let condition =
-      path === "/" ? pathname === path : pathname?.includes(path);
+    let condition = path === "/" ? pathname === path : pathname?.includes(path);
     return condition ? styles.active : "";
   };
 }
@@ -20,7 +19,7 @@ export function createAddActive(pathname: string | null) {
 export default function Header({ nav = true }: { nav?: boolean }) {
   const [top, setTop] = useState(true);
   const addActive = createAddActive(usePathname());
-  const { toggleSidebar } = useContext(SidebarContext);
+  const { isOpen, toggleSidebar } = useContext(SidebarContext);
 
   // detect whether user has scrolled the page down by 10px
   useEffect(() => {
@@ -40,7 +39,12 @@ export default function Header({ nav = true }: { nav?: boolean }) {
         }`}
       >
         <div className="flex items-center">
-          <Link href="/">
+          <Link
+            onClick={() => {
+              if (isOpen) toggleSidebar();
+            }}
+            href="/"
+          >
             <h1 className="text-2xl font-bold tracking-wide text-gray-600	">
               in<span className="text-black ">tech</span>gration
             </h1>
@@ -72,7 +76,7 @@ export default function Header({ nav = true }: { nav?: boolean }) {
             return (
               <Link
                 key={menuItem.label}
-                href={menuItem.link}
+                href={menuItem.link.includes("http") ? menuItem.link : "/" + menuItem.link}
                 className={`${addActive(menuItem.link)} ${styles.header_btn} ${
                   styles.light
                 } ${styles.highlight}`}

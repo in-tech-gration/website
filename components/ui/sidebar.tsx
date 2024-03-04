@@ -17,7 +17,7 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center w-full absolute left-0 top-0 bottom-0 bg-secondary transition-all duration-300 z-10 ${
+      className={`flex flex-col items-center justify-center w-full fixed left-0 top-0 bottom-0 bg-secondary transition-all duration-300 z-10 ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
@@ -26,7 +26,7 @@ export default function Sidebar() {
         return (
           <Link
             key={menuItem.label}
-            href={menuItem.link}
+            href={"/" + menuItem.link}
             onClick={toggleSidebar}
             className={`my-2 ${addActive(menuItem.link)} ${styles.header_btn} ${
               styles.light
