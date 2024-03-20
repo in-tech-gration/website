@@ -114,9 +114,16 @@ const Certificate = ({ id, data }: CertificateProps) => {
                 <p className=" text-certificatePrimary text-4xl font-bold border-l-8 pl-4 border-orange-400 ">
                   {data.course}
                 </p>
-                <p className="text-certificateSecondary text-2xl my-4">
-                  <strong>Part {data.part} of 3</strong> in the coding bootcamp program offered by <span className="font-bold"> in-tech-gration. </span>
-                </p>
+                {data.part ? (
+                  <p className="text-certificateSecondary text-2xl my-4">
+                    <strong>Part {data.part} of 3</strong> in the coding bootcamp program offered by <span className="font-bold"> <a href="https://intechgration.io" target="_blank">in-tech-gration</a>. </span>
+                  </p>
+                ) : (
+                  <p className="text-certificateSecondary text-2xl my-4">
+                    Offered by <span className="font-bold"><a href="https://intechgration.io" target="_blank">in-tech-gration</a>. </span>
+                  </p>
+                )}
+
               </div>
 
               <div className="flex flex-col md:flex-row md:items-end justify-between">

@@ -35,8 +35,17 @@ graduates:
     course: WDX180
     part: 1
     cohort: "0x02"
+  # React Workshop: Q12024
+  # "maria-papadaki":
+  #   fullName: Maria Papadaki
+  #   course: React Workshop Q1:2024
+  #   cohort: "React Workshop Q1:2024"
 cohorts:
   "0x02":
+    leadInstructor: 
+      fullName: Kostas Minaidis
+      linkedIn: kostas-minaidis
+  "React Workshop Q1:2024":
     leadInstructor: 
       fullName: Kostas Minaidis
       linkedIn: kostas-minaidis
