@@ -3,52 +3,77 @@ graduates:
   "mary-richelle-dogra":
     fullName: Mary Richelle Dogra
     course: WDX180
-    part: 1
+    part: 2
     cohort: "0x02"
+    date: 29/03/2024
   "anna-vorona":
     fullName: Anna Vorona
     course: WDX180
-    part: 1
+    part: 2
     cohort: "0x02"
+    date: 29/03/2024
   "kokh-olexandr":
     fullName: Kokh Olexandr
     course: WDX180
-    part: 1
+    part: 2
     cohort: "0x02"
+    date: 29/03/2024
   "kountouras-leon":
     fullName: "Leon Kountouras"
     course: WDX180
-    part: 1
+    part: 2
     cohort: "0x02"
+    date: 29/03/2024
+  "ozgur-ozbek":
+    fullName: "Özgür Özbek"
+    course: WDX180
+    part: 2
+    cohort: "0x02"
+    date: 29/03/2024
   "mawugbenyo-aziakonou":
     fullName: Mawugbenyo AZIAKONOU
     course: WDX180
     part: 1
     cohort: "0x02"
+    date: 24/12/2023
   "iasonas-grammatikopoulos":
     fullName: Iasonas Grammatikopoulos
     course: WDX180
     part: 1
     cohort: "0x02"
+    date: 24/12/2023
   "beh-solo-kone":
     fullName: Beh Solo Kone
     course: WDX180
     part: 1
     cohort: "0x02"
+    date: 24/12/2023
   # React Workshop: Q12024
-  # "maria-papadaki":
-  #   fullName: Maria Papadaki
-  #   course: React Workshop Q1:2024
-  #   cohort: "React Workshop Q1:2024"
+  "maria-karavazaki":
+    fullName: Maria Karavazaki
+    course: React Workshop Q1:2024
+    cohort: "React Workshop Q1:2024"
+    date: 29/03/2024
+  "aris-giotis":
+    fullName: Aris Giotis
+    course: React Workshop Q1:2024
+    cohort: "React Workshop Q1:2024"
+    date: 29/03/2024
 cohorts:
   "0x02":
-    leadInstructor: 
+    leadInstructor:
       fullName: Kostas Minaidis
       linkedIn: kostas-minaidis
+    teachingAssistant:
+      fullName: Asteris Giannoudis
+      linkedIn: asteris-giannoudis
   "React Workshop Q1:2024":
-    leadInstructor: 
+    leadInstructor:
       fullName: Kostas Minaidis
       linkedIn: kostas-minaidis
+    teachingAssistant:
+      fullName: Asteris Giannoudis
+      linkedIn: asteris-giannoudis
 staff:
   cofounders:
     - Abed Hamami:
