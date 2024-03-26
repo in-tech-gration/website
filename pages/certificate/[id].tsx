@@ -26,14 +26,16 @@ export async function getStaticProps({ params }: { params: { id: string }}) {
     const data = yaml.parse(graduatesYamlFile);
     const graduateData = data.graduates[params.id];
     const leadInstructor = data.cohorts[graduateData.cohort].leadInstructor;
+    const teachingAssistant = data.cohorts[graduateData.cohort].teachingAssistant;
 
     return {
       props: {
         id: params.id,
         data: { 
           ...graduateData, 
-          date: new Date().getTime(), 
+          // date: new Date().getTime(),
           leadInstructor,
+          teachingAssistant,
           cofounders: data.staff.cofounders 
         }
       }

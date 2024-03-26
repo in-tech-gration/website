@@ -9,6 +9,10 @@ export interface ICertificate {
       fullName: string
       linkedIn: string
     };
+    teachingAssistant: {
+      fullName: string
+      linkedIn: string
+    };
 }
 
 export type NavItem = {

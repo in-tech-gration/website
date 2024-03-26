@@ -48,6 +48,42 @@ const formatDate = (date: number) => {
   return pDate
 }
 
+interface StaffAvatarProps {
+  fullName: string
+  linkedIn: string
+  signature: string
+  role: string
+}
+
+const StaffAvatar = ({ fullName, linkedIn, signature, role }: StaffAvatarProps) => (
+  <div key={fullName} className="py-2 flex flex-col items-center">
+    <Image
+      src={signature}
+      alt="instructor signature"
+      width={0}
+      height={0}
+      sizes="100vw"
+      style={{ width: "150px", height: "auto" }}
+    />
+    <p className="text-certificateSecondary">
+      {role}
+    </p>
+    <p className="text-certificatePrimary font-bold">
+      {fullName}
+      <Link target="_blank" href={'https://linkedin.com/in/' + linkedIn}>
+        <Image
+          className="ml-2"
+          style={{ display: "inline-block" }}
+          src="/assets/linkedin.icon.svg"
+          width="16"
+          alt=""
+          height="16"
+        />
+      </Link>
+    </p>
+  </div>
+);
+
 interface Cofounder {
   fullName: string
   linkedIn: string
@@ -62,6 +98,7 @@ const Certificate = ({ id, data }: CertificateProps) => {
 
   const certificateTemplateRef = useRef<HTMLDivElement>(null);
   const leadInstructorSignature = generateSignatureImageSrc(data.leadInstructor.fullName);
+  const teachingAssistantSignature = generateSignatureImageSrc(data.teachingAssistant.fullName);
 
   // data.cofounders.map( cofounder =>{
 
@@ -114,86 +151,46 @@ const Certificate = ({ id, data }: CertificateProps) => {
                 <p className=" text-certificatePrimary text-4xl font-bold border-l-8 pl-4 border-orange-400 ">
                   {data.course}
                 </p>
-                <p className="text-certificateSecondary text-2xl my-4">
-                  <strong>Part {data.part} of 3</strong> in the coding bootcamp program offered by <span className="font-bold"> in-tech-gration. </span>
-                </p>
+                {data.part ? (
+                  <p className="text-certificateSecondary text-2xl my-4">
+                    <strong>Part {data.part} of 3</strong> in the coding bootcamp program offered by <span className="font-bold"> <a href="https://intechgration.io" target="_blank">in-tech-gration</a>. </span>
+                  </p>
+                ) : (
+                  <p className="text-certificateSecondary text-2xl my-4">
+                    Offered by <span className="font-bold"><a href="https://intechgration.io" target="_blank">in-tech-gration</a>. </span>
+                  </p>
+                )}
+
               </div>
 
               <div className="flex flex-col md:flex-row md:items-end justify-between">
-                <p className="py-2 text-certificateSecondary">
-                  Certificate Issued:
-                  <span className="font-bold pl-1">
-                    {formatDate(data.date)}
-                  </span>
-                </p>
-                <p className="py-2 text-certificateSecondary">
-                  Valid Cert ID:{" "}
-                  <Link href={"/certificate/" + id} className="font-bold">
-                    {" "}
-                    {`${id}`}
-                  </Link>
-                </p>
+                <div className="flex flex-col justify-between">
+                  <p className="py-2 text-certificateSecondary">
+                    Certificate Issued:
+                    <span className="font-bold pl-1">
+                      {/* {formatDate(data.date)} */}
+                      {data.date}
+                    </span>
+                  </p>
+                  <p className="py-2 text-certificateSecondary">
+                    Valid Cert ID:{" "}
+                    <Link href={"/certificate/" + id} className="font-bold">
+                      {" "}
+                      {`${id}`}
+                    </Link>
+                  </p>
+                </div>
                 {/* CO-FOUNDERS */}
                 {data.cofounders.map(cofounder => {
 
                   const cofounderSignature = generateSignatureImageSrc(cofounder.fullName);
 
-                  return (
-                    <div key={cofounder.fullName} className="py-2 flex flex-col items-center">
-                      <Image
-                        src={cofounderSignature}
-                        alt="instructor signature"
-                        width={0}
-                        height={0}
-                        sizes="100vw"
-                        style={{ width: "150px", height: "auto" }}
-                      />
-                      <p className="text-certificateSecondary">
-                        Co-Founder
-                      </p>
-                      <p className="text-certificatePrimary font-bold">
-                        {cofounder.fullName}
-                        <Link target="_blank" href={'https://linkedin.com/in/' + cofounder.linkedIn}>
-                          <Image
-                            className="ml-2"
-                            style={{ display: "inline-block" }}
-                            src="/assets/linkedin.icon.svg"
-                            width="16"
-                            alt=""
-                            height="16"
-                          />
-                        </Link>
-                      </p>
-                    </div>
-                  )
+                  return <StaffAvatar key={cofounder.fullName} fullName={cofounder.fullName} linkedIn={cofounder.linkedIn} signature={cofounderSignature} role="Co-Founder" />;
                 })}
                 {/* LEAD INSTRUCTOR */}
-                <div className=" py-2 flex flex-col items-center">
-                  <Image
-                    src={leadInstructorSignature}
-                    alt="instructor signature"
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    style={{ width: "150px", height: "auto" }}
-                  />
-                  <p className="text-certificateSecondary">
-                    Lead Instructor
-                  </p>
-                  <p className="text-certificatePrimary font-bold">
-                    {data.leadInstructor.fullName}
-                    <Link target="_blank" href={'https://linkedin.com/in/' + data.leadInstructor.linkedIn}>
-                      <Image
-                        className="ml-2"
-                        style={{ display: "inline-block" }}
-                        src="/assets/linkedin.icon.svg"
-                        width="16"
-                        alt=""
-                        height="16"
-                      />
-                    </Link>
-                  </p>
-                </div>
+                <StaffAvatar fullName={data.leadInstructor.fullName} linkedIn={data.leadInstructor.linkedIn} signature={leadInstructorSignature} role="Lead Instructor" />
+                {/* TEACHING ASSISTANT */}
+                <StaffAvatar fullName={data.teachingAssistant.fullName} linkedIn={data.teachingAssistant.linkedIn} signature={teachingAssistantSignature} role="Teaching Assistant" />
               </div>
             </div>
           )}
