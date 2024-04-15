@@ -19,4 +19,6 @@ export type NavItem = {
   label: string
   link: string
   dev: boolean
+  className?: string
+  external?: boolean
 }

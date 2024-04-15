@@ -48,14 +48,17 @@ export default function Header({ nav = true }: { nav?: boolean }) {
         {/* NAVIGATION: See config.yaml */}
         <div>
           {config.navigation.map((menuItem:NavItem) =>{
+
+            const className = menuItem.className ? menuItem.className : `${addActive(menuItem.link)} ${styles.header_btn} ${styles.highlight}`;
+            const target = menuItem.external ? { target : "_blank" } : {};
+            
             if ( menuItem.dev && !isDev  ) return;
             return (
               <Link
+                {...target}
                 key={menuItem.label}
                 href={menuItem.link}
-                className={`${addActive(menuItem.link)} ${styles.header_btn} ${
-                  styles.light
-                } ${styles.highlight}`}
+                className={className}
               >
                 {menuItem.label}
               </Link>
