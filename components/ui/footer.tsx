@@ -56,15 +56,20 @@ export default function Footer() {
                   </svg>
                 </Link>
               </li>
-              {/* <li className="ml-4">
+              <li className="ml-4">
                 <Link
-                  className="flex justify-center items-center text-blue-500 bg-blue-100 hover:text-white hover:bg-blue-500 rounded-full transition duration-150 ease-in-out"
-                  href="https://www.instagram.com/intechgration/"
+                  className="flex justify-center items-center text-blue-500 hover:text-white rounded-full transition duration-150 ease-in-out"
+                  target="_blank"
+                  href="https://www.youtube.com/@in-tech-gration"
                   aria-label="youtube"
                 >
-                <Image src={YouTubeLogo} alt="youtube logo"/>
+
+                  <svg viewBox="0 0 256 180" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><path d="M250.346 28.075A32.18 32.18 0 0 0 227.69 5.418C207.824 0 127.87 0 127.87 0S47.912.164 28.046 5.582A32.18 32.18 0 0 0 5.39 28.24c-6.009 35.298-8.34 89.084.165 122.97a32.18 32.18 0 0 0 22.656 22.657c19.866 5.418 99.822 5.418 99.822 5.418s79.955 0 99.82-5.418a32.18 32.18 0 0 0 22.657-22.657c6.338-35.348 8.291-89.1-.164-123.134Z" fill="red" /><path fill="#FFF" d="m102.421 128.06 66.328-38.418-66.328-38.418z" /></svg>
+
+                  {/* <Image src={YouTubeLogo} alt="youtube logo"/> */}
+
                 </Link>
-              </li> */}
+              </li>
             </ul>
             {/* Footer links */}
             {/* <div className="text-sm font-medium md:order-1 space-x-6 mb-2 md:mb-0">

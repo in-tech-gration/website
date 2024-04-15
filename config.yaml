@@ -2,9 +2,9 @@ define: &kofi_donation_link https://ko-fi.com/intechgration
 
 # NAVIGATION
 navigation:
-  - apply:
-    label: Apply
-    link: apply/
+  # - apply:
+  #   label: Apply
+  #   link: apply/
   - blog:
     label: Blog
     link: blog/
@@ -15,6 +15,11 @@ navigation:
   - donate:
     label: Donate
     link: *kofi_donation_link
+  - youtube:
+    label: YouTube
+    link: https://www.youtube.com/@in-tech-gration
+    className: bg-red-500 text-white border-red-500 py-2 px-4 mx-2 border-2 border-black rounded-3xl shadow-md hover:shadow-xl font-bold hover:bg-red-700 hover:border-red-700
+    external: true
 
 # DONATION LINKS
 donation_links:
