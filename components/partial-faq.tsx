@@ -37,7 +37,7 @@ export default function PartialFaq() {
               </div>
             </div>
             {/* Column */}
-            <div className="w-full md:w-1/2 space-y-8">
+            <div className="w-full md:w-1/2 space-y-8 self-center">
               {/* Item */}
               <div className="space-y-2">
                 <h3 className="text-xl font-cabinet-grotesk font-bold">
@@ -47,14 +47,14 @@ export default function PartialFaq() {
                   {config.faqs[1].answer}
                 </p>
               </div>
-              <div className="space-y-2">
+              {/* <div className="space-y-2">
                 <h3 className="text-xl font-cabinet-grotesk font-bold">
                   {config.faqs[3].question}
                 </h3>
                 <p className="text-gray-800">
                   {config.faqs[3].answer}
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
           {/*Button added to /faqs page*/}

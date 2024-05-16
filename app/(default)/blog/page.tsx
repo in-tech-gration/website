@@ -1,7 +1,13 @@
 import BlogPostItem from "@/components/blog-post-item";
 import { blogPosts } from "@/util/blog-utils";
+import { notFound } from "next/navigation";
 
 function Blog() {
+
+  if (process.env.NODE_ENV !== 'development') {
+    notFound()
+  }
+
   return (
     <section className="bg-secondary mt-4 h-full flex items-center">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-20">

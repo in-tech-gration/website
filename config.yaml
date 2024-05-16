@@ -30,10 +30,11 @@ donation_links:
 
 # FAQ PAGE:
 faqs:
-  - question: >-
-      How do I enrol in the WDX 180° course?
-    answer: >-
-      You have to apply through our <a href="apply" target="_blank" class="font-bold underline">application form</a> and we will contact you with more details shortly after you've submitted your application.
+#  Uncomment when applications open
+  # - question: >-
+  #     How do I enrol in the WDX 180° course?
+  #   answer: >-
+  #     You have to apply through our <a href="apply" target="_blank" class="font-bold underline">application form</a> and we will contact you with more details shortly after you've submitted your application.
   - question: >-
       Do I need prior coding experience to qualify?
     answer: >-
