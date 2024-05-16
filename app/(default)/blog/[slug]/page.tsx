@@ -9,7 +9,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
 import CustomLink from "@/components/mdx/CustomLink";
 import BlogNavigation from "@/components/blog-navigation/blog-navigation";
-import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 const options = {
   mdxOptions: {
@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: any) {
 export default function Post({ params }: any) {
 
   if (process.env.NODE_ENV !== 'development') {
-    redirect('/');
+    notFound();
   }
 
   const props = getPost(params);

@@ -1,11 +1,11 @@
 import BlogPostItem from "@/components/blog-post-item";
 import { blogPosts } from "@/util/blog-utils";
-import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 function Blog() {
 
   if (process.env.NODE_ENV !== 'development') {
-    redirect('/');
+    notFound()
   }
 
   return (
