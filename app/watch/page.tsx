@@ -260,10 +260,3 @@ Watch.getLayout = function getLayout(page) {
   )
 }
 
-export async function generateMetadata({ params }: any) {
- 
-  return {
-    title: "A Hacker's Playlist - intechgration.io",
-    description: "Films, series and documentaries for hackers. ;)",
-  };
-}
