@@ -48,12 +48,11 @@ function MovieItem({ movie }) {
   )
 }
 
-// @ts-ignore
-function Details({ movie }) {
+function Details({ movie }: { movie:any }) {
 
   const router = useRouter();
   const watchOn = movie.watch_on;
-  let youTube = null;
+  let youTube:any = null;
   if ( watchOn ){
     if ( watchOn.youtube ){
       youTube = watchOn.youtube;
