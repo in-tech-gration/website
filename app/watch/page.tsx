@@ -8,10 +8,15 @@ import { useSearchParams, useRouter } from 'next/navigation';
 
 // @ts-ignore
 function value(movie, prop) {
-  if (prop === "release_date")
-    return new Date(movie.release_date).valueOf();
-  else
+  if (prop === "release_date"){
+    const releaseData = movie.release_date ? movie.release_date : movie.first_air_date;
+    return new Date(releaseData).valueOf();
+  } else {
+    if ( prop === "title" && movie.type ){
+      return movie.original_name;
+    }
     return movie[prop]
+  }
 }
 
 // @ts-ignore
@@ -20,7 +25,7 @@ function MovieItem({ movie }) {
   const router = useRouter()
 
   return (
-    <li className="item" id={`movie-${movie.id}`}>
+    <li className="item bg-black" id={`movie-${movie.id}`}>
       <a href={`?movie=${movie.id}`} onClick={e => {
         e.preventDefault();
         router.push(`watch?movie=${movie.id}`);
@@ -31,7 +36,12 @@ function MovieItem({ movie }) {
           alt=""
           className="thumb"
           src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} />
-        <span className="title">{movie.type === "Miniseries" || movie.type === "Scripted" ? movie.name : movie.title} </span>
+        <span className="title">
+          {movie.type === "Miniseries" || movie.type === "Scripted" ? movie.name : movie.title} 
+          <span className="font-normal">
+            {(!movie.type) ? (` (${new Date(movie.release_date).getFullYear()})`) : (` (${new Date(movie.first_air_date).getFullYear()})`) }
+          </span>
+        </span>
       </a>
     </li>
 
@@ -52,6 +62,15 @@ function Details({ movie }) {
 
   return (
     <section id="details">
+
+      <span 
+        onClick={e => {
+          e.preventDefault();
+          router.push(`watch`);
+        }}
+        className="text-white text-9xl font-thin cursor-pointer fixed top-0 right-12" 
+        dangerouslySetInnerHTML={{ __html: `&times;` }}></span>
+
       <a href="?list" onClick={e => {
         e.preventDefault();
         router.push(`watch`);
@@ -98,7 +117,9 @@ export default function Watch() {
 
   const [movies, setMovies] = useState(new Map());
   const [sortedBy, setSortedBy] = useState<"title" | "release_date" | "id">("title");
+  const [genreSortBy, setGenreSortBy ] = useState(["movies","series","documentary"]);
   const searchParams = useSearchParams();
+
   let selectedMovie = null;
   let selectedMovieId: string | null = null;
   if (searchParams) {
@@ -140,6 +161,8 @@ export default function Watch() {
         <div className="content">
           <section id="list">
 
+            <h1 className="text-center text-white text-8xl font-thin mt-10">A Hacker's Playlist</h1>
+
             <div className="forms flex justify-center m-16 gap-4">
 
               <form id="sorter" onChange={e => {
@@ -147,13 +170,13 @@ export default function Watch() {
                 setSortedBy(e.target.value);
               }}>
                 Sort by:
-                <label>
+                {/* <label>
                   <input
                     type="radio"
                     name="sort"
                   />
                   <span>ID</span>
-                </label>
+                </label> */}
                 <label>
                   <input defaultChecked={true} type="radio" name="sort" defaultValue="title" />
                   <span>Title</span>
@@ -166,14 +189,22 @@ export default function Watch() {
 
               <form id="genre_sorter" onChange={e => {
                 // @ts-ignore
-                // setSortedBy(e.target.value);
+                setGenreSortBy( prev => {
+                  // @ts-ignore
+                  const value = e.target.value;
+                  // @ts-ignore 
+                  if ( prev.includes(value) ){
+                    return prev.filter( v => v !== value );
+                  }
+                  return [...prev, value];
+                });
               }}>
                 Genre:
                 <label>
                   <input
                     type="checkbox"
                     name="genre"
-                    defaultValue="movie"
+                    defaultValue="movies"
                     defaultChecked={true}
                   />
                   <span>Movie</span>
@@ -193,6 +224,15 @@ export default function Watch() {
             <ul>
               {/* @ts-ignore */}
               {sortedMovies.map(movie => {
+
+                const type = movie.genres.some((g:any) =>{
+                  return g.name === "Documentary";
+                }) ? "documentary" : movie.type ? "series" : "movies"; 
+
+                if ( !genreSortBy.includes(type) ){
+                  return null;
+                }
+
                 // @ts-ignore
                 return <MovieItem movie={movie} key={movie.id} />
               })}
