@@ -5,6 +5,7 @@ import "./watch.css";
 import { useEffect, useState } from 'react';
 // import Image from 'next/image' // Fuck this!
 import { useSearchParams, useRouter } from 'next/navigation';
+import Theater from "@/public/images/hackers.theater.png";
 
 // @ts-ignore
 function value(movie, prop) {
@@ -79,8 +80,8 @@ function Details({ movie }: { movie:any }) {
           id="hero"
           src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
           alt="" />
-        <h4 className="title title--single">{movie.type === "Miniseries" || movie.type === "Scripted" ? movie.name : movie.title}</h4>
-        <p className="overview">{movie.overview}</p>
+        <h4 className="title title--single text-white">{movie.type === "Miniseries" || movie.type === "Scripted" ? movie.name : movie.title}</h4>
+        <p className="overview text-white">{movie.overview}</p>
 
         { watchOn && (
 
@@ -127,12 +128,16 @@ export default function Watch() {
       const movie = movies.get(+selectedMovieId);
       selectedMovie = movie;
     }
-    document.documentElement.classList.toggle("details", searchParams.has("movie"));
+    if (typeof window !== "undefined") {
+      window.document.documentElement.classList.toggle("details", searchParams.has("movie"));
+    }
   }
 
   useEffect(() => {
 
-    document.documentElement.className = "js";
+    if (typeof window !== "undefined") {
+      window.document.documentElement.className = "js";
+    }
 
     fetch('/assets/watch/data.json')
       .then((res) => res.json())
@@ -156,6 +161,7 @@ export default function Watch() {
 
   return (
     <section>
+      <div className="relative bg-no-repeat bg-cover h-screen opacity-70" style={{ backgroundImage: `url(${Theater.src})` }}></div>
       <main>
         <div className="content">
           <section id="list">
