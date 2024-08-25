@@ -160,7 +160,7 @@ export default function Watch() {
         <div className="content">
           <section id="list">
 
-            <h1 className="text-center text-white text-8xl font-thin mt-10">A Hacker's Playlist</h1>
+            <h1 className="text-center text-white text-8xl font-thin mt-10">A Hacker's Watch List</h1>
 
             <div className="forms flex justify-center m-16 gap-4">
 
