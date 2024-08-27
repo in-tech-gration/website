@@ -198,7 +198,9 @@ a:focus-visible {
   justify-content: flex-start;
 }
 
-:root.details section#list,
+:root.details section#list {
+  display: none;
+}
 :root:not(.details) section#details {
   display: none;
 }

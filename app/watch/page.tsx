@@ -29,7 +29,8 @@ function MovieItem({ movie }) {
     <li className="item bg-black" id={`movie-${movie.id}`}>
       <a href={`?movie=${movie.id}`} onClick={e => {
         e.preventDefault();
-        router.push(`watch?movie=${movie.id}`);
+        const newUrl = new URL(window.location.href);
+        router.push(`watch?${newUrl.searchParams.toString()}&movie=${movie.id}`);
 
       }}>
         {/* eslint-disable-next-line */}
@@ -60,20 +61,26 @@ function Details({ movie }: { movie:any }) {
     }
   }
 
+  function goBack(){
+    const newUrl = new URL(window.location.href);
+    newUrl.searchParams.delete("movie");
+    router.push(`watch?${newUrl.searchParams.toString()}`);
+  }
+
   return (
     <section id="details">
 
       <span 
         onClick={e => {
           e.preventDefault();
-          router.push(`watch`);
+          goBack();
         }}
         className="text-white text-9xl font-thin cursor-pointer fixed top-0 right-12" 
         dangerouslySetInnerHTML={{ __html: `&times;` }}></span>
 
       <a href="?list" onClick={e => {
         e.preventDefault();
-        router.push(`watch`);
+        goBack();
       }}>
         {/* eslint-disable-next-line */}
         <img
@@ -115,10 +122,13 @@ function Details({ movie }: { movie:any }) {
 // Demo: https://tympanus.net/Tutorials/Velvette/
 export default function Watch() {
 
-  const [movies, setMovies] = useState(new Map());
-  const [sortedBy, setSortedBy] = useState<"title" | "release_date" | "id">("title");
-  const [genreSortBy, setGenreSortBy ] = useState(["movies","series","documentary"]);
   const searchParams = useSearchParams();
+  const selectedGenres = searchParams?.get("genres")?.split(",");
+  const selectedSortedBy = searchParams?.get("sorted_by");
+
+  const [movies, setMovies] = useState(new Map());
+  const [sortedBy, setSortedBy] = useState<string>( selectedSortedBy ? selectedSortedBy : "title" );
+  const [genreSortBy, setGenreSortBy ] = useState( selectedGenres ? selectedGenres : ["movies","series","documentary"]);
 
   let selectedMovie = null;
   let selectedMovieId: string | null = null;
@@ -133,7 +143,7 @@ export default function Watch() {
     }
   }
 
-  useEffect(() => {
+  useEffect(function fetchMovieData(){
 
     if (typeof window !== "undefined") {
       window.document.documentElement.className = "js";
@@ -149,15 +159,28 @@ export default function Watch() {
 
   }, [])
 
+  useEffect(function updateQueryString(){
+
+    const newUrl = new URL(window.location.href);
+    newUrl.searchParams.delete('sorted_by'); 
+    newUrl.searchParams.append('sorted_by', sortedBy); 
+    newUrl.searchParams.delete('genres'); 
+    if ( genreSortBy.length < 3 ){
+      newUrl.searchParams.append('genres', genreSortBy.toString()); 
+    }
+    history.pushState(null, "", newUrl.toString());
+
+  },[sortedBy,genreSortBy])
+
   const sortedMovies = Array.from(movies.values())
-    .sort((a, b) => {
-      const valueA = value(a, sortedBy);
-      const valueB = value(b, sortedBy);
-      if (typeof valueA === "string") {
-        return valueA > valueB ? 1 : valueA < valueB ? -1 : 0;
-      }
-      return valueA - valueB;
-    });
+  .sort((a, b) => {
+    const valueA = value(a, sortedBy);
+    const valueB = value(b, sortedBy);
+    if (typeof valueA === "string") {
+      return valueA > valueB ? 1 : valueA < valueB ? -1 : 0;
+    }
+    return valueA - valueB;
+  });
 
   return (
     <section>
@@ -183,11 +206,11 @@ export default function Watch() {
                   <span>ID</span>
                 </label> */}
                 <label>
-                  <input defaultChecked={true} type="radio" name="sort" defaultValue="title" />
+                  <input checked={sortedBy === "title"} type="radio" name="sort" value="title" readOnly />
                   <span>Title</span>
                 </label>
                 <label>
-                  <input type="radio" name="sort" defaultValue="release_date" />
+                  <input checked={sortedBy === "release_date"} type="radio" name="sort" value="release_date" readOnly />
                   <span>Release Date</span>
                 </label>
               </form>
@@ -210,16 +233,26 @@ export default function Watch() {
                     type="checkbox"
                     name="genre"
                     defaultValue="movies"
-                    defaultChecked={true}
+                    defaultChecked={!selectedGenres || selectedGenres?.includes("movies")}
                   />
                   <span>Movie</span>
                 </label>
                 <label>
-                  <input defaultChecked={true} type="checkbox" name="genre" defaultValue="series" />
+                  <input 
+                    type="checkbox" 
+                    name="genre" 
+                    defaultChecked={!selectedGenres || selectedGenres?.includes("series")}
+                    defaultValue="series" 
+                    />
                   <span>Series</span>
                 </label>
                 <label>
-                  <input type="checkbox" name="genre" defaultValue="documentary" defaultChecked={true} />
+                  <input 
+                    type="checkbox" 
+                    name="genre" 
+                    defaultValue="documentary" 
+                    defaultChecked={!selectedGenres || selectedGenres?.includes("documentary")}
+                    />
                   <span>Documentary</span>
                 </label>
               </form>
@@ -260,7 +293,6 @@ export default function Watch() {
 Watch.getLayout = function getLayout(page) {
   return (
     <>
-      <h1>aaa</h1>
       {page}
     </>
   )
