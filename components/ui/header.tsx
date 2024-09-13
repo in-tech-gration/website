@@ -52,7 +52,9 @@ export default function Header({ nav = true }: { nav?: boolean }) {
             const className = menuItem.className ? menuItem.className : `${addActive(menuItem.link)} ${styles.header_btn} ${styles.highlight}`;
             const target = menuItem.external ? { target : "_blank" } : {};
             
+            // Do not display content that is under development:
             if ( menuItem.dev && !isDev  ) return;
+
             return (
               <Link
                 {...target}

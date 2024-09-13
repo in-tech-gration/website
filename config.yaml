@@ -11,7 +11,7 @@ navigation:
   - blog:
     label: Blog
     link: blog/
-    dev: true
+    # dev: true
   - faq:
     label: FAQ
     link: faq/
