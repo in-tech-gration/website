@@ -4,9 +4,9 @@ import { notFound } from "next/navigation";
 
 function Blog() {
 
-  if (process.env.NODE_ENV !== 'development') {
-    notFound()
-  }
+  // if (process.env.NODE_ENV !== 'development') {
+  //   notFound()
+  // }
 
   return (
     <section className="bg-secondary mt-4 h-full flex items-center">

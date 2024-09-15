@@ -65,9 +65,9 @@ export async function generateMetadata({ params }: any) {
 
 export default function Post({ params }: any) {
 
-  if (process.env.NODE_ENV !== 'development') {
-    notFound();
-  }
+  // if (process.env.NODE_ENV !== 'development') {
+  //   notFound();
+  // }
 
   const props = getPost(params);
   const URL: string = "https://intechgration.io/";
