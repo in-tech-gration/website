@@ -156,7 +156,7 @@ export default function Post({ params }: any) {
             </div>
           </header>
 
-          <div className="prose text-slate-500 max-w-none prose-p:leading-normal prose-headings:text-slate-800 prose-a:font-medium prose-a:text-sky-500 prose-a:no-underline hover:prose-a:underline prose-strong:font-medium prose-strong:text-slate-800 prose-pre:bg-slate-800">
+          <div className="prose text-lg max-w-none prose-p:leading-normal prose-headings:text-slate-800 prose-a:font-medium prose-a:text-sky-500 prose-a:no-underline hover:prose-a:underline prose-strong:font-medium prose-strong:text-slate-800 prose-pre:bg-slate-800">
             {/* @ts-expect-error Server Component*/}
             <MDXRemote
               source={props.content}

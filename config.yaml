@@ -10,11 +10,11 @@ navigation:
     link: https://forms.gle/bCAhZw7H174gBAh2A
   - blog:
     label: Blog
-    link: blog/
+    link: /blog/
     # dev: true
   - faq:
     label: FAQ
-    link: faq/
+    link: /faq/
   - donate:
     label: Donate
     link: *kofi_donation_link
