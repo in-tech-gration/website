@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import config from "@/config.yaml";
@@ -19,6 +19,7 @@ function createAddActive(pathname: string | null) {
 export default function Header({ nav = true }: { nav?: boolean }) {
   const [top, setTop] = useState(true);
   const addActive = createAddActive(usePathname());
+  const email = useRef("c3RhZmYuaW50ZWNoZ3JhdGlvbkBnbWFpbC5jb20=");
 
   // detect whether user has scrolled the page down by 10px
   useEffect(() => {
@@ -66,6 +67,14 @@ export default function Header({ nav = true }: { nav?: boolean }) {
               </Link>
             )
           })}
+          <Link 
+            onClick={(e)=>{
+              e.preventDefault();
+              alert(`Send us an email at: ${window.atob(email.current)}`);
+              location.href = "mailto:" + window.atob(email.current);
+            }}
+            className={`${styles.header_btn} ${styles.highlight}`}
+            href={email.current}>Contact</Link>
         </div>
 
       </nav>

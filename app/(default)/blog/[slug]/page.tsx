@@ -137,7 +137,7 @@ export default function Post({ params }: any) {
                     </svg>
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a
                     className="flex justify-center items-center text-slate-400 hover:text-sky-500 transition duration-150 ease-in-out"
                     href="#0"
@@ -151,7 +151,7 @@ export default function Post({ params }: any) {
                       <path d="M20 14c1.654 0 3-1.346 3-3s-1.346-3-3-3-3 1.346-3 3c0 .223.029.439.075.649l-3.22 2.012A2.97 2.97 0 0 0 12 13c-1.654 0-3 1.346-3 3s1.346 3 3 3a2.97 2.97 0 0 0 1.855-.661l3.22 2.012c-.046.21-.075.426-.075.649 0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3a2.97 2.97 0 0 0-1.855.661l-3.22-2.012c.046-.21.075-.426.075-.649 0-.223-.029-.439-.075-.649l3.22-2.012A2.97 2.97 0 0 0 20 14Z" />
                     </svg>
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
           </header>
