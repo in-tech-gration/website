@@ -60,6 +60,9 @@ export async function generateMetadata({ params }: any) {
     date: blog.frontMatter.date,
     image: blog.frontMatter.image,
     categories: blog.frontMatter.categories,
+    author: blog.frontMatter.author,
+    role: blog.frontMatter.role,
+    authorImg: blog.frontMatter.authorImg
   };
 }
 
