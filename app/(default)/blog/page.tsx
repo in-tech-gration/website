@@ -16,9 +16,7 @@ function Blog() {
 
           <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
             {blogPosts.map((post) => {
-
               return <BlogPostItem key={post.meta ? post.meta.id : ""} post={post} />
-
             })}
           </div>
 
