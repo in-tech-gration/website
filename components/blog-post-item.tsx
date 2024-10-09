@@ -9,52 +9,80 @@ type BlogPostItemProps = {
 };
 
 const BlogPostItem: FunctionComponent<BlogPostItemProps> = ({ post }) => {
-  return post.meta ? (
-    <article className="py-5 border-b border-slate-100 dark:border-slate-800">
-      <div key={post.meta.id} className="flex items-start">
-        <Image
-          className="rounded w-16 h-16 sm:w-[88px] sm:h-[88px] object-cover mr-6"
-          src={post.meta.image}
-          width={88}
-          height={88}
-          alt={post.meta.title}
-        />
-        <div>
-          <div className="text-xs text-slate-500 uppercase mb-1">
-            <span className="text-sky-500">—</span>{" "}
-            <PostDate dateString={post.meta.date} />
-          </div>
-          <h3 className="font-aspekta text-lg font-[650] mb-1">
-            <Link
-              className="inline-flex relative hover:text-sky-500 duration-150 ease-out before:scale-x-0 before:origin-center before:absolute before:inset-0 before:bg-sky-200 dark:before:bg-sky-500 before:opacity-30 before:-z-10 before:translate-y-1/4 before:-rotate-2 hover:before:scale-100 before:duration-150 before:ease-in-out"
-              href={`/blog/${post.slug}`}
-            >
-              {post.meta.title}
-            </Link>
-          </h3>
-          <div className="flex">
-            <div className="grow text-sm text-slate-500 dark:text-slate-400">
-              {post.meta.description}
-            </div>
-            <Link
-              className="hidden lg:flex shrink-0 text-sky-500 items-center justify-center w-12 group"
-              href={`/blog/${post.slug}`}
-              tabIndex={-1}
-            >
-              <svg
-                className="fill-current group-hover:translate-x-2 duration-150 ease-in-out"
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="12"
+
+  if (!post.meta) {
+    return null;
+  }
+
+  let options = {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  };
+  // @ts-ignore
+  const formattedDate = new Intl.DateTimeFormat("en-US", options).format(new Date(post.meta.date));
+
+  return (
+    <article key={post.meta ? post.meta.id : ""} className="relative isolate flex flex-col gap-8 lg:flex-row">
+
+      <a href={`/blog/${post.slug}`}>
+        <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
+
+          {/* eslint-disable-next-line */}
+          <img
+            alt=""
+            src={post.meta?.image}
+            className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
+          />
+
+          <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+        </div>
+      </a>
+
+      <div className="flex flex-col">
+        <div className="flex items-center gap-x-4 text-xs">
+          <time dateTime={post.meta.date} className="text-gray-500">
+            {formattedDate}
+          </time>
+          {post.meta.categories.map((cat: string) => {
+            return (
+              <a
+                key={cat}
+                href={"#"}
+                className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100 cursor-default"
               >
-                <path d="M9.586 5 6.293 1.707 7.707.293 13.414 6l-5.707 5.707-1.414-1.414L9.586 7H0V5h9.586Z" />
-              </svg>
-            </Link>
+                {cat}
+              </a>
+            )
+          })}
+        </div>
+        <div className="group relative max-w-xl grow">
+          <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+            <a href={`/blog/${post.slug}`}>
+              <span className="absolute inset-0" />
+              {post.meta.title}
+            </a>
+          </h3>
+          <p className="mt-5 text-sm leading-6 text-gray-600">{post.meta.description}</p>
+        </div>
+        <div className="mt-6 flex border-t border-gray-900/5 pt-6">
+          <div className="relative flex items-center gap-x-4">
+            {/* eslint-disable-next-line */}
+            <img alt="" src={post.meta.authorImg} className="h-10 w-10 rounded-full bg-gray-50" />
+            <div className="text-sm leading-6">
+              <p className="font-semibold text-gray-900">
+                <a href={"#"} className="cursor-default">
+                  <span className="absolute inset-0" />
+                  {post.meta.author}
+                </a>
+              </p>
+              <p className="text-gray-600">{post.meta.role}</p>
+            </div>
           </div>
         </div>
       </div>
     </article>
-  ) : null;
+  )
 };
 
 export default BlogPostItem;
