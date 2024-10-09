@@ -5,11 +5,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Photo1 from "@/public/images/it1.jpg";
-import Photo2 from "@/public/images/it2.jpg";
-import Photo3 from "@/public/images/it3.jpg";
+import Cohort02Grad1st from "@/public/images/22.12.2023.Cohort.0x02.Graduation.Blurred.jpg";
 
 export default function Inspiration() {
-
   const [write, setWrite] = useState(true); // for typewriter-effect
 
   useEffect(() => {
@@ -22,7 +20,6 @@ export default function Inspiration() {
 
   return (
     <section className="bg-secondary">
-
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pt-12 md:pt-32">
           {/* Section header */}
@@ -43,7 +40,6 @@ export default function Inspiration() {
                 🤔 What is intechgration?
               </h2>
               <section className="mt-6 ml-4">
-
                 <code className="text-2xl font-semibold text-left">
                   {write ? (
                     <Typewriter
@@ -56,21 +52,43 @@ export default function Inspiration() {
                         // .callFunction(() => {
                         //   console.log("All strings were deleted");
                         // })
-                        // 
+                        //
                       }}
                     />
-                  ) : ""}
+                  ) : (
+                    ""
+                  )}
                 </code>
                 <section className="text-2xl text-left mt-4">
-                  <p className="mb-5">We're on a journey 🚀 to share our knowledge and passion for Computing, Software Engineering and Web Development with the
-                    world.</p>
-                  <p className="mb-5">More specifically, we are committed to providing free
-                    and open source education to underprivileged individuals and
+                  <p className="mb-5">
+                    We're on a journey 🚀 to share our knowledge and passion for
+                    Computing, Software Engineering and Web Development with the
+                    world.
+                  </p>
+                  <p className="mb-5">
+                    More specifically, we are committed to providing free and
+                    open source education to underprivileged individuals and
                     marginalized groups, to people who lack access to essential
                     resources and opportunities, to people that are faced with
-                    social and economical disadvantages.</p>
-                  <p className="mb-5">We want to provide hope and essential skills to refugees, migrants, people with disabilities, people that have completed drug rehabilitation programs, former inmates, single parents and everyone who's facing the extreme hardships of life and looking for a change in their career.</p>
-                  <p className="mb-5">If that sounds moving to you, there are plenty of ways you can support. You can start by filling out <Link className="underline text-blue-700 font-bold" href="https://tally.so/r/nP1zWd">this form</Link>.
+                    social and economical disadvantages.
+                  </p>
+                  <p className="mb-5">
+                    We want to provide hope and essential skills to refugees,
+                    migrants, people with disabilities, people that have
+                    completed drug rehabilitation programs, former inmates,
+                    single parents and everyone who's facing the extreme
+                    hardships of life and looking for a change in their career.
+                  </p>
+                  <p className="mb-5">
+                    If that sounds moving to you, there are plenty of ways you
+                    can support. You can start by filling out{" "}
+                    <Link
+                      className="underline text-blue-700 font-bold"
+                      href="https://tally.so/r/nP1zWd"
+                    >
+                      this form
+                    </Link>
+                    .
                   </p>
                 </section>
               </section>
@@ -79,20 +97,36 @@ export default function Inspiration() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="px-4 sm:px-6">
         <div className="pb-12 md:pb-20 mt-24">
           {/* Section header */}
           <div className="pb-12 md:pb-14">
             <div className="relative text-center md:text-left">
               <section className="mt-6 ml-4">
-                <section className="text-2xl text-center mt-4">
-                  <Image
-                    className="inline-block mb-12 shadow-lg border-2 border-neutral-500"
-                    src={Photo1}
-                    width={600}
-                    alt="Graduation"
-                  />
-                  <p className="text-lg italic">Photo from graduation day of Class 1 (2023)</p>
+                <section className="flex xl:flex-row flex-col justify-evenly text-2xl text-center mt-4">
+                  <div>
+                    <Image
+                      className="inline-block mb-12 shadow-lg border-2 border-neutral-500"
+                      src={Photo1}
+                      width={600}
+                      alt="Graduation day of Class 1 (2023)"
+                    />
+                    <p className="text-lg italic">
+                      Photo from graduation day of Class 1 (2022-2023)
+                    </p>
+                  </div>
+                  <div className="self-center">
+                    <Image
+                      className="inline-block mb-12 shadow-lg border-2 border-neutral-500"
+                      src={Cohort02Grad1st}
+                      width={800}
+                      alt="Graduation day of Class 3 1st semester (2024)"
+                    />
+                    <p className="text-lg italic">
+                      Photo from graduation day of Class 3 1st semester
+                      (2023-2024)
+                    </p>
+                  </div>
                 </section>
               </section>
             </div>
