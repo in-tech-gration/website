@@ -3,19 +3,17 @@ import { blogPosts } from "@/util/blog-utils";
 import { notFound } from "next/navigation";
 
 function Blog() {
-
   // if (process.env.NODE_ENV !== 'development') {
   //   notFound()
   // }
 
   return (
-    <section className="bg-secondary mt-4 h-full flex items-center">
+    <section className="bg-secondary mt-10 min-h-screen flex items-center">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-20">
-
-      <header>
-        <h1 className="h1 font-aspekta">Blog</h1>
-        {/* <h2 className="font-aspekta">Subtitle</h2> */}
-      </header>
+        <header>
+          <h1 className="h1 font-aspekta">Blog</h1>
+          {/* <h2 className="font-aspekta">Subtitle</h2> */}
+        </header>
 
         <div className="grow md:flex space-y-8 md:space-y-0 md:space-x-8 pb-16 md:pb-20">
           <div className="grow">
@@ -41,7 +39,10 @@ function Blog() {
                   </li> */}
                 </ul>
                 {blogPosts.map((post) => (
-                  <BlogPostItem key={post.meta ? post.meta.id : ''} post={post} />
+                  <BlogPostItem
+                    key={post.meta ? post.meta.id : ""}
+                    post={post}
+                  />
                 ))}
               </div>
             </div>
