@@ -37,6 +37,7 @@
     "rehype-pretty-code": "^0.10.0",
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
+    "sharp": "^0.33.5",
     "swiper": "^8.4.7",
     "three": "^0.155.0",
     "typescript": "^5.0.4",
