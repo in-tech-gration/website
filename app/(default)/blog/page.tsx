@@ -11,7 +11,7 @@ function Blog() {
         <div className="mx-auto max-w-2xl lg:max-w-4xl">
           <h1 className="h1 font-aspekta">Blog</h1>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-            We post some really interesting stuff in here, from time to time.
+            We post some really interesting stuff in here from time to time.
           </p>
 
           <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
