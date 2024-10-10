@@ -1,11 +1,11 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import config from "@/config.yaml";
-import styles from "../styles.module.css";
 import { NavItem } from "../../types/";
+import styles from "../styles.module.css";
+import { usePathname } from "next/navigation";
 import { Disclosure } from "@headlessui/react";
+import { useEffect, useState, useRef } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const isDev = process.env.NODE_ENV === "development";
@@ -33,6 +33,46 @@ export default function Header({ nav = true }: { nav?: boolean }) {
     return () => window.removeEventListener("scroll", scrollHandler);
   }, [top]);
 
+  const navigationElements = () => (
+    <>
+      {/* NAVIGATION: See config.yaml */}
+      {config.navigation.map((menuItem: NavItem) => {
+        const className = menuItem.className
+          ? menuItem.className
+          : `${addActive(menuItem.link)} ${styles.header_btn} ${
+              styles.highlight
+            }`;
+        const target = menuItem.external ? { target: "_blank" } : {};
+
+        // Do not display content that is under development:
+        if (menuItem.dev && !isDev) return;
+
+        return (
+          <Disclosure.Button
+            as="a"
+            {...target}
+            key={menuItem.label}
+            href={menuItem.link}
+            className={className}
+          >
+            {menuItem.label}
+          </Disclosure.Button>
+        );
+      })}
+      <Link
+        onClick={(e) => {
+          e.preventDefault();
+          alert(`Send us an email at: ${window.atob(email.current)}`);
+          location.href = "mailto:" + window.atob(email.current);
+        }}
+        className={`${styles.header_btn} ${styles.highlight}`}
+        href={email.current}
+      >
+        Contact
+      </Link>
+    </>
+  );
+
   return (
     <header className="absolute w-full z-30">
       <Disclosure
@@ -41,105 +81,40 @@ export default function Header({ nav = true }: { nav?: boolean }) {
           !top && "bg-secondary shadow-xl"
         }`}
       >
-        <div className="flex w-full justify-evenly sm:w-fit sm:items-center mb-2 sm:mb-0">
-          <Link href="/">
-            <h1 className="text-2xl font-bold tracking-wide text-gray-600	">
-              in<span className="text-black ">tech</span>gration
-            </h1>
-          </Link>
-
-          <div className="sm:hidden">
-            {/* Mobile menu button */}
-            <Disclosure.Button className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black">
-              <span className="absolute -inset-0.5" />
-              <span className="sr-only">Open main menu</span>
-              {/* TODO: Figure out how each one can be properly hidden after button click */}
-              <Bars3Icon
-                aria-hidden="true"
-                className="block h-6 w-6 group-data-[open]:hidden"
-              />
-              <XMarkIcon
-                aria-hidden="true"
-                className="hidden h-6 w-6 group-data-[open]:block"
-              />
-            </Disclosure.Button>
-          </div>
-        </div>
-
-        {/* NAVIGATION: See config.yaml */}
-        <div className="hidden sm:flex">
-          {config.navigation.map((menuItem: NavItem) => {
-            const className = menuItem.className
-              ? menuItem.className
-              : `${addActive(menuItem.link)} ${styles.header_btn} ${
-                  styles.highlight
-                }`;
-            const target = menuItem.external ? { target: "_blank" } : {};
-
-            // Do not display content that is under development:
-            if (menuItem.dev && !isDev) return;
-
-            return (
+        {({ open }) => (
+          <>
+            <div className="flex w-full justify-between sm:w-fit sm:items-center mb-2 sm:mb-0">
               <Link
-                {...target}
-                key={menuItem.label}
-                href={menuItem.link}
-                className={className}
+                href="/"
+                className="text-2xl font-bold tracking-wide text-gray-600 self-center"
               >
-                {menuItem.label}
+                in<span className="text-black ">tech</span>gration
               </Link>
-            );
-          })}
-          <Link
-            onClick={(e) => {
-              e.preventDefault();
-              alert(`Send us an email at: ${window.atob(email.current)}`);
-              location.href = "mailto:" + window.atob(email.current);
-            }}
-            className={`${styles.header_btn} ${styles.highlight}`}
-            href={email.current}
-          >
-            Contact
-          </Link>
-        </div>
-        <Disclosure.Panel className="sm:hidden">
-          <div className="min-h-[calc(100vh-92px)] flex flex-col justify-evenly space-y-1 pb-3 pt-2">
-            {config.navigation.map((menuItem: NavItem) => {
-              const className = menuItem.className
-                ? menuItem.className
-                : `${addActive(menuItem.link)} ${styles.header_btn} ${
-                    styles.highlight
-                  }`;
-              const target = menuItem.external ? { target: "_blank" } : {};
 
-              // Do not display content that is under development:
-              if (menuItem.dev && !isDev) return;
-
-              return (
-                <Disclosure.Button
-                  as="a"
-                  {...target}
-                  key={menuItem.label}
-                  href={menuItem.link}
-                  className={className}
-                >
-                  {menuItem.label}
+              {/* Mobile menu button */}
+              <div className="sm:hidden">
+                <Disclosure.Button className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black">
+                  <span className="absolute -inset-0.5" />
+                  <span className="sr-only">Open main menu</span>
+                  {!open ? (
+                    <Bars3Icon aria-hidden="true" className="h-6 w-6" />
+                  ) : (
+                    <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+                  )}
                 </Disclosure.Button>
-              );
-            })}
-            <Link
-              onClick={(e) => {
-                e.preventDefault();
-                alert(`Send us an email at: ${window.atob(email.current)}`);
-                location.href = "mailto:" + window.atob(email.current);
-              }}
-              className={`${styles.header_btn} ${styles.highlight}`}
-              href={email.current}
-            >
-              Contact
-            </Link>
-          </div>
-        </Disclosure.Panel>
+              </div>
+            </div>
+
+            {/* Desktop navigation menu */}
+            <div className="hidden sm:flex">{navigationElements()}</div>
+            {/* Mobile navigation menu */}
+            <Disclosure.Panel className="sm:hidden">
+              <div className="min-h-[calc(100vh-92px)] flex flex-col justify-evenly space-y-1 pb-3 pt-2">
+                {navigationElements()}
+              </div>
+            </Disclosure.Panel>
+          </>
+        )}
       </Disclosure>
     </header>
   );
