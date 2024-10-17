@@ -55,19 +55,39 @@ export async function generateMetadata({ params }: any) {
   const blog = getPost(params);
 
   return {
-    title: blog.frontMatter.title,
+    title: blog.frontMatter.title + " | Blog | intechgration - coding bootcamp",
     description: blog.frontMatter.description,
     date: blog.frontMatter.date,
     image: blog.frontMatter.image,
     categories: blog.frontMatter.categories,
     author: blog.frontMatter.author,
     role: blog.frontMatter.role,
-    authorImg: blog.frontMatter.authorImg
+    authorImg: blog.frontMatter.authorImg,
+    openGraph: {
+      title:
+        blog.frontMatter.title + " | Blog | intechgration - coding bootcamp",
+      description: blog.frontMatter.description,
+      type: "website",
+      url: `https://intechgration.io/blog/${blog.slug}`,
+      images: [
+        {
+          url: "https://res.cloudinary.com/cloudinaryforme/image/upload/v1694097349/intechgration/intechgration-meta-logo_jyfrfc.png",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        blog.frontMatter.title + " | Blog | intechgration - coding bootcamp",
+      description: blog.frontMatter.description,
+      images: [
+        "https://res.cloudinary.com/cloudinaryforme/image/upload/v1694097349/intechgration/intechgration-meta-logo_jyfrfc.png",
+      ],
+    },
   };
 }
 
 export default function Post({ params }: any) {
-
   // if (process.env.NODE_ENV !== 'development') {
   //   notFound();
   // }
