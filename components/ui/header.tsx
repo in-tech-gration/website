@@ -109,7 +109,7 @@ export default function Header({ nav = true }: { nav?: boolean }) {
             <div className="hidden sm:flex">{navigationElements()}</div>
             {/* Mobile navigation menu */}
             <Disclosure.Panel className="sm:hidden">
-              <div className="min-h-[calc(100vh-92px)] flex flex-col justify-evenly space-y-1 pb-3 pt-2">
+              <div className="flex flex-col justify-start gap-2 space-y-1 pb-3 pt-2 text-center">
                 {navigationElements()}
               </div>
             </Disclosure.Panel>
