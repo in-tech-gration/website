@@ -103,7 +103,7 @@ export default function Inspiration() {
           <div className="pb-12 md:pb-14">
             <div className="relative text-center md:text-left">
               <section className="mt-6 ml-4">
-                <section className="flex xl:flex-row flex-col justify-evenly text-2xl text-center mt-4">
+                <section className="flex xl:flex-row flex-col justify-evenly text-2xl text-center mt-4 gap-4">
                   <div>
                     <Image
                       className="inline-block mb-12 shadow-lg border-2 border-neutral-500"
