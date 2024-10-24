@@ -34,12 +34,12 @@ export const getBlogCategories = () => {
   // TODO: Convert to Set()
   const categories: string[] = [];
 
-  blogPosts.forEach((post) =>
-    post.meta?.categories.forEach(
+  blogPosts.forEach((post) =>{
+    return post.meta?.categories?.forEach(
       (category: string) =>
         !categories.includes(category) && categories.push(category)
     )
-  );
+  });
 
   return categories.sort((a, b) => a.localeCompare(b));
 };

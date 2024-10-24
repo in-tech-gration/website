@@ -15,6 +15,7 @@ const BlogPostItem: FunctionComponent<BlogPostItemProps> = ({ post }) => {
     month: "short",
     day: "numeric",
   };
+
   const formattedDate = new Intl.DateTimeFormat("en-US", options).format(
     new Date(post.meta.date)
   );
