@@ -19,7 +19,9 @@ export default function Join() {
 
         <h1 className="text-white font-poppins text-4xl md:text-5xl lg:text-6xl font-bold mb-7 mt-6 sm:leading-[6rem]">
           {/* Start your journey into programming<br/>Oct 01, 2024 */}
-          We're on a journey to teach programming<br/>and inspire the world
+          We're on a journey to<br/>
+          teach programming<br/>
+          and inspire the world
         </h1>
         <p className="font-poppins mb-7 font-bold text-2xl text-white" >
           Become a web developer through our intensive 9-month WDX course.<br/>
