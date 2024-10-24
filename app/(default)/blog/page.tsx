@@ -1,5 +1,6 @@
-import BlogPostItem from "@/components/blog-post-item";
 import { blogPosts } from "@/util/blog-utils";
+import BlogPostItem from "@/components/blog-post-item";
+import BlogCategoryFilter from "@/components/blog-category-filter";
 
 export const metadata = {
   title: "Blog | intechgration - coding bootcamp",
@@ -25,7 +26,19 @@ export const metadata = {
   },
 };
 
-function Blog() {
+async function Blog({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const category = (await searchParams).category;
+
+  let filteredBlogPosts = !category
+    ? blogPosts
+    : blogPosts.filter(
+        (post) => post && post.meta?.categories.includes(category)
+      );
+
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -35,8 +48,10 @@ function Blog() {
             We post some really interesting stuff in here from time to time.
           </p>
 
+          {blogPosts.length > 1 && <BlogCategoryFilter selectedCategory={category} />}
+
           <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
-            {blogPosts.map((post) => {
+            {filteredBlogPosts.map((post) => {
               return (
                 <BlogPostItem key={post.meta ? post.meta.id : ""} post={post} />
               );
