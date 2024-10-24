@@ -8,15 +8,15 @@ const BlogCategoryFilter = (props: {
   const blogCategories: string[] = getBlogCategories();
 
   return (
-    <div className="flex justify-evenly mt-10 items-center gap-4">
-      <div className="text-2xl font-bold">Filter: </div>
+    <div className="flex mt-4 items-center">
+      <div className="text-1xl font-bold">Categories: </div>
       <div>
         {blogCategories.map((cat) => (
           <a
             key={cat}
             href={`?category=${cat}`}
-            className={`mx-2 relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-300 ${
-              selectedCategory === cat && "bg-amber-400"
+            className={`mx-2 relative z-10 rounded-full text-sm px-4 py-1.5 font-medium text-gray-600 hover:bg-gray-300 ${
+              selectedCategory === cat ? "bg-amber-400" : "bg-gray-50"
             }`}
           >
             {cat}
@@ -28,7 +28,7 @@ const BlogCategoryFilter = (props: {
           href={`/blog`}
           className={`${
             !selectedCategory && "hidden"
-          } mx-2 relative z-10 rounded-full border border-gray-600 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100`}
+          } mx-2 relative z-10 text-sm rounded-full border border-gray-600 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100`}
         >
           Clear
         </a>

@@ -28,9 +28,11 @@ export const blogPosts: blogPost[] = fs
   })
   .sort((a, b) => compareDesc(parseISO(a.meta.date), parseISO(b.meta.date)));
 
-// Returns string array of all distince categories of blogs
+// Returns string array of all distinct categories of blogs
 export const getBlogCategories = () => {
-  let categories: string[] = [];
+
+  // TODO: Convert to Set()
+  const categories: string[] = [];
 
   blogPosts.forEach((post) =>
     post.meta?.categories.forEach(
