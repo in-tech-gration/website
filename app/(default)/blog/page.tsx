@@ -26,12 +26,12 @@ export const metadata = {
   },
 };
 
-async function Blog({
+function Blog({
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const category = (await searchParams).category;
+  const category = searchParams.category;
 
   let filteredBlogPosts = !category
     ? blogPosts
@@ -48,7 +48,9 @@ async function Blog({
             We post some really interesting stuff in here from time to time.
           </p>
 
-          {blogPosts.length > 1 && <BlogCategoryFilter selectedCategory={category} />}
+          {blogPosts.length > 1 && (
+            <BlogCategoryFilter selectedCategory={category} />
+          )}
 
           <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
             {filteredBlogPosts.map((post) => {
