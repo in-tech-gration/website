@@ -2,9 +2,9 @@ define: &kofi_donation_link https://ko-fi.com/intechgration
 
 # NAVIGATION
 navigation:
-  - apply:
-    label: Apply
-    link: https://forms.gle/bCAhZw7H174gBAh2A
+  # - apply:
+  #   label: Apply
+  #   link: https://forms.gle/bCAhZw7H174gBAh2A
   - blog:
     label: Blog
     link: /blog/
@@ -30,11 +30,16 @@ donation_links:
 
 # FAQ PAGE:
 faqs:
-#  Uncomment when applications open
+  #  Uncomment when applications open
   - question: >-
       How do I enrol in the WDX 180° course?
+    # answer: >-
+    #   You have to apply through our <a href="https://forms.gle/bCAhZw7H174gBAh2A" target="_blank" class="font-bold underline">application form</a> and we will contact you with more details shortly after you've submitted your application.
     answer: >-
-      You have to apply through our <a href="https://forms.gle/bCAhZw7H174gBAh2A" target="_blank" class="font-bold underline">application form</a> and we will contact you with more details shortly after you've submitted your application.
+      Currently, our course is in progress, and the application process has finished.
+      Nevertheless, you can apply through our <a href="https://forms.gle/bCAhZw7H174gBAh2A" target="_blank" class="font-bold underline">application form</a> and we will contact you
+      to invite you to our Slack channel so you can start exploring our course in self-paced mode 
+      (but with the support and love from our online community of mentors, volunteers and students).
   - question: >-
       Do I need prior coding experience to qualify?
     answer: >-
@@ -81,7 +86,7 @@ faqs:
     answer: >-
       There’s no tuition fee. Our curriculum and courses are and will always be
       open-source and tuition-free.
-  - question: 'After registration, what next?'
+  - question: "After registration, what next?"
     answer: >-
       We’ll get in touch with you, so we get to know each other and help you
       with the onboarding process
@@ -90,7 +95,7 @@ faqs:
       You can still access and follow our curriculum for free or apply for one
       of our upcoming courses
   - question: When will the classes start?
-    answer: 'Our next cohort starts October 2nd, 2023'
+    answer: "Our next cohort starts October 2nd, 2023"
   - question: What is the duration of the course?
     answer: >-
       The course lasts for 9-months and specifically requires attendance for 180
