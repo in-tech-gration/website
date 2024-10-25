@@ -26,11 +26,9 @@ export const metadata = {
   },
 };
 
-function Blog({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
+type BlogProps = { searchParams: { [key: string]: string | string[] | undefined } }
+
+function Blog({ searchParams }: BlogProps) {
   const category = searchParams.category;
 
   let filteredBlogPosts = !category
