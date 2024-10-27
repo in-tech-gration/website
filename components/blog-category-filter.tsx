@@ -1,11 +1,27 @@
-import { getBlogCategories } from "@/util/blog-utils";
 import React from "react";
+
+// Returns string array of all distinct categories of blogs
+export const getBlogCategories = (blogPosts:any) => {
+
+  // TODO: Convert to Set()
+  const categories: string[] = [];
+
+  blogPosts.forEach((post:any) =>{
+    return post.meta?.categories?.forEach(
+      (category: string) =>
+        !categories.includes(category) && categories.push(category)
+    )
+  });
+
+  return categories.sort((a, b) => a.localeCompare(b));
+};
 
 const BlogCategoryFilter = (props: {
   selectedCategory?: string | string[];
+  blogPosts?: any
 }) => {
   const selectedCategory = props.selectedCategory;
-  const blogCategories: string[] = getBlogCategories();
+  const blogCategories: string[] = getBlogCategories(props.blogPosts);
 
   return (
     <div className="flex mt-4 items-center">
