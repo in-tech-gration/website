@@ -17,8 +17,8 @@ export const getBlogCategories = (blogPosts:any) => {
 };
 
 const BlogCategoryFilter = (props: {
-  selectedCategory?: string | string[];
-  blogPosts?: any
+  selectedCategory?: string | null;
+  blogPosts?: any;
 }) => {
   const selectedCategory = props.selectedCategory;
   const blogCategories: string[] = getBlogCategories(props.blogPosts);

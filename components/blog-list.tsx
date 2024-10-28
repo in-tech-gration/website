@@ -24,7 +24,7 @@ export default function BlogList({ blogPosts }:{ blogPosts: any }) {
             We post some really interesting stuff in here from time to time.
           </p>
 
-          {blogPosts.length > 1 && category && (
+          {blogPosts.length > 1 && (
             <BlogCategoryFilter selectedCategory={category} blogPosts={blogPosts} />
           )}
 
