@@ -30,7 +30,7 @@ const BlogCategoryFilter = (props: {
           <a
             key={cat}
             href={`?category=${cat}`}
-            className={`mx-2 relative z-10 rounded-full text-sm px-4 py-1.5 font-medium text-gray-600 hover:bg-gray-300 ${
+            className={`mx-1 relative z-10 rounded-full text-sm px-4 py-1.5 font-medium text-gray-600 hover:bg-gray-300 ${
               selectedCategory === cat ? "bg-amber-400" : "bg-gray-50"
             }`}
           >

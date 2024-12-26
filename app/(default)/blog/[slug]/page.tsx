@@ -101,10 +101,11 @@ export default function Post({ params }: any) {
         <article className="prose prose-sm md:prose-base lg:prose-lg mx-auto">
           {/* Post header */}
           <header>
-            <h1 className="h1 font-aspekta">{props.frontMatter.title}</h1>
+            <h1 className="h1 font-aspekta !mb-4">{props.frontMatter.title}</h1>
             <div className="flex items-center justify-between mb-1">
               {/* Post date */}
               <div className="text-xs text-slate-500">
+                Author: <span className="font-bold">{props.frontMatter.author}</span>{" | "}
                 <PostDate dateString={props.frontMatter.date} />{" "}
                 <span className="text-sky-500">—</span>{" "}
                 {props.frontMatter.categories.map(
@@ -121,7 +122,7 @@ export default function Post({ params }: any) {
                 )}
               </div>
               {/* Share buttons */}
-              <ul className="inline-flex list-none">
+              <ul className="inline-flex list-none !my-0">
                 <li>
                   <a
                     className="flex justify-center items-center text-slate-400 hover:text-sky-500 transition duration-150 ease-in-out"
