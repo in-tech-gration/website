@@ -11,6 +11,7 @@ import CustomLink from "@/components/mdx/CustomLink";
 import BlogNavigation from "@/components/blog-navigation/blog-navigation";
 import { notFound } from "next/navigation";
 import ZoomableImage from "@/components/zoomable-image";
+import Comments from "@/components/Comments";
 
 const options = {
   mdxOptions: {
@@ -186,8 +187,9 @@ export default function Post({ params }: any) {
             <MDXRemote
               source={props.content}
               components={{ 
-                Button, 
                 a: CustomLink,
+                Button, 
+                Comments,
                 ZoomableImage 
               }}
               // @ts-ignore
