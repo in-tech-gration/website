@@ -10,7 +10,7 @@ authorImg: "/images/avatar.kostasm.png"
 role: "Lead instructor / in:tech"
 ---
 
-![](/images/blog/wp-headless-cms-react/diorama_of_a_startup_company.png)
+![](/images/blog/wp-headless-cms-react/wp-headless-cms-react-header.jpg)
 
 Co-authored by **Kostas Minaidis** and **ChatGPT** | Last updated: 26.12.2024
 
@@ -50,6 +50,26 @@ The response might look like this:
 
 The WordPress REST API brings RESTful principles to WordPress, making its data accessible to external applications. This API lets developers retrieve posts, pages, categories, and more in JSON format.
 
+<ZoomableImage 
+  src="/images/blog/wp-headless-cms-react/WP-REST-API.png" 
+  subheading="(Image: The WordPress REST API. Click to Zoom)"
+  />
+
+By default, the WordPress REST API is enabled on all WordPress installations (starting with version 4.7). You don’t need to take extra steps to turn it on unless you’ve explicitly disabled it.
+
+The base endpoint for the API is: `https://your-site-url/wp-json/`
+
+### Testing the API:
+
+Visit **https://your-site-url/wp-json/wp/v2/posts** in your browser or use tools like [Postman](https://www.postman.com/) or [curl](https://curl.se/) to verify that the API is working.
+
+The API endpoints follow a logical structure based on your WordPress content types. Examples include:
+
+- Posts: **/wp-json/wp/v2/posts**
+- Pages: **/wp-json/wp/v2/pages**
+- Categories: **/wp-json/wp/v2/categories**
+- Users: **/wp-json/wp/v2/users**
+
 ### Example:
 
 Fetching blog posts from a WordPress site:
@@ -71,11 +91,6 @@ A sample response:
   }
 ]
 ```
-
-<ZoomableImage 
-  src="/images/blog/wp-headless-cms-react/WP-REST-API.png" 
-  subheading="(Image: The WordPress REST API. Click to Zoom)"
-  />
 
 ## Headless CMS
 

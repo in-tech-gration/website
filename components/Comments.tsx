@@ -64,9 +64,18 @@ const useScript = (params) => {
         setStatus(event.type === "load" ? "ready" : "error");
         
       };
+      // @ts-ignore
+      // const handleGlobalError = error =>{
+
+      //   console.log( error.filename === "https://utteranc.es/client.js");
+      //   console.log( error.message === "Uncaught NoModificationAllowedError: Failed to execute 'insertAdjacentHTML' on 'Element': The element has no parent." );
+      //   return false;
+
+      // }
 
       script.addEventListener("load", setAttributeStatus);
       script.addEventListener("error", setAttributeStatus);
+      // window.addEventListener("error", handleGlobalError);
 
       return () => {
        // useEffect clean up
@@ -74,6 +83,7 @@ const useScript = (params) => {
           body.removeChild(script);
           script.removeEventListener("load", setAttributeStatus);
           script.removeEventListener("error", setAttributeStatus);
+          // window.removeEventListener("error", handleGlobalError);
         }
       };
 
