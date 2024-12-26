@@ -10,6 +10,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 import CustomLink from "@/components/mdx/CustomLink";
 import BlogNavigation from "@/components/blog-navigation/blog-navigation";
 import { notFound } from "next/navigation";
+import ZoomableImage from "@/components/zoomable-image";
 
 const options = {
   mdxOptions: {
@@ -184,7 +185,11 @@ export default function Post({ params }: any) {
             {/* @ts-expect-error Server Component*/}
             <MDXRemote
               source={props.content}
-              components={{ Button, a: CustomLink }}
+              components={{ 
+                Button, 
+                a: CustomLink,
+                ZoomableImage 
+              }}
               // @ts-ignore
               options={options}
             />
