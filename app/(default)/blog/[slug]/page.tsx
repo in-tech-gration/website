@@ -31,7 +31,9 @@ const options = {
 export async function generateStaticParams() {
   const files = fs.readdirSync(path.join("blogs"));
 
-  const paths = files.map((filename) => ({
+  const paths = files
+  .filter( filename => filename !== ".DS_Store" )
+  .map((filename) => ({
     slug: filename.replace(".mdx", ""),
   }));
 
