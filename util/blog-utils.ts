@@ -13,6 +13,7 @@ const blogDir = "blogs";
 // Returns an array of blogPost in descending order according to their frontMatter date field.
 export const blogPosts: blogPost[] = fs
   .readdirSync(path.join(blogDir))
+  .filter( filename => filename !== ".DS_Store" )
   .map((filename) => {
     // Read the content of that blog
     const fileContent = fs.readFileSync(path.join(blogDir, filename), "utf-8");
