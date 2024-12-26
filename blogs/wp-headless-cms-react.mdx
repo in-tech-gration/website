@@ -1,0 +1,183 @@
+---
+id: "wp-headless-cms-react"
+title: "Using WordPress as a Headless CMS with React"
+date: "2024-12-26"
+description: "An Introduction to REST APIs, Headless CMS, and React SPAs with WordPress"
+image: "/images/blog/wp-headless-cms-react/diorama_of_a_startup_company.png"
+categories: ["Blog", "React", "JavaScript", "WordPress", "Frontend"]
+author: "Kostas Minaidis"
+authorImg: "/images/avatar.kostasm.png"
+role: "Lead instructor / in:tech"
+---
+
+![](/images/blog/wp-headless-cms-react/diorama_of_a_startup_company.png)
+
+Co-authored by **Kostas Minaidis** and **ChatGPT** | Last updated: 26.12.2024
+
+## Introduction
+
+Modern web applications thrive on dynamic, flexible, and efficient communication between systems. Today, we’ll explore how **REST APIs**, **JSON** data, **Headless CMS** platforms, and **React SPAs** _(Single Page Applications)_ fit together. Let’s dive into these essential concepts and build something practical along the way.
+
+## REST APIs and JSON Data: The Backbone of Modern Web Apps
+
+**REST** _(Representational State Transfer)_ APIs are a way for web applications to communicate. They allow apps to request and send data using HTTP methods like **GET**, **POST**, and **DELETE**. Most APIs return data in **JSON** _(JavaScript Object Notation)_ format, which is lightweight and easy to use in modern programming languages.
+
+### Example:
+
+Requesting a list of users from an API might look like this:
+
+```javascript
+fetch('https://api.example.com/users')
+  .then(response => response.json())
+  .then(data => console.log(data));
+```
+
+The response might look like this:
+
+```json
+[
+  { "id": 1, "name": "John Doe" },
+  { "id": 2, "name": "Jane Smith" }
+]
+```
+
+<ZoomableImage 
+  src="/images/blog/wp-headless-cms-react/REST-API-JSON.png" 
+  subheading="(Image: REST APIs and JSON. Click to Zoom)"
+  />
+
+## The WordPress REST API
+
+The WordPress REST API brings RESTful principles to WordPress, making its data accessible to external applications. This API lets developers retrieve posts, pages, categories, and more in JSON format.
+
+### Example:
+
+Fetching blog posts from a WordPress site:
+
+```javascript
+fetch('https://example.com/wp-json/wp/v2/posts')
+  .then(response => response.json())
+  .then(posts => console.log(posts));
+```
+
+A sample response:
+
+```json
+[
+  {
+    "id": 101,
+    "title": { "rendered": "Welcome to My Blog" },
+    "content": { "rendered": "<p>Hello world!</p>" }
+  }
+]
+```
+
+<ZoomableImage 
+  src="/images/blog/wp-headless-cms-react/WP-REST-API.png" 
+  subheading="(Image: The WordPress REST API. Click to Zoom)"
+  />
+
+## Headless CMS
+
+A **Headless CMS** (Content Management System) provides content storage and management without dictating how the content is displayed. Unlike traditional CMS platforms, it only serves content through APIs, allowing developers full control over the front-end experience.
+
+<ZoomableImage 
+  src="/images/blog/wp-headless-cms-react/Headless-CMS.png" 
+  subheading="(Image: Headless CMS, an overview. Click to Zoom)"
+  />
+
+
+## WordPress as a Headless CMS
+
+Using the WordPress REST API, you can decouple the WordPress back-end from its front-end. This makes WordPress a Headless CMS—an ideal setup for modern applications where a JavaScript framework like React is used to build the user interface.
+
+<ZoomableImage 
+  src="/images/blog/wp-headless-cms-react/WP-as-headless-CMS.png" 
+  subheading="(Image: WP as Headless CMS. Click to Zoom)"
+  />
+
+### Example Workflow:
+
+1. Use WordPress to create and manage content.
+2. Let React fetch the content via the WordPress REST API.
+3. Render the content using React.
+
+## Building a React SPA with WordPress Data
+
+Now, let’s put it all together by creating a simple React Single Page Application (SPA) that fetches and displays posts from a WordPress site.
+
+<ZoomableImage 
+  src="/images/blog/wp-headless-cms-react/WP-as-headless-CMS-with-React.png" 
+  subheading="(Image: React interacting with a Headless WP. Click to Zoom)"
+  />
+
+### Step 1: Initialize a React Project
+
+Use [vite](https://vite.dev/guide/) to set up your React environment:
+
+```bash
+npm create vite@latest wp-react-spa -- --template react
+cd wp-react-spa
+npm install
+npm run dev
+```
+
+### Step 2: Fetch WordPress Posts
+
+Update the `App.js` file to fetch and display posts:
+
+```javascript
+import React, { useState, useEffect } from 'react';
+
+function App() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch('https://example.com/wp-json/wp/v2/posts')
+      .then(response => response.json())
+      .then(data => setPosts(data));
+  }, []);
+
+  return (
+    <div>
+      <h1>Blog Posts</h1>
+      <ul>
+        {posts.map(post => (
+          <li key={post.id}>
+            <h2>{post.title.rendered}</h2>
+            <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### Step 3: Hosting the SPA
+
+1. Build the React app:
+
+   ```bash
+   npm run build
+   ```
+
+2. Host it on platforms like [Netlify](https://www.netlify.com/), [GitHub Pages](https://pages.github.com/), [Vercel](https://vercel.com/) or your preferred hosting service.
+
+3. Ensure the WordPress REST API is publicly accessible or uses secure tokens for restricted access.
+
+## Conclusion
+
+With REST APIs, JSON data, and the power of Headless CMS platforms like WordPress, you can build flexible, fast, and modern web applications. Combining WordPress with React opens up endless possibilities for creating dynamic, user-centric experiences.
+
+---
+
+#### How this article was created
+
+- The diagrams were generated by [ChatGPT](https://chatgpt.com/) using the [mermaid format](https://mermaid.js.org/) as instructed. They were converted to [Excalidraw drawings](https://excalidraw.com/) using the [Mermaid-to-Excalidraw tool](https://github.com/excalidraw/mermaid-to-excalidraw), in order to be easily manipulated, styled and exported to **jpg** images.
+
+---
+
+<Comments />
