@@ -1,5 +1,13 @@
 # cSpell: disable
 graduates:
+  # 0x03
+  "nelly-laurene-tumukunde":
+    fullName: Nelly Laurene TUMUKUNDE
+    course: WDX180
+    part: 1
+    cohort: "0x03"
+    date: 03/01/2025
+  # 0x02 
   "mary-richelle-dogra":
     fullName: Mary Richelle Dogra
     course: WDX180
@@ -60,6 +68,13 @@ graduates:
     cohort: "React Workshop Q1:2024"
     date: 29/03/2024
 cohorts:
+  "0x03":
+    leadInstructor:
+      fullName: Kostas Minaidis
+      linkedIn: kostas-minaidis
+    teachingAssistant:
+      fullName: Asteris Giannoudis
+      linkedIn: asteris-giannoudis
   "0x02":
     leadInstructor:
       fullName: Kostas Minaidis
