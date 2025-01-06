@@ -7,6 +7,12 @@ graduates:
     part: 1
     cohort: "0x03"
     date: 03/01/2025
+  "gregory-tsitses":
+    fullName: Gregory Tsitses
+    course: WDX180
+    part: 1
+    cohort: "0x03"
+    date: 06/01/2025
   # 0x02 
   "mary-richelle-dogra":
     fullName: Mary Richelle Dogra
