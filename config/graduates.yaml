@@ -13,7 +13,13 @@ graduates:
     part: 1
     cohort: "0x03"
     date: 06/01/2025
-  # 0x02 
+  "catherine-gousetis":
+    fullName: Catherine Gousetis
+    course: WDX180
+    part: 1
+    cohort: "0x03"
+    date: "10/01/2025"
+  # 0x02
   "mary-richelle-dogra":
     fullName: Mary Richelle Dogra
     course: WDX180
