@@ -136,7 +136,21 @@ export default function Watch() {
     selectedMovieId = searchParams.get('movie');
     if (selectedMovieId) {
       const movie = movies.get(+selectedMovieId);
-      selectedMovie = movie;
+
+      if ( movie.episode_number ){
+        selectedMovie = {
+          id: movie.id,
+          poster_path: movie.still_path,
+          type: "series",
+          title: movie.name,
+          first_air_date: movie.air_date,
+          overview: movie.overview,
+          release_date: movie.air_date,          
+        };
+      } else {
+        selectedMovie = movie;
+      }
+
     }
     if (typeof window !== "undefined") {
       window.document.documentElement.classList.toggle("details", searchParams.has("movie"));
@@ -263,12 +277,26 @@ export default function Watch() {
               {/* @ts-ignore */}
               {sortedMovies.map(movie => {
 
-                const type = movie.genres.some((g:any) =>{
+                const type = movie.episode_number ? "series" : movie.genres.some((g:any) =>{
                   return g.name === "Documentary";
                 }) ? "documentary" : movie.type ? "series" : "movies"; 
 
                 if ( !genreSortBy.includes(type) ){
                   return null;
+                }
+
+                if ( movie.episode_number ){
+                  const movieData = {
+                    id: movie.id,
+                    poster_path: movie.still_path,
+                    type: "series",
+                    title: movie.name,
+                    first_air_date: movie.air_date,
+                    release_date: movie.air_date,
+                  }
+
+                  // @ts-ignore
+                  return <MovieItem movie={movieData} key={movie.id} />
                 }
 
                 // @ts-ignore
