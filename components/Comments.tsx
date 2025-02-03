@@ -80,7 +80,11 @@ const useScript = (params) => {
       return () => {
        // useEffect clean up
         if (script) {
-          body.removeChild(script);
+
+          // Fixing: Error: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
+          script.parentNode?.removeChild(script);
+          // body.removeChild(script); // Error
+
           script.removeEventListener("load", setAttributeStatus);
           script.removeEventListener("error", setAttributeStatus);
           // window.removeEventListener("error", handleGlobalError);

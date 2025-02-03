@@ -85,7 +85,7 @@ function Details({ movie }: { movie:any }) {
         {/* eslint-disable-next-line */}
         <img
           id="hero"
-          src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt="" />
         <h4 className="title title--single text-white">{movie.type === "Miniseries" || movie.type === "Scripted" ? movie.name : movie.title}</h4>
         <p className="overview text-white">{movie.overview}</p>
