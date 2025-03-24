@@ -5085,6 +5085,54 @@
       "still_path": "/cEDNylaLic46lX2316zWFBD9ghL.jpg",
       "vote_average": 9.0,
       "vote_count": 4
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "belongs_to_collection": null,
+      "budget": 0,
+      "genres": [
+        {
+          "id": 18,
+          "name": "Drama"
+        },
+        {
+          "id": 878,
+          "name": "Science Fiction"
+        }
+      ],
+      "homepage": "",
+      "id": 1442478,
+      "imdb_id": null,
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_title": "The Cardinal and The Computer",
+      "overview": "Cardinal Thomas is a priest and religious dignitary summoned by Dylan, a tech visionary, to meet his newest creation. He's asked to put on special glasses and go into a glass room, where he meets Ari, an A.I. creation that takes the shape of a young woman. Cardinal Thomas is against artificial intelligence and doesn't understand why he's there. But when Ari proclaims she is a Christian, the cardinal is skeptical but intrigued.",
+      "popularity": 0.31,
+      "poster_path": "/w81kYyAerf4pAwBV6DkYyJ1XGpM.jpg",
+      "production_companies": [],
+      "production_countries": [],
+      "release_date": "",
+      "revenue": 0,
+      "runtime": 12,
+      "spoken_languages": [
+        {
+          "english_name": "English",
+          "iso_639_1": "en",
+          "name": "English"
+        }
+      ],
+      "status": "Released",
+      "tagline": "An A.I. creation meets with a priest.",
+      "title": "The Cardinal and The Computer",
+      "video": false,
+      "vote_average": 5.0,
+      "vote_count": 1,
+      "watch_on": {
+        "youtube": "S887AtaJRUI"
+      }
     }
   ],
   "total_pages": 0,
