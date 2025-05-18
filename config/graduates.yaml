@@ -1,6 +1,12 @@
 # cSpell: disable
 graduates:
   # 0x03
+  "mubashra-irshad":
+    fullName: Mubashra Irshad
+    course: WDX180
+    part: 1
+    cohort: "0x03"
+    date: 19/05/2025
   "nelly-laurene-tumukunde":
     fullName: Nelly Laurene TUMUKUNDE
     course: WDX180
