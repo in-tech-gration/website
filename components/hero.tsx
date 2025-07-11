@@ -5,8 +5,6 @@ import Macbook from "@/public/assets/MacBookPro.png";
 import Link from "next/link";
 import config from "../config.yaml";
 
-const isApplyOn = config.navigation.some((nav:any) => nav.link === "apply/" );
-
 export default function Hero() {
   return (
     <section className=" pt-16 md:mt-0 md:h-screen flex flex-col justify-center text-center md:text-left md:flex-row md:justify-between md:items-center lg:px-48 md:px-12 px-4 bg-secondary ">
@@ -26,19 +24,9 @@ export default function Hero() {
         </p>
         <div className="font-montserrat flex flex-col sm:flex-row items-center">
 
-          { isApplyOn && (
-            <Link
-              href="/apply"
-              className="bg-black hover:bg-gray-900 shadow-md hover:shadow-xl px-8 py-4 rounded-lg border-2 border-black border-solid text-white mr-2 mb-2 font-bold"
-            >
-              {/*                     className="btn text-white bg-black hover:bg-gray-800 shadow-md hover:shadow-lg" */}
-              Apply
-            </Link>
-          )}
-
           <Link
             href={config.donation_links.kofi}
-            className="px-6 py-4 border-2 border-black border-solid rounded-lg font-bold shadow-md hover:shadow-xl mr-2 mb-2"
+            className="px-6 py-4 border-2 hover:bg-black hover:text-white border-black border-solid rounded-lg font-bold shadow-md hover:shadow-xl mr-2 mb-2"
           >
             Donate
           </Link>
@@ -56,6 +44,14 @@ export default function Hero() {
             WDX-180
           </Link>
 
+          <Link
+            target="_blank"
+            href="https://forms.gle/bCAhZw7H174gBAh2A"
+            className="hover:bg-black hover:text-white shadow-md hover:shadow-xl px-8 py-4 rounded-lg border-2 border-black border-solid  mr-2 mb-2 font-bold"
+          >
+            {/*                     className="btn text-white bg-black hover:bg-gray-800 shadow-md hover:shadow-lg" */}
+            Apply
+          </Link>
 
         </div>
       </div>

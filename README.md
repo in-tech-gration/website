@@ -13,6 +13,9 @@
 > Data: Update config.yaml
 > UI: Edit => components/ui/header.tsx
 
+- How to update the top-most section on the Homepage?
+> Edit: /components/join.tsx
+
 - How to update/change/disable the Apply links?
 > Update config.yaml
 
