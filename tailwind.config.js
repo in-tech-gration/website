@@ -63,4 +63,12 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
   ],
+  safelist: [
+    "border-red-500",
+    "!border-red-500",
+    "hover:bg-red-700",
+    "hover:border-red-700",
+    "!border-green-500",
+    "hover:bg-green-700"
+  ]
 };

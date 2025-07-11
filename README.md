@@ -15,3 +15,6 @@
 
 - How to update/change/disable the Apply links?
 > Update config.yaml
+
+- Why are dynamically-applied Tailwind class names are not applied?
+> Update 'safelist' in tailwind.config.js

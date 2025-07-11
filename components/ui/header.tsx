@@ -19,6 +19,7 @@ function createAddActive(pathname: string | null) {
 }
 
 export default function Header({ nav = true }: { nav?: boolean }) {
+
   const [top, setTop] = useState(true);
   const addActive = createAddActive(usePathname());
   const email = useRef("c3RhZmYuaW50ZWNoZ3JhdGlvbkBnbWFpbC5jb20=");
@@ -37,12 +38,31 @@ export default function Header({ nav = true }: { nav?: boolean }) {
     <>
       {/* NAVIGATION: See config.yaml */}
       {config.navigation.map((menuItem: NavItem) => {
+
         const className = menuItem.className
-          ? menuItem.className
+          ? `${addActive(menuItem.link)} ${styles.header_btn} ${menuItem.className}`
           : `${addActive(menuItem.link)} ${styles.header_btn} ${
               styles.highlight
             }`;
         const target = menuItem.external ? { target: "_blank" } : {};
+
+        if ("contact" in menuItem) {
+          return (
+            <Link
+              key={menuItem.label}
+              onClick={(e) => {
+                e.preventDefault();
+                alert(`Send us an email at: ${window.atob(email.current)}`);
+                location.href = "mailto:" + window.atob(email.current);
+              }}
+              className={`${styles.header_btn} ${styles.highlight}`}
+              href={email.current}
+            >
+              {menuItem.label}
+            </Link>
+          )
+
+        }
 
         // Do not display content that is under development:
         if (menuItem.dev && !isDev) return;
@@ -59,17 +79,6 @@ export default function Header({ nav = true }: { nav?: boolean }) {
           </Disclosure.Button>
         );
       })}
-      <Link
-        onClick={(e) => {
-          e.preventDefault();
-          alert(`Send us an email at: ${window.atob(email.current)}`);
-          location.href = "mailto:" + window.atob(email.current);
-        }}
-        className={`${styles.header_btn} ${styles.highlight}`}
-        href={email.current}
-      >
-        Contact
-      </Link>
     </>
   );
 
