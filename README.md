@@ -17,7 +17,7 @@
 > Edit: /components/join.tsx
 
 - How to update/change/disable the Apply links?
-> Update config.yaml
+> Update config.yaml (this also updates hero.tsx button)
 
 - Why are dynamically-applied Tailwind class names are not applied?
 > Update 'safelist' in tailwind.config.js

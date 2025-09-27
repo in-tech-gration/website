@@ -2,10 +2,11 @@ define: &kofi_donation_link https://ko-fi.com/intechgration
 
 # NAVIGATION
 navigation:
-  - apply:
-    label: Apply
-    link: https://forms.gle/bCAhZw7H174gBAh2A
-    className: text-white !border-green-500 bg-green-500 hover:bg-green-700
+  ## CAUTION: Commenting the 'apply' section will also disable the Apply button found in hero.tsx! 
+  # - apply:
+  #   label: Apply
+  #   link: https://forms.gle/bCAhZw7H174gBAh2A
+  #   className: text-white !border-green-500 bg-green-500 hover:bg-green-700
   - blog:
     label: Blog
     link: /blog/
