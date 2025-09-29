@@ -57,6 +57,8 @@ faqs:
       Is it really free? Are there any hidden fees?
     answer: >-
       Our course is 100% free of charge and our curriculum is open source. There are no additional or hidden fees whatsoever. We're just a group of techies that wanna pay it forward😉.
+  # - question: When will the classes start?
+  #   answer: "Our next cohort starts October 2nd, 2023"
   - question: >-
       Am I eligible for the course? (What qualifies me to get accepted into the
       course?)
@@ -84,7 +86,7 @@ faqs:
       hours</b> of commitment (study and practice) on a daily basis.
   - question: What are the requirements for enrolling to the WDX180?
     answer: >-
-      <ul class="list-disc pl-8"><li>Good english language skills</li><li>Basic computer
+      <ul class="list-disc pl-8"><li><strong>You must be 18 years old or older.</strong></li><li>Good english language skills</li><li>Basic computer
       skills</li><li>Computer equipped with a web camera and
       microphone <em>(If you will be attending our course in person, we provide access to a laptop and high-speed Internet connection)</em></li><li>Stable Internet connection</li></ul>
   - question: How much is the tuition fee?
@@ -99,8 +101,6 @@ faqs:
     answer: >-
       You can still access and follow our curriculum for free or apply for one
       of our upcoming courses
-  - question: When will the classes start?
-    answer: "Our next cohort starts October 2nd, 2023"
   - question: What is the duration of the course?
     answer: >-
       The course lasts for 9-months and specifically requires attendance for 180
@@ -114,10 +114,10 @@ faqs:
       You should have basic computer skills and be fluent with the operating
       system (managing files and folders, configuring system settings, operating
       a browser, etc.)
-  - question: Where will the classes take place?
-    answer: >-
-      If you are attending in person, you will be joining the 2nd trimester with
-      us at the <a class="underline font-bold" href="https://www.facebook.com/ECHOHUBAthens/" target="_blank">EchoHub Athens</a>.
+  # - question: Where will the classes take place?
+  #   answer: >-
+  #     If you are attending in person, you will be joining the 2nd trimester with
+  #     us at the <a class="underline font-bold" href="https://www.facebook.com/ECHOHUBAthens/" target="_blank">EchoHub Athens</a>.
   - question: What will I learn in class for 9 months?
     answer: >-
       <span>You will learn:</span><ul class="list-disc pl-8"><li>How the Internet and the World Wide
