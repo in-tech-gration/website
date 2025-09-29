@@ -2,7 +2,7 @@ define: &kofi_donation_link https://ko-fi.com/intechgration
 
 # NAVIGATION
 navigation:
-  ## CAUTION: Commenting the 'apply' section will also disable the Apply button found in hero.tsx! 
+  ## CAUTION: Commenting the 'apply' section will also disable the Apply button found in hero.tsx and affects app/(default)/faq/FaqClientComponent.tsx as well! 
   # - apply:
   #   label: Apply
   #   link: https://forms.gle/bCAhZw7H174gBAh2A
@@ -38,10 +38,10 @@ faqs:
   #  Uncomment when applications open
   - question: >-
       How do I enrol in the WDX 180° course?
-    # answer: >-
-    #   You have to apply through our <a href="https://forms.gle/bCAhZw7H174gBAh2A" target="_blank" class="font-bold underline">application form</a> and we will contact you with more details shortly after you've submitted your application.
     answer: >-
-      Currently, our course is in progress, and the application process has finished.
+      You have to apply through our <a href="https://forms.gle/bCAhZw7H174gBAh2A" target="_blank" class="font-bold underline">application form</a> and we will contact you with more details shortly after you've submitted your application.
+    answer_when_applications_are_closed: >-
+      Currently, our course is in progress, and the application process <strong>is closed</strong>.
       Nevertheless, you can apply through our <a href="https://forms.gle/bCAhZw7H174gBAh2A" target="_blank" class="font-bold underline">application form</a> and we will contact you
       to invite you to our Slack channel so you can start exploring our course in self-paced mode 
       (but with the support and love from our online community of mentors, volunteers and students).
