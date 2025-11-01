@@ -24,6 +24,8 @@ function value(movie, prop) {
 function MovieItem({ movie }) {
 
   const router = useRouter()
+ 
+ 
 
   return (
     <li className="item bg-black" id={`movie-${movie.id}`}>
@@ -31,6 +33,7 @@ function MovieItem({ movie }) {
         e.preventDefault();
         const newUrl = new URL(window.location.href);
         router.push(`watch?${newUrl.searchParams.toString()}&movie=${movie.id}`);
+        console.log(movie.release_date)
 
       }}>
         {/* eslint-disable-next-line */}
@@ -41,7 +44,7 @@ function MovieItem({ movie }) {
         <span className="title">
           {movie.type === "Miniseries" || movie.type === "Scripted" ? movie.name : movie.title} 
           <span className="font-normal">
-            {(!movie.type) ? (` (${new Date(movie.release_date).getFullYear()})`) : (` (${new Date(movie.first_air_date).getFullYear()})`) }
+            {(!movie.type) ? (movie.release_date ? (` (${new Date(movie.release_date).getFullYear()})`) : " Not found") : (` (${new Date(movie.first_air_date).getFullYear()})`) }
           </span>
         </span>
       </a>
