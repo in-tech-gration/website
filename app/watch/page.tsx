@@ -9,11 +9,11 @@ import Theater from "@/public/images/hackers.theater.png";
 
 // @ts-ignore
 function value(movie, prop) {
-  if (prop === "release_date"){
+  if (prop === "release_date") {
     const releaseData = movie.release_date ? movie.release_date : movie.first_air_date;
     return new Date(releaseData).valueOf();
   } else {
-    if ( prop === "title" && movie.type ){
+    if (prop === "title" && movie.type) {
       return movie.original_name;
     }
     return movie[prop]
@@ -24,6 +24,8 @@ function value(movie, prop) {
 function MovieItem({ movie }) {
 
   const router = useRouter()
+
+
 
   return (
     <li className="item bg-black" id={`movie-${movie.id}`}>
@@ -39,9 +41,15 @@ function MovieItem({ movie }) {
           className="thumb"
           src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} />
         <span className="title">
-          {movie.type === "Miniseries" || movie.type === "Scripted" ? movie.name : movie.title} 
+          {movie.type === "Miniseries" || movie.type === "Scripted" ? movie.name : movie.title}
           <span className="font-normal">
-            {(!movie.type) ? (` (${new Date(movie.release_date).getFullYear()})`) : (` (${new Date(movie.first_air_date).getFullYear()})`) }
+            {(() => {
+              const date = !movie.type ? movie.release_date : movie.first_air_date;
+              if (!date) return "";
+              const year = new Date(date).getFullYear();
+              if (isNaN(year)) return "";
+              return ` (${year})`;
+            })()}
           </span>
         </span>
       </a>
@@ -50,18 +58,18 @@ function MovieItem({ movie }) {
   )
 }
 
-function Details({ movie }: { movie:any }) {
+function Details({ movie }: { movie: any }) {
 
   const router = useRouter();
   const watchOn = movie.watch_on;
-  let youTube:any = null;
-  if ( watchOn ){
-    if ( watchOn.youtube ){
+  let youTube: any = null;
+  if (watchOn) {
+    if (watchOn.youtube) {
       youTube = watchOn.youtube;
     }
   }
 
-  function goBack(){
+  function goBack() {
     const newUrl = new URL(window.location.href);
     newUrl.searchParams.delete("movie");
     router.push(`watch?${newUrl.searchParams.toString()}`);
@@ -70,12 +78,12 @@ function Details({ movie }: { movie:any }) {
   return (
     <section id="details">
 
-      <span 
+      <span
         onClick={e => {
           e.preventDefault();
           goBack();
         }}
-        className="text-white text-9xl font-thin cursor-pointer fixed top-0 right-12" 
+        className="text-white text-9xl font-thin cursor-pointer fixed top-0 right-12"
         dangerouslySetInnerHTML={{ __html: `&times;` }}></span>
 
       <a href="?list" onClick={e => {
@@ -90,25 +98,25 @@ function Details({ movie }: { movie:any }) {
         <h4 className="title title--single text-white">{movie.type === "Miniseries" || movie.type === "Scripted" ? movie.name : movie.title}</h4>
         <p className="overview text-white">{movie.overview}</p>
 
-        { watchOn && (
+        {watchOn && (
 
-        <div className="watch-them mt-4">
-          Watch on:
+          <div className="watch-them mt-4">
+            Watch on:
 
-          { youTube && (
-            <button className="bg-red-700 ml-2 text-white py-2 px-6 rounded-full" onClick={(e)=>{
-              e.preventDefault();
-              e.stopPropagation();
-              const link = document.createElement("a");
-              link.href = "https://youtube.com/watch?v=" + youTube;
-              link.target = "_blank";
-              link.click();
-            }}>
-              YouTube
-            </button>
-          )} 
-          
-        </div>
+            {youTube && (
+              <button className="bg-red-700 ml-2 text-white py-2 px-6 rounded-full" onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const link = document.createElement("a");
+                link.href = "https://youtube.com/watch?v=" + youTube;
+                link.target = "_blank";
+                link.click();
+              }}>
+                YouTube
+              </button>
+            )}
+
+          </div>
 
         )}
 
@@ -127,8 +135,8 @@ export default function Watch() {
   const selectedSortedBy = searchParams?.get("sorted_by");
 
   const [movies, setMovies] = useState(new Map());
-  const [sortedBy, setSortedBy] = useState<string>( selectedSortedBy ? selectedSortedBy : "title" );
-  const [genreSortBy, setGenreSortBy ] = useState( selectedGenres ? selectedGenres : ["movies","series","documentary"]);
+  const [sortedBy, setSortedBy] = useState<string>(selectedSortedBy ? selectedSortedBy : "title");
+  const [genreSortBy, setGenreSortBy] = useState(selectedGenres ? selectedGenres : ["movies", "series", "documentary"]);
 
   let selectedMovie = null;
   let selectedMovieId: string | null = null;
@@ -137,7 +145,7 @@ export default function Watch() {
     if (selectedMovieId) {
       const movie = movies.get(+selectedMovieId);
 
-      if ( movie.episode_number ){
+      if (movie.episode_number) {
         selectedMovie = {
           id: movie.id,
           poster_path: movie.still_path,
@@ -145,7 +153,7 @@ export default function Watch() {
           title: movie.name,
           first_air_date: movie.air_date,
           overview: movie.overview,
-          release_date: movie.air_date,          
+          release_date: movie.air_date,
         };
       } else {
         selectedMovie = movie;
@@ -157,7 +165,7 @@ export default function Watch() {
     }
   }
 
-  useEffect(function fetchMovieData(){
+  useEffect(function fetchMovieData() {
 
     if (typeof window !== "undefined") {
       window.document.documentElement.className = "js";
@@ -173,28 +181,28 @@ export default function Watch() {
 
   }, [])
 
-  useEffect(function updateQueryString(){
+  useEffect(function updateQueryString() {
 
     const newUrl = new URL(window.location.href);
-    newUrl.searchParams.delete('sorted_by'); 
-    newUrl.searchParams.append('sorted_by', sortedBy); 
-    newUrl.searchParams.delete('genres'); 
-    if ( genreSortBy.length < 3 ){
-      newUrl.searchParams.append('genres', genreSortBy.toString()); 
+    newUrl.searchParams.delete('sorted_by');
+    newUrl.searchParams.append('sorted_by', sortedBy);
+    newUrl.searchParams.delete('genres');
+    if (genreSortBy.length < 3) {
+      newUrl.searchParams.append('genres', genreSortBy.toString());
     }
     history.pushState(null, "", newUrl.toString());
 
-  },[sortedBy,genreSortBy])
+  }, [sortedBy, genreSortBy])
 
   const sortedMovies = Array.from(movies.values())
-  .sort((a, b) => {
-    const valueA = value(a, sortedBy);
-    const valueB = value(b, sortedBy);
-    if (typeof valueA === "string") {
-      return valueA > valueB ? 1 : valueA < valueB ? -1 : 0;
-    }
-    return valueA - valueB;
-  });
+    .sort((a, b) => {
+      const valueA = value(a, sortedBy);
+      const valueB = value(b, sortedBy);
+      if (typeof valueA === "string") {
+        return valueA > valueB ? 1 : valueA < valueB ? -1 : 0;
+      }
+      return valueA - valueB;
+    });
 
   return (
     <section>
@@ -231,12 +239,12 @@ export default function Watch() {
 
               <form id="genre_sorter" onChange={e => {
                 // @ts-ignore
-                setGenreSortBy( prev => {
+                setGenreSortBy(prev => {
                   // @ts-ignore
                   const value = e.target.value;
                   // @ts-ignore 
-                  if ( prev.includes(value) ){
-                    return prev.filter( v => v !== value );
+                  if (prev.includes(value)) {
+                    return prev.filter(v => v !== value);
                   }
                   return [...prev, value];
                 });
@@ -252,21 +260,21 @@ export default function Watch() {
                   <span>Movie</span>
                 </label>
                 <label>
-                  <input 
-                    type="checkbox" 
-                    name="genre" 
+                  <input
+                    type="checkbox"
+                    name="genre"
                     defaultChecked={!selectedGenres || selectedGenres?.includes("series")}
-                    defaultValue="series" 
-                    />
+                    defaultValue="series"
+                  />
                   <span>Series</span>
                 </label>
                 <label>
-                  <input 
-                    type="checkbox" 
-                    name="genre" 
-                    defaultValue="documentary" 
+                  <input
+                    type="checkbox"
+                    name="genre"
+                    defaultValue="documentary"
                     defaultChecked={!selectedGenres || selectedGenres?.includes("documentary")}
-                    />
+                  />
                   <span>Documentary</span>
                 </label>
               </form>
@@ -277,15 +285,15 @@ export default function Watch() {
               {/* @ts-ignore */}
               {sortedMovies.map(movie => {
 
-                const type = movie.episode_number ? "series" : movie.genres.some((g:any) =>{
+                const type = movie.episode_number ? "series" : movie.genres.some((g: any) => {
                   return g.name === "Documentary";
-                }) ? "documentary" : movie.type ? "series" : "movies"; 
+                }) ? "documentary" : movie.type ? "series" : "movies";
 
-                if ( !genreSortBy.includes(type) ){
+                if (!genreSortBy.includes(type)) {
                   return null;
                 }
 
-                if ( movie.episode_number ){
+                if (movie.episode_number) {
                   const movieData = {
                     id: movie.id,
                     poster_path: movie.still_path,
