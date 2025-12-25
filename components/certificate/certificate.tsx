@@ -7,7 +7,6 @@ import "../../app/css/style.css";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../app/firestore";
 import Header from "./header";
-
 import signature from "@/public/assets/signature.png";
 import paperPlane from "@/public/assets/paper-plane.png";
 import Link from "next/link";
