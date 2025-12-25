@@ -20,12 +20,14 @@ const BlogPostItem: FunctionComponent<BlogPostItemProps> = ({ post }) => {
     new Date(post.meta.date)
   );
 
+  const safeSlug = encodeURIComponent(post.slug || "");
+
   return (
     <article
       key={post.meta ? post.meta.id : ""}
       className="relative isolate flex flex-col gap-8 lg:flex-row"
     >
-      <a href={`/blog/${post.slug}`}>
+      <a href={`/blog/${safeSlug}`}>
         <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
           {/* eslint-disable-next-line */}
           <img
@@ -57,7 +59,7 @@ const BlogPostItem: FunctionComponent<BlogPostItemProps> = ({ post }) => {
         </div>
         <div className="group relative max-w-xl grow">
           <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-            <a href={`/blog/${post.slug}`}>
+            <a href={`/blog/${safeSlug}`}>
               <span className="absolute inset-0" />
               {post.meta.title}
             </a>
