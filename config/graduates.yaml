@@ -93,6 +93,13 @@ graduates:
     cohort: "React Workshop Q1:2024"
     date: 29/03/2024
 cohorts:
+  "0x04":
+    leadInstructor:
+      fullName: Kostas Minaidis
+      linkedIn: kostas-minaidis
+    teachingAssistant:
+      fullName: Asteris Giannoudis
+      linkedIn: asteris-giannoudis
   "0x03":
     leadInstructor:
       fullName: Kostas Minaidis
