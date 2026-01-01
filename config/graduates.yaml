@@ -1,6 +1,12 @@
 # cSpell: disable
 graduates:
   # 0x04
+  "karina-repinska-churkina":
+    fullName: Karina Repinska-Churkina
+    course: WDX180
+    part: 1
+    cohort: "0x04"
+    date: 01/01/2026
   "nurettin-bayhan":
     fullName: Nurettin Bayhan
     course: WDX180

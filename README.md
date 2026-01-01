@@ -24,3 +24,8 @@
 
 - How to update the FAQ page?
 > Edit `config.yaml`, and specifically the `faqs` section
+
+- How to issue a certificate?
+> Edit /config/graduates.yaml
+> Update 'graduates:' section
+> Update 'cohorts:' section
