@@ -1,6 +1,12 @@
 # cSpell: disable
 graduates:
   # 0x04
+  "nicolas-wickens":
+    fullName: Nicolas Wickens
+    course: WDX180
+    part: 1
+    cohort: "0x04"
+    date: 05/01/2026
   "karina-repinska-churkina":
     fullName: Karina Repinska-Churkina
     course: WDX180
