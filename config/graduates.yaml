@@ -19,6 +19,12 @@ graduates:
     part: 1
     cohort: "0x04"
     date: 26/12/2025
+  "mac-thartcher-mboufeh-nchadje":
+    fullName: Mac Thartcher Mboufeh NCHADJE
+    course: WDX180
+    part: 1
+    cohort: "0x04"
+    date: 04/02/2026
   # 0x03
   "mubashra-irshad":
     fullName: Mubashra Irshad
