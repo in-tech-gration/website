@@ -1,9 +1,23 @@
 import Link from "next/link";
 import v from "@/public/images/V.for.VSCode.notitle.jpg";
 import config from "@/config.yaml";
+import { NavItem } from "../types/";
 
 // NEW COHORT => OPEN TO APPLICATIONS
 function JoinOurNextCohortSection() {
+
+  let link = "#";
+
+  config.navigation.some((menuItem: NavItem) => {
+    if ( menuItem.label === "Apply" ){
+      link = menuItem.link;
+      return true;
+    }
+  });
+
+  console.log({ link });
+  
+
   return (
     <section
       style={{
@@ -15,7 +29,7 @@ function JoinOurNextCohortSection() {
       <div className="md:flex-1 mx-auto w-4/5 md:mr-10 sm:w-1/2 my-32 md:w-full md:my-0">
 
         <div className="font-mono text-6xl text-amber-500 font-bold">
-          <Link className="hover:text-amber-400" href="https://forms.gle/WzZADRx4DCoRnLMT6">&lt;join&gt;</Link>
+          <Link target="_blank" className="hover:text-amber-400" href={link}>&lt;join&gt;</Link>
         </div>
 
         <h1 className="text-white font-poppins text-4xl md:text-5xl lg:text-6xl font-bold mb-7 mt-6">
@@ -26,13 +40,13 @@ function JoinOurNextCohortSection() {
         </p>
 
         <div className="font-mono text-6xl text-amber-500 font-bold">
-          <Link className="hover:text-amber-400" href="https://forms.gle/WzZADRx4DCoRnLMT6">&lt;/join&gt;</Link>
+          <Link target="_blank" className="hover:text-amber-400" href={link}>&lt;/join&gt;</Link>
         </div>
 
         <div className="font-montserrat mt-12">
           <Link
             target="_blank"
-            href="https://forms.gle/WzZADRx4DCoRnLMT6"
+            href={link}
             className="bg-white hover:bg-black shadow-md hover:shadow-xl px-8 py-4 rounded-lg border-2 border-solid text-black mr-2 mb-2 font-bold hover:text-white text-2xl"
           >
             Join
