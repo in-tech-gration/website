@@ -3,10 +3,10 @@ define: &kofi_donation_link https://ko-fi.com/intechgration
 # NAVIGATION
 navigation:
   ## CAUTION: Commenting the 'apply' section will also disable the Apply button found in hero.tsx and affects app/(default)/faq/FaqClientComponent.tsx as well! 
-  # - apply:
-  #   label: Apply
-  #   link: https://forms.gle/bCAhZw7H174gBAh2A
-  #   className: text-white !border-green-500 bg-green-500 hover:bg-green-700
+  - apply:
+    label: Apply
+    link: https://forms.gle/WzZADRx4DCoRnLMT6
+    className: text-white !border-green-500 bg-green-500 hover:bg-green-700
   - blog:
     label: Blog
     link: /blog/
