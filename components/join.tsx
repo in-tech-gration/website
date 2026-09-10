@@ -14,7 +14,7 @@ function JoinOurNextCohortSection() {
       <div className="md:flex-1 mx-auto w-4/5 md:mr-10 sm:w-1/2 my-32 md:w-full md:my-0">
 
         <div className="font-mono text-6xl text-amber-500 font-bold">
-          <Link className="hover:text-amber-400" href="/apply">&lt;join&gt;</Link>
+          <Link className="hover:text-amber-400" href="https://forms.gle/WzZADRx4DCoRnLMT6">&lt;join&gt;</Link>
         </div>
 
         <h1 className="text-white font-poppins text-4xl md:text-5xl lg:text-6xl font-bold mb-7 mt-6">
