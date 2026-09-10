@@ -40,11 +40,11 @@ faqs:
       How do I enrol in the WDX 180° course?
     answer: >-
       You have to apply through our <a href="https://forms.gle/WzZADRx4DCoRnLMT6" target="_blank" class="font-bold underline">application form</a> and we will contact you with more details shortly after you've submitted your application.
-    # answer_when_applications_are_closed: >-
-    #   Currently, our course is in progress, and the application process <strong>is closed</strong>.
-    #   Nevertheless, you can apply through our <a href="https://forms.gle/WzZADRx4DCoRnLMT6" target="_blank" class="font-bold underline">application form</a> and we will contact you
-    #   to invite you to our Slack channel so you can start exploring our course in self-paced mode 
-    #   (but with the support and love from our online community of mentors, volunteers and students).
+    answer_when_applications_are_closed: >-
+      Currently, our course is in progress, and the application process <strong>is closed</strong>.
+      Nevertheless, you can apply through our <a href="https://forms.gle/WzZADRx4DCoRnLMT6" target="_blank" class="font-bold underline">application form</a> and we will contact you
+      to invite you to our Slack channel so you can start exploring our course in self-paced mode 
+      (but with the support and love from our online community of mentors, volunteers and students).
   - question: >-
       Do I need prior coding experience to qualify?
     answer: >-
