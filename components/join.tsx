@@ -1,5 +1,6 @@
 import Link from "next/link";
 import v from "@/public/images/V.for.VSCode.notitle.jpg";
+import config from "@/config.yaml";
 
 // NEW COHORT => OPEN TO APPLICATIONS
 function JoinOurNextCohortSection() {
@@ -25,7 +26,7 @@ function JoinOurNextCohortSection() {
         </p>
 
         <div className="font-mono text-6xl text-amber-500 font-bold">
-          <Link className="hover:text-amber-400" href="/apply">&lt;/join&gt;</Link>
+          <Link className="hover:text-amber-400" href="https://forms.gle/WzZADRx4DCoRnLMT6">&lt;/join&gt;</Link>
         </div>
 
         <div className="font-montserrat mt-12">
