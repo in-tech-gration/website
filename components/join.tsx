@@ -31,7 +31,7 @@ function JoinOurNextCohortSection() {
         <div className="font-montserrat mt-12">
           <Link
             target="_blank"
-            href="https://forms.gle/bCAhZw7H174gBAh2A"
+            href="https://forms.gle/WzZADRx4DCoRnLMT6"
             className="bg-white hover:bg-black shadow-md hover:shadow-xl px-8 py-4 rounded-lg border-2 border-solid text-black mr-2 mb-2 font-bold hover:text-white text-2xl"
           >
             Join
