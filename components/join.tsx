@@ -1,22 +1,11 @@
 import Link from "next/link";
 import v from "@/public/images/V.for.VSCode.notitle.jpg";
 import config from "@/config.yaml";
-import { NavItem } from "../types/";
 
 // NEW COHORT => OPEN TO APPLICATIONS
 function JoinOurNextCohortSection() {
 
-  let link = "#";
-
-  config.navigation.some((menuItem: NavItem) => {
-    if ( menuItem.label === "Apply" ){
-      link = menuItem.link;
-      return true;
-    }
-  });
-
-  console.log({ link });
-  
+  let link = config.application_form_link;
 
   return (
     <section

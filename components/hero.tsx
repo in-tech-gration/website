@@ -9,6 +9,7 @@ export default function Hero() {
 
   // Configured via config.yaml
   const isApplyEnabled = config.navigation.some((nav: any) => nav.label === "Apply");
+  let link = config.application_form_link;
 
   return (
     <section className=" pt-16 md:mt-0 md:h-screen flex flex-col justify-center text-center md:text-left md:flex-row md:justify-between md:items-center lg:px-48 md:px-12 px-4 bg-secondary ">
@@ -51,7 +52,7 @@ export default function Hero() {
           {isApplyEnabled && (
             <Link
               target="_blank"
-              href="https://forms.gle/WzZADRx4DCoRnLMT6"
+              href={link}
               className="hover:bg-black hover:text-white shadow-md hover:shadow-xl px-8 py-4 rounded-lg border-2 border-black border-solid  mr-2 mb-2 font-bold"
             >
               {/*                     className="btn text-white bg-black hover:bg-gray-800 shadow-md hover:shadow-lg" */}
