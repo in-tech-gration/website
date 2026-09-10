@@ -51,7 +51,7 @@ export default function Hero() {
           {isApplyEnabled && (
             <Link
               target="_blank"
-              href="https://forms.gle/bCAhZw7H174gBAh2A"
+              href="https://forms.gle/WzZADRx4DCoRnLMT6"
               className="hover:bg-black hover:text-white shadow-md hover:shadow-xl px-8 py-4 rounded-lg border-2 border-black border-solid  mr-2 mb-2 font-bold"
             >
               {/*                     className="btn text-white bg-black hover:bg-gray-800 shadow-md hover:shadow-lg" */}
