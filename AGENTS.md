@@ -3,9 +3,11 @@
 ## HOW TO
 
   - How to update Homepage main section and enable/disable join component?
+  > Edit: config.yaml and update &application_form_link value
   > Edit: /components/join.tsx
   > Update `JoinOurNextCohortSection` Component (dates, etc.)
   > In the Join() function return `<IntroSection />` or `<JoinOurNextCohortSection />`
+  > Don't forget to update the FAQ section (via config.yaml) with the application form link. 
 
   - How to update the top menu?
   > Data: Update config.yaml
