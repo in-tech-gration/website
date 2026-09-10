@@ -1,0 +1,29 @@
+# AGENTS
+
+## HOW TO
+
+  - How to update Homepage main section and enable/disable join component?
+  > Edit: /components/join.tsx
+  > Update `JoinOurNextCohortSection` Component (dates, etc.)
+  > In the Join() function return `<IntroSection />` or `<JoinOurNextCohortSection />`
+
+  - How to update the top menu?
+  > Data: Update config.yaml
+  > UI: Edit => components/ui/header.tsx
+
+  - How to update the top-most section on the Homepage?
+  > Edit: /components/join.tsx
+
+  - How to update/change/disable the Apply links?
+  > Update config.yaml (this also updates hero.tsx button and affects /app/(default)/faq/FaqClientComponent.tsx as well)
+
+  - Why are dynamically-applied Tailwind class names are not applied?
+  > Update 'safelist' in tailwind.config.js
+
+  - How to update the FAQ page?
+  > Edit `config.yaml`, and specifically the `faqs` section
+
+  - How to issue a certificate?
+  > Edit /config/graduates.yaml
+  > Update 'graduates:' section
+  > Update 'cohorts:' section

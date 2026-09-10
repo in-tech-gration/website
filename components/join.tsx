@@ -18,7 +18,7 @@ function JoinOurNextCohortSection() {
         </div>
 
         <h1 className="text-white font-poppins text-4xl md:text-5xl lg:text-6xl font-bold mb-7 mt-6">
-          Join our next coding cohort:<br />Oct 1st, 2025
+          Join our next coding cohort:<br />Oct 1st, 2026
         </h1>
         <p className="font-poppins mb-7 font-bold text-2xl text-white" >
           Become a web developer through our intensive 9-month WDX course.<br />Click on the join tags to join. ;)
@@ -85,8 +85,8 @@ function IntroSection() {
 export default function Join() {
 
   // We're on a journey to teach programming and inspire the world SECTION (No Applications)
-  return <IntroSection />
+  // return <IntroSection />
 
   // JOIN OUR NEXT COHORT SECTION
-  // return <JoinOurNextCohortSection />
+  return <JoinOurNextCohortSection />
 }
